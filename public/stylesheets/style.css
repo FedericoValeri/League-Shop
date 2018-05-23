@@ -1,0 +1,236 @@
+body {
+    background-color: black;
+    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
+    background-repeat: no-repeat;
+}
+
+.thumbnail img {
+    max-height: 380px;
+}
+
+.thumbnail .description {
+    color: rgba(56, 51, 51, 0.918);
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+.thumbnail {
+    background-color: rgb(247, 247, 247);
+}
+
+[name=rigaTitoloPrezzo] {
+    margin-top: -10px;
+}
+
+[name=price] {
+    color: rgb(37, 96, 204);
+}
+
+[name=blueEssence] {
+    margin-bottom: 5px;
+}
+
+[name=main-container] {
+    width: 75%;
+}
+
+[id=champBio] {
+    color: rgb(1, 3, 5)
+}
+
+[name=prezzo] {
+    padding-left: 0px;
+}
+
+[name=champName] {
+    padding-right: 0px;
+}
+
+[name=ordinaPer] {
+    font-size: 16px;
+    color: rgb(172, 169, 169);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #29292b;
+}
+
+[name=colonna3] {
+    padding-right: 0px;
+}
+
+[name=caret] {
+    margin-left: 80px;
+}
+
+
+/*search bar home page*/
+
+.container-4 {
+    overflow: hidden;
+    width: 450px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.container-4 input#search {
+    width: 450px;
+    height: 65px;
+    background: #29292b;
+    opacity: 70%;
+    border: none;
+    font-size: 20pt;
+    float: left;
+    color: #fff;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.container-4 input#search::-webkit-input-placeholder {
+    color: rgb(172, 169, 169);
+}
+
+.container-4 input#search:-moz-placeholder {
+    /* Firefox 18- */
+    color: #65737e;
+}
+
+.container-4 input#search::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #65737e;
+}
+
+.container-4 input#search:-ms-input-placeholder {
+    color: #65737e;
+}
+
+.container-4 button.icon {
+    -webkit-border-top-right-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border: none;
+    background: #1f1501;
+    height: 65px;
+    width: 65px;
+    color: #d1d6db;
+    opacity: 0;
+    font-size: 20pt;
+    -webkit-transition: all .55s ease;
+    -moz-transition: all .55s ease;
+    -ms-transition: all .55s ease;
+    -o-transition: all .55s ease;
+    transition: all .55s ease;
+}
+
+.container-4:hover button.icon,
+.container-4:active button.icon,
+.container-4:focus button.icon {
+    outline: none;
+    opacity: 1;
+    margin-left: -65px;
+}
+
+.container-4:hover button.icon:hover {
+    background: white;
+}
+
+[name="nameBio"] {
+    font-size: 75px;
+}
+
+[id="colonnaDestraChampBio"] {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fff;
+}
+
+[id=bio] {
+    /*background-color: #fff;*/
+    background-image: url("http://www.leonardodavincimuseo.com/wp-content/uploads/2016/07/pergamena-sfondo-sito-1.jpg");
+}
+
+[id="colonnaSinistraChampBio"] {
+    border-style: solid;
+    border-width: 3px;
+    border-color: #fff;
+}
+
+[id="roleBio"] {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fff;
+}
+
+[id="imageSkill"] {
+    margin-top: 10px;
+}
+
+[id="nameBio"] {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #fff;
+}
+
+[id="rigaSkill"] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+}
+
+[name="titleBio"] {
+    font-size: 50px;
+}
+
+[id="roleIcon"] {
+    margin-top: 25px;
+}
+
+[id="champBioImage"] {
+    margin-top: 35px;
+}
+
+
+/*bottone Informazioni*/
+
+.button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: rgb(26, 20, 9);
+    border: none;
+    color: rgb(240, 216, 178);
+    text-align: center;
+    font-size: 16px;
+    padding: 6px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button:hover span {
+    padding-right: 25px;
+}
+
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}

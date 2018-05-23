@@ -1,0 +1,100 @@
+<br>
+<!--Search bar-->
+
+<!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row" align="center">
+    <div class="col-sm-6 col-md-4">
+        <!--empty column-->
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <div class="box">
+            <div class="container-4">
+                <input type="search" id="search" placeholder="Search..." />
+                <button class="icon">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-4" name="colonna3">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <div class="dropdown" align="right">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <span style="color:rgb(2, 2, 17)">
+                            <div class="panel panel-default">
+                                <div class="panel-body" name="ordinaPer">Ordina per
+                                    <span name="caret" class="caret"></span>
+                                </div>
+                            </div>
+                        </span>
+
+                    </a>
+                    <ul class="dropdown-menu">
+
+                        <li>
+                            <a href="/">Prezzo ↓</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="/sortByPriceAsc">Prezzo ↑</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="/sortByNameDesc">Alfabetico ↓</a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="/sortByNameAsc">Alfabetico ↑</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<br>
+<br>
+
+
+<div class="row">
+    {{#each champions}}
+    <div class="row">
+        {{#each this}}
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <img src="{{this.imagePath}}" class="img-thumbnail">
+                <div class="caption">
+                    <div class="row" name="rigaTitoloPrezzo">
+                        <div class="col-sm-6 col-md-7" name="champName">
+                            <h2 name="name"> {{this.name}}</h2>
+                        </div>
+                        <div class="col-sm-6 col-md-5" align="right" name="prezzo">
+                            <h2 name="price"> {{this.price}}
+
+                                <img name="tooltip" width="25" height="34" src="https://i.imgur.com/1xbbj2z.png">
+
+                            </h2>
+                        </div>
+
+                    </div>
+
+                    <h3 class="description">{{this.title}}
+                    </h3>
+                    <div class="clearfix">
+
+                        <a href="/champ/{{this._id}}" class="button" style="vertical-align:middle" role="button">
+                            <span>Informazioni </span>
+                        </a>
+                        <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Aggiungi al carrello</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>
