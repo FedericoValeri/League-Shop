@@ -21,6 +21,47 @@ router.get('/', function(req, res, next) {
         price: 'desc'
     });
 });
+
+router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
+    var productId = req.params.id;
+    var cart = new Cart(req.session.cart ? req.session.cart : {});
+
+    Champion.findById(productId, function(err, product) {
+        if (err) {
+            return res.redirect('/');
+        }
+        cart.add(product, product.id);
+        req.session.cart = cart;
+        console.log(req.session.cart);
+        res.redirect('/');
+    });
+});
+
+router.get('/shopping-cart', function(req, res, next) {
+    if (!req.session.cart) {
+        return res.render('shop/shopping-cart', {
+            products: null
+        });
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('shop/shopping-cart', {
+        products: cart.generateArray(),
+        totalPrice: cart.totalPrice
+    });
+});
+
+router.get('/checkout', function(req, res, next) {
+    if (!req.session.cart) {
+        return res.redirect('/shopping-cart', {
+            products: null
+        });
+    }
+    var cart = new Cart(req.session.cart);
+    res.render('shop/checkout', {
+        total: cart.totalPrice
+    });
+});
+
 /* sort home page. */
 router.get('/sortByPriceAsc', function(req, res, next) {
     Champion.find(function(err, docs) {
@@ -70,44 +111,12 @@ router.get('/sortByNameDesc', function(req, res, next) {
     });
 });
 
-router.get('/add-to-cart/:id', function(req, res, next) {
-    var productId = req.params.id;
-    var cart = new Cart(req.session.cart ? req.session.cart : {});
-
-    Champion.findById(productId, function(err, product) {
-        if (err) {
-            return res.redirect('/');
-        }
-        cart.add(product, product.id);
-        req.session.cart = cart;
-        console.log(req.session.cart);
-        res.redirect('/');
-    });
-});
-
-router.get('/shopping-cart', function(req, res, next) {
-    if (!req.session.cart) {
-        return res.render('shop/shopping-cart', {
-            products: null
-        });
-    }
-    var cart = new Cart(req.session.cart);
-    res.render('shop/shopping-cart', {
-        products: cart.generateArray(),
-        totalPrice: cart.totalPrice
-    });
-});
-
-router.get('/checkout', function(req, res, next) {
-    if (!req.session.cart) {
-        return res.redirect('/shopping-cart', {
-            products: null
-        });
-    }
-    var cart = new Cart(req.session.cart);
-    res.render('shop/checkout', {
-        total: cart.totalPrice
-    });
-});
-
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    req.session.oldUrl = req.url;
+    res.redirect('/user/signin');
+}
