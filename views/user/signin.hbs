@@ -1,26 +1,46 @@
-<div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <h1>Effettua Login</h1>
-        {{#if hasErrors}}
-        <div class="alert alert-danger">
-            {{#each messages}}
-            <p>{{this}}</p>
-            {{/each}}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4" name="login">
+            <div class="account-wall">
+                <img class="profile-img" src="https://static.wixstatic.com/media/b94f21_2f2a376940f14bebb873c991872cc35e~mv2.png_srz_1280_704_85_22_0.50_1.20_0.00_png_srz"
+                    alt=""> {{#if hasErrors}}
+                <div class="alert alert-danger">
+                    {{#each messages}}
+                    <p>{{this}}</p>
+                    {{/each}}
+                </div>
+                {{/if}}
+                <h1 class="text-center login-title">Effettua login</h1>
+
+                <form class="form-signin" action="/user/signin" method="post">
+                    <div class="form-group">
+                        <label for="email">
+                            <span style="color:rgb(161, 118, 7)">E-mail</span>
+                        </label>
+                        <input type="text" id="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">
+                            <span style="color:rgb(161, 118, 7)">Password</span>
+                        </label>
+                        <input type="password" id="password" name="password" class="form-control">
+                    </div>
+                    <div class="login-button">
+                        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                        <button type="submit" name="login-button">Login</button>
+                    </div>
+                    <label>
+                        <input type="checkbox" value="remember-me"> Ricorda i dati
+                    </label>
+                    <span class="clearfix"></span>
+                </form>
+            </div>
+            <p>
+                <span style="color:rgb(133, 131, 128);">Non hai un account League of Legends?</span>
+                <a href="/user/signup">
+                    <span style="color:rgb(161, 118, 7);">Registrati!</span>
+                </a>
+            </p>
         </div>
-        {{/if}}
-        <form action="/user/signin" method="post">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="text" id="email" name="email" class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control">
-            </div>
-            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-            <button type="submit" class="btn btn-primary">Login</button>
-        </form>
-        <br>
-        <p>Non hai ancora un account League of Legends? <a href="/user/signup">Registrati!</a></p>
     </div>
 </div>
