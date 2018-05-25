@@ -12,6 +12,7 @@ router.get('/profile', isLoggedIn, function(req, res, next) {
 
 router.get('/logout', isLoggedIn, function(req, res, next) {
     req.logout();
+    req.session.cart = null;
     res.redirect('/');
 });
 
