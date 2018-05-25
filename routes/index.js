@@ -22,6 +22,7 @@ router.get('/', function(req, res, next) {
     });
 });
 
+//route per il carrello
 router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
     var productId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
@@ -69,6 +70,7 @@ router.get('/shopping-cart', function(req, res, next) {
     });
 });
 
+//checkout route
 router.get('/checkout', function(req, res, next) {
     if (!req.session.cart) {
         return res.redirect('/shopping-cart', {
@@ -82,6 +84,7 @@ router.get('/checkout', function(req, res, next) {
 });
 
 /* sort home page. */
+//price asc
 router.get('/sortByPriceAsc', function(req, res, next) {
     Champion.find(function(err, docs) {
         var productChunks = [];
@@ -128,6 +131,25 @@ router.get('/sortByNameDesc', function(req, res, next) {
     }).sort({
         name: 'desc'
     });
+});
+
+/*role selection*/
+
+router.get('/role/:role', function(req, res, next) {
+    var role = req.params.role;
+    Champion.find({
+        role: role
+    }, function(err, docs) {
+        var productChunks = [];
+        var chunkSize = 4;
+        for (var i = 0; i < docs.length; i += chunkSize) {
+            productChunks.push(docs.slice(i, i + chunkSize));
+        }
+        res.render('shop/index', {
+            title: 'League Shop',
+            champions: productChunks
+        });
+    })
 });
 
 module.exports = router;
