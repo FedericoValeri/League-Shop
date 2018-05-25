@@ -4,23 +4,17 @@
         <ul class="list-group">
             {{#each products}}
             <li class="list-group-item">
-                <span class="badge">{{this.qty}}</span>
-                <strong>{{this.item.name}}</strong>
-                <span class="label label-info">{{this.price}} EB</span>
-                <div class="btn-group">
-                    <button class="btn btn-primary btn-xs dropdown-toggle" type="button" data-toggle="dropdown">Action
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="#">Reduce by 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Remove All</a>
-                        </li>
-                    </ul>
+                <div>
+                    <a href="/remove/{{this.item._id}}" class="pull-right" role="button">
+                        Rimuovi <i class="fas fa-trash"></i>
+                    </a>
+
+                    <!--<span class="badge">{{this.qty}}</span>-->
+                    <strong>{{this.item.name}}</strong>
+                    <span class="label label-info">{{this.price}} EB</span>
                 </div>
             </li>
+
             {{/each}}
         </ul>
     </div>
