@@ -46,10 +46,27 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                {{#if_eq sort 'pricedesc'}}
                 <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
                 <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
                 <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                {{/if_eq}}
+                {{#if_eq sort 'priceasc'}} 
+                <a class="dropdown-item" href="/">Prezzo ↓</a>                
+                <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
+                <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                {{/if_eq}}
+                {{#if_eq sort 'namedesc'}}
+                 <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>                
+                <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                {{/if_eq}}
+                {{#if_eq sort 'nameasc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
+                <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
+                {{/if_eq}}
+                
             </div>
         </div>
     </div>
@@ -66,15 +83,14 @@
         {{#each this}}
         <div class="col-sm-6 col-md-3" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
-                <img class="card-img-top" src="{{this.imagePath}}">
+                <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
                     <div class="row" name="rigaTitoloPrezzo">
-                        <div class="col-sm-6 col-md-7" name="champName">
+                        <div class="col-sm-6 col-md-8" name="champName">
                             <h2 class="card-title" name="name"> {{this.name}}</h2>
                         </div>
-                        <div class="col-sm-6 col-md-5" align="right" name="prezzo">
-                            <h2 name="price"> {{this.price}}
-                                <img name="EB" width="25" height="34" src="https://i.imgur.com/1xbbj2z.png">
+                        <div class="col-sm-6 col-md-4" align="right" name="prezzo">
+                            <h2 name="price" align="left">{{this.price}}<img name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
                             </h2>
                         </div>
 
@@ -84,10 +100,10 @@
                     </h3>
                     <div class="clearfix">
 
-                        <a href="/champ/{{this._id}}" class="button" style="vertical-align:middle" role="button">
+                        <a href="/champ/{{this._id}}" class="button" style="vertical-align:middle" role="button" id="informazioni">
                             <span>Informazioni </span>
                         </a>
-                        <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button">Aggiungi al carrello</a>
+                        <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button" id="aggiungi">Aggiungi al carrello</a>
                     </div>
                 </div>
             </div>

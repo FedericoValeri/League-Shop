@@ -7,11 +7,12 @@ body {
 
 [name=EB] {
     margin-top: -5px;
+    margin-bottom: 2px;
     margin-left: 3px;
 }
 
 .thumbnail .description {
-    color: rgba(56, 51, 51, 0.918);
+    color: rgba(51, 29, 29, 0.918);
     margin-top: 0px;
     margin-bottom: 30px;
 }
@@ -23,31 +24,29 @@ body {
 [id=champ] {
     border-width: 0px;
     padding: 0%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: rgba(255, 255, 255, 0);
 }
 
 [name=champImage] {
-    width: 400px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 [name=rigaTitoloPrezzo] {
-    margin-top: -10px;
+    margin-top: -5px;
     margin-left: -10px;
 }
 
 [name=titleHome] {
     margin-top: 7px;
     margin-bottom: 20px;
-    margin-left: -0px;
-    font-size: 24px;
+    margin-left: 3px;
+    font-size: 23px;
 }
 
 [name=price] {
-    color: rgb(37, 96, 204);
+    color: rgb(0, 128, 208);
 }
 
 [name=main-container] {
@@ -65,6 +64,7 @@ body {
 
 [name=champName] {
     padding-right: 0px;
+    padding-left: 17px;
 }
 
 [name=ordinaPer] {
@@ -83,8 +83,23 @@ body {
     margin-left: 80px;
 }
 
+[id="aggiungi"] {
+    float: right;
+    height: 36px;
+    width: 160px;
+}
+
 [id=colonnaCarta] {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+[class=card-body] {
+    padding: 2%;
+    padding-top: 6%;
+    background-color: #ffffffbf;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -226,7 +241,7 @@ body {
     border-radius: 4px;
     background-color: rgb(26, 20, 9);
     border: none;
-    color: rgb(240, 216, 178);
+    color: rgb(236, 177, 82);
     text-align: center;
     font-size: 16px;
     padding: 6px;
