@@ -428,7 +428,7 @@ var jinxSkills = [
     new Skill({
         imageSrc: "https://i.imgur.com/3TkNu7z.png",
         letter: 'Q',
-        title: 'Caaaambio!',
+        title: 'Caaambio!',
         description: "Jinx modifica i suoi attacchi base passando da Pow Pow, la sua minigun, a Fishbones, il suo lanciarazzi. Gli attacchi con Pow Pow conferiscono velocità d'attacco, mentre quelli con Fishbones infliggono danni ad area, conferiscono portata e assorbono mana."
     }),
     new Skill({
