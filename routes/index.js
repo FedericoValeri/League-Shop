@@ -158,7 +158,10 @@ router.get('/role/:role', function(req, res, next) {
             title: 'League Shop',
             champions: productChunks
         });
-    })
+    }).sort({
+        price: 'desc',
+        name: 'asc'
+    });
 });
 
 module.exports = router;

@@ -4,7 +4,7 @@
 <div class="row" align="center">
     <!--filter by role column-->
     <div class="col-sm-6 col-md-4">
-        <div class="btn-group" role="group" aria-label="...">
+        <div class="btn-group" role="group" aria-label="Basic example">
             <a href="/role/Assassino">
                 <button type="button" class="btn btn-default">Assassino</button>
             </a>
@@ -41,10 +41,8 @@
         <div class="dropdown" align="right">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
-                {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}}
-                {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}}
-                {{#if_eq sort 'namedesc'}}Alfabetico ↓{{/if_eq}}
-                {{#if_eq sort 'nameasc'}}Alfabetico ↑{{/if_eq}}
+                {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
+                ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Alfabetico ↑{{/if_eq}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
