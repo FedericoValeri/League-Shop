@@ -2,9 +2,10 @@ body {
     background-color: black;
     background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
     background-repeat: no-repeat;
+    background-size: 100%;
 }
 
-[name="EB"] {
+[name=EB] {
     margin-top: -5px;
     margin-left: 3px;
 }
@@ -42,6 +43,7 @@ body {
     margin-top: 7px;
     margin-bottom: 20px;
     margin-left: -0px;
+    font-size: 24px;
 }
 
 [name=price] {
@@ -58,6 +60,7 @@ body {
 
 [name=prezzo] {
     padding-left: 0px;
+    padding-right: 0px;
 }
 
 [name=champName] {
@@ -78,6 +81,10 @@ body {
 
 [name=caret] {
     margin-left: 80px;
+}
+
+[id=colonnaCarta] {
+    padding-bottom: 30px;
 }
 
 

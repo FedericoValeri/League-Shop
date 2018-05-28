@@ -10,15 +10,18 @@ router.get('/', function(req, res, next) {
     Champion.find(function(err, docs) {
         var productChunks = [];
         var chunkSize = 4;
+        var sort = 'pricedesc';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks
+            champions: productChunks,
+            sort: sort
         });
     }).sort({
-        price: 'desc'
+        price: 'desc',
+        name: 'asc'
     });
 });
 
@@ -89,12 +92,14 @@ router.get('/sortByPriceAsc', function(req, res, next) {
     Champion.find(function(err, docs) {
         var productChunks = [];
         var chunkSize = 4;
+        var sort = 'priceasc';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks
+            champions: productChunks,
+            sort: sort
         });
     }).sort({
         price: 'asc'
@@ -105,12 +110,14 @@ router.get('/sortByNameAsc', function(req, res, next) {
     Champion.find(function(err, docs) {
         var productChunks = [];
         var chunkSize = 4;
+        var sort = 'nameasc';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks
+            champions: productChunks,
+            sort: sort
         });
     }).sort({
         name: 'asc'
@@ -121,12 +128,14 @@ router.get('/sortByNameDesc', function(req, res, next) {
     Champion.find(function(err, docs) {
         var productChunks = [];
         var chunkSize = 4;
+        var sort = 'namedesc';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks
+            champions: productChunks,
+            sort: sort
         });
     }).sort({
         name: 'desc'
