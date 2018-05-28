@@ -4,8 +4,9 @@ body {
     background-repeat: no-repeat;
 }
 
-.thumbnail img {
-    max-height: 380px;
+[name="EB"] {
+    margin-top: -5px;
+    margin-left: 3px;
 }
 
 .thumbnail .description {
@@ -15,19 +16,36 @@ body {
 }
 
 .thumbnail {
-    background-color: rgb(247, 247, 247);
+    background-color: rgba(255, 255, 255, 0.775);
+}
+
+[id=champ] {
+    border-width: 0px;
+    padding: 0%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+[name=champImage] {
+    width: 400px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 [name=rigaTitoloPrezzo] {
     margin-top: -10px;
+    margin-left: -10px;
+}
+
+[name=titleHome] {
+    margin-top: 7px;
+    margin-bottom: 20px;
+    margin-left: -0px;
 }
 
 [name=price] {
     color: rgb(37, 96, 204);
-}
-
-[name=blueEssence] {
-    margin-bottom: 5px;
 }
 
 [name=main-container] {

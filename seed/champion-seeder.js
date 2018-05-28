@@ -57,7 +57,7 @@ var ireliaSkills = [
         description: "Irelia scatta in avanti per colpire il suo bersaglio, curandosi."
     }),
     new Skill({
-        imageSrc: "",
+        imageSrc: "https://i.imgur.com/Wx9t6eN.png",
         letter: 'W',
         title: 'Danza sprezzante',
         description: "Irelia crea una formazione difensiva con le sue lame caricando un colpo che infligge danni."
@@ -574,7 +574,7 @@ var annieSkills = [
         description: "Annie lancia un cono di fuoco rovente, infliggendo danni a tutti i nemici nell'area."
     }),
     new Skill({
-        imageSrc: "https://i.imgur.com/YiYTMzT.png",
+        imageSrc: "https://i.imgur.com/BBLfuEQ.png",
         letter: 'E',
         title: 'Scudo pirico',
         description: "Conferisce ad Annie e Tibbers percentuali aumentati di resistenza ai danni e danneggia i nemici che attaccano con attacchi base."
