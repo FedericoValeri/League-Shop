@@ -10,7 +10,13 @@ var userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    champions: [{
+        type: mongoose.Schema.Types.Mixed,
+        ref: 'Champion',
+        required: false
+    }]
+
 });
 
 userSchema.methods.encryptPassword = function(password) {

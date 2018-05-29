@@ -6,6 +6,12 @@ body {
     background-size: 100%;
 }
 
+[id=prova] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
+}
+
 [id=barrasopra] {
     background: fixed;
 }
