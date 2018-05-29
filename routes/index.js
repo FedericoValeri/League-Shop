@@ -119,7 +119,7 @@ router.get('/sortByNameAsc', function(req, res, next) {
             sort: sort
         });
     }).sort({
-        name: 'asc'
+        name: 'desc'
     });
 });
 //nome desc
@@ -137,7 +137,7 @@ router.get('/sortByNameDesc', function(req, res, next) {
             sort: sort
         });
     }).sort({
-        name: 'desc'
+        name: 'asc'
     });
 });
 

@@ -1,28 +1,23 @@
 <br>
 
 <!--Filters and Search bar-->
-<div class="row" align="center">
+<div class="row" align="center" id="barrasopra">
     <!--filter by role column-->
     <div class="col-sm-6 col-md-4">
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="/role/Assassino">
-                <button type="button" class="btn btn-default">Assassino</button>
-            </a>
-            <a href="/role/Tank">
-                <button type="button" class="btn btn-default">Tank</button>
-            </a>
-            <a href="/role/Tiratore">
-                <button type="button" class="btn btn-default">Tiratore</button>
-            </a>
-            <a href="/role/Mago">
-                <button type="button" class="btn btn-default">Mago</button>
-            </a>
-            <a href="/role/Supporto">
-                <button type="button" class="btn btn-default">Supporto</button>
-            </a>
-            <a href="/role/Combattente">
-                <button type="button" class="btn btn-default">Combattente</button>
-            </a>
+        <div class="dropdown" align="left">
+            <h4 id="filtra">Filtra per:</h4>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/role/Assassino">Assassino</a>
+                <a class="dropdown-item" href="/role/Tank">Tank</a>
+                <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
+                <a class="dropdown-item" href="/role/Mago">Mago</a>
+                <a class="dropdown-item" href="/role/Supporto">Supporto</a>
+                <a class="dropdown-item" href="/role/Combattente">Combattente</a>
+            </div>
         </div>
     </div>
     <!--Search bar column-->
@@ -39,6 +34,7 @@
     <!--Sort by...column-->
     <div class="col-sm-6 col-md-4" name="colonna3">
         <div class="dropdown" align="right">
+            <h4 id="ordina">Ordina per:</h4>
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">
                 {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
@@ -50,23 +46,20 @@
                 <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
                 <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
                 <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
-                {{/if_eq}}
-                {{#if_eq sort 'priceasc'}} 
-                <a class="dropdown-item" href="/">Prezzo ↓</a>                
+                {{/if_eq}} {{#if_eq sort 'priceasc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
                 <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
                 <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
-                {{/if_eq}}
-                {{#if_eq sort 'namedesc'}}
-                 <a class="dropdown-item" href="/">Prezzo ↓</a>
-                <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>                
-                <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
-                {{/if_eq}}
-                {{#if_eq sort 'nameasc'}}
+                {{/if_eq}} {{#if_eq sort 'nameasc'}}
                 <a class="dropdown-item" href="/">Prezzo ↓</a>
                 <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
                 <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
+                {{/if_eq}} {{#if_eq sort 'namedesc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
+                <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
                 {{/if_eq}}
-                
+
             </div>
         </div>
     </div>
@@ -90,8 +83,9 @@
                             <h2 class="card-title" name="name"> {{this.name}}</h2>
                         </div>
                         <div class="col-sm-6 col-md-4" align="right" name="prezzo">
-                            <h2 name="price" align="left">{{this.price}}<img name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
-                            </h2>
+                            <h2 name="price">{{this.price}}</h2>
+                            <img name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
+
                         </div>
 
                     </div>

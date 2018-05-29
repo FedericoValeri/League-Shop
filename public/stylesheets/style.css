@@ -2,14 +2,26 @@ body {
     background-color: black;
     background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
     background-repeat: no-repeat;
+    background-attachment: fixed;
     background-size: 100%;
 }
 
+[id=barrasopra] {
+    background: fixed;
+}
+
+[id=ordina] {}
+
+[id=filtra] {
+    float: left;
+}
+
 [name=EB] {
-    margin-top: -5px;
-    margin-bottom: 2px;
-    margin-left: 3px;
-    margin-right: 15px;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    float: right;
 }
 
 .thumbnail .description {
@@ -25,7 +37,7 @@ body {
 [id=champ] {
     border-width: 0px;
     padding: 0%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0px 20px 50px #000000;
     background-color: rgba(255, 255, 255, 0);
 }
 
@@ -48,7 +60,7 @@ body {
 
 [name=price] {
     color: rgb(0, 128, 208);
-    float: right;
+    float: left;
 }
 
 [name=main-container] {
@@ -61,7 +73,6 @@ body {
 
 [name=prezzo] {
     padding-left: 0px;
-    padding-right: 0px;
 }
 
 [name=champName] {
