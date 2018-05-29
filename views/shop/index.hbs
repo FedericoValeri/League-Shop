@@ -16,12 +16,12 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropFiltra">
                         <a class="dropdown-item" href="/">Tutti</a>
-                        <a class="dropdown-item" href="/role/Assassino">Assassino</a>
-                        <a class="dropdown-item" href="/role/Tank">Tank</a>
-                        <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
-                        <a class="dropdown-item" href="/role/Mago">Mago</a>
-                        <a class="dropdown-item" href="/role/Supporto">Supporto</a>
-                        <a class="dropdown-item" href="/role/Combattente">Combattente</a>
+                        <a class="dropdown-item" href="/champions/role/Assassino">Assassino</a>
+                        <a class="dropdown-item" href="/champions/role/Tank">Tank</a>
+                        <a class="dropdown-item" href="/champions/role/Tiratore">Tiratore</a>
+                        <a class="dropdown-item" href="/champions/role/Mago">Mago</a>
+                        <a class="dropdown-item" href="/champions/role/Supporto">Supporto</a>
+                        <a class="dropdown-item" href="/champions/role/Combattente">Combattente</a>
                     </div>
                 </div>
             </div>
@@ -52,21 +52,21 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     {{#if_eq sort 'pricedesc'}}
-                    <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
-                    <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
                     {{/if_eq}} {{#if_eq sort 'priceasc'}}
                     <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
-                    <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
                     {{/if_eq}} {{#if_eq sort 'nameasc'}}
                     <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sortByNameDesc">Alfabetico ↓</a>
+                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
                     {{/if_eq}} {{#if_eq sort 'namedesc'}}
                     <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sortByPriceAsc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sortByNameAsc">Alfabetico ↑</a>
+                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
                     {{/if_eq}}
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     </h3>
                     <div class="clearfix">
 
-                        <a href="/champ/{{this._id}}" class="button" style="vertical-align:middle" role="button" id="informazioni">
+                        <a href="/champions/{{this.name}}" class="button" style="vertical-align:middle" role="button" id="informazioni">
                             <span>Informazioni </span>
                         </a>
                         <a href="/add-to-cart/{{this._id}}" class="btn btn-success pull-right" role="button" id="aggiungi">Aggiungi al carrello</a>

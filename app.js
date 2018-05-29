@@ -24,9 +24,10 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
 
 var indexRouter = require('./routes/index');
 var userRoutes = require('./routes/user');
+var cartRoutes = require('./routes/cart');
 
 //CODE BY FEDE
-var champRoutes = require('./routes/champ');
+var champRoutes = require('./routes/champion');
 
 var app = express();
 
@@ -70,7 +71,8 @@ app.use(function(req, res, next) {
 });
 
 //CODE BY FEDE
-app.use('/champ', champRoutes);
+app.use('/champions', champRoutes);
+app.use('/cart', cartRoutes);
 
 app.use('/user', userRoutes);
 app.use('/', indexRouter);
