@@ -15,7 +15,11 @@ var userSchema = new Schema({
         type: mongoose.Schema.Types.Mixed,
         ref: 'Champion',
         required: false
-    }]
+    }],
+    blueEssence: {
+        type: Number,
+        required: true
+    }
 
 });
 
