@@ -1,6 +1,6 @@
 body {
-    background-color: black;
-    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
+    background-color: rgb(255, 255, 255);
+    /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
@@ -9,7 +9,7 @@ body {
 [id=prova] {
     border-style: solid;
     border-width: 1px;
-    border-color: white;
+    border-color: rgb(255, 0, 0);
 }
 
 [id=barrasopra] {
@@ -205,61 +205,6 @@ body {
 
 .container-4:hover button.icon:hover {
     background: white;
-}
-
-[name="nameBio"] {
-    font-size: 75px;
-}
-
-[id="colonnaDestraChampBio"] {
-    border-style: solid;
-    border-width: 3px;
-    border-color: #fff;
-}
-
-[id=bio] {
-    /*background-color: #fff;*/
-    background-image: url("http://www.leonardodavincimuseo.com/wp-content/uploads/2016/07/pergamena-sfondo-sito-1.jpg");
-}
-
-[id="colonnaSinistraChampBio"] {
-    border-style: solid;
-    border-width: 3px;
-    border-color: #fff;
-}
-
-[id="roleBio"] {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #fff;
-}
-
-[id="imageSkill"] {
-    margin-top: 10px;
-}
-
-[id="nameBio"] {
-    border-style: solid;
-    border-width: 2px;
-    border-color: #fff;
-}
-
-[id="rigaSkill"] {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #fff;
-}
-
-[name="titleBio"] {
-    font-size: 50px;
-}
-
-[id="roleIcon"] {
-    margin-top: 25px;
-}
-
-[id="champBioImage"] {
-    margin-top: 35px;
 }
 
 

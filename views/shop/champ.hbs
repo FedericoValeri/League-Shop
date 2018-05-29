@@ -75,54 +75,63 @@
 {{/each}}-->
 
 
-<br>
-{{#each champion}}
+<br> {{#each champion}}
 <div class="row">
     <div id="prova" class="col-md-8">
         <div id="prova" class="row">
             <div id="prova" class="col-md-4">
                 <div id="prova" class="row">
-                    iconaRuolo
+                    {{#if_eq role 'Assassino'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/vXz3C1X.png"> {{/if_eq}} {{#if_eq role 'Mago'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/OZUmpLa.png"> {{/if_eq}} {{#if_eq role 'Tiratore'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/hEpbJma.png"> {{/if_eq}} {{#if_eq role 'Combattente'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/Y3lEWpZ.png"> {{/if_eq}} {{#if_eq role 'Tank'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/kJ7HiDP.png"> {{/if_eq}} {{#if_eq role 'Supporto'}}
+                    <img width="100" height="100" id="iconRoleBio" src="https://i.imgur.com/YPXsrns.png"> {{/if_eq}}
                 </div>
                 <div id="prova" class="row">
-                    ruolo
+                    <h2 align="center" id="roleBio" name="role"> {{role}}</h2>
                 </div>
             </div>
             <div id="prova" class="col-md-8">
                 <div id="prova" class="row">
-                    {{name}}
+                    <h1 id="nameBio"> {{name}}</h1>
                 </div>
                 <div id="prova" class="row">
-                    titolo
+                    <h2 id="titleBio"> {{title}}</h2>
                 </div>
             </div>
         </div>
         <div id="prova" class="row">
-            abilità
+            <h3 id="abilità">Abilità</h3>
         </div>
+        {{#each skills}}
         <div id="prova" class="row">
-            P
+            <div class="col-md-2">
+                <div id="prova" class="row">
+                    <img width="80" height="80" src="{{imageSrc}}" id="imageSkillBio">
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="prova" class="row">
+                    <h3>{{letter}} - {{title}}</h3>
+                </div>
+                <div id="prova" class="row">
+                    <h6>{{description}}</h6>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div id="prova" class="row"></div>
+            </div>
         </div>
-        <div id="prova" class="row">
-            Q
-        </div>
-        <div id="prova" class="row">
-            W
-        </div>
-        <div id="prova" class="row">
-            E
-        </div>
-        <div id="prova" class="row">
-            R
-        </div>
+        {{/each}}
     </div>
     <div id="prova" class="col-md-4">
         <div id="prova" class="row">
-            immagine
+            <img width="450" height="450" src="{{imagePath}}" id="imgameBio">
         </div>
         <div id="prova" class="row">
-            descrizione
-            <br><br><br>
+            <h5 id="descriptionBio">{{description}}</h5>
         </div>
     </div>
 </div>
