@@ -9,6 +9,7 @@ body {
     margin-top: -5px;
     margin-bottom: 2px;
     margin-left: 3px;
+    margin-right: 15px;
 }
 
 .thumbnail .description {
@@ -47,6 +48,7 @@ body {
 
 [name=price] {
     color: rgb(0, 128, 208);
+    float: right;
 }
 
 [name=main-container] {
