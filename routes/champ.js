@@ -3,7 +3,6 @@
 var express = require('express');
 var router = express.Router();
 
-var Product = require('../models/product');
 var Champion = require('../models/champion');
 
 router.get('/:productId', function(req, res, next) {

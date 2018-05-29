@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 
 var Cart = require('../models/cart');
-var Product = require('../models/product');
 var Champion = require('../models/champion');
 
 /* GET home page. */
