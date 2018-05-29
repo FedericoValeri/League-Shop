@@ -10,10 +10,20 @@ body {
     background: fixed;
 }
 
-[id=ordina] {}
+[id=dropOrdina] {
+    float: left;
+}
+
+[id=ordina] {
+    float: right;
+}
+
+[id=dropFiltra] {
+    float: left;
+}
 
 [id=filtra] {
-    float: left;
+    float: right;
 }
 
 [name=EB] {

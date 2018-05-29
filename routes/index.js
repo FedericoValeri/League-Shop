@@ -10,13 +10,15 @@ router.get('/', function(req, res, next) {
         var productChunks = [];
         var chunkSize = 4;
         var sort = 'pricedesc';
+        var role = 'Tutti';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
             champions: productChunks,
-            sort: sort
+            sort: sort,
+            role: role
         });
     }).sort({
         price: 'desc',
@@ -92,13 +94,15 @@ router.get('/sortByPriceAsc', function(req, res, next) {
         var productChunks = [];
         var chunkSize = 4;
         var sort = 'priceasc';
+        var role = 'Tutti';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
             champions: productChunks,
-            sort: sort
+            sort: sort,
+            role: role
         });
     }).sort({
         price: 'asc'
@@ -110,13 +114,15 @@ router.get('/sortByNameAsc', function(req, res, next) {
         var productChunks = [];
         var chunkSize = 4;
         var sort = 'nameasc';
+        var role = 'Tutti';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
             champions: productChunks,
-            sort: sort
+            sort: sort,
+            role: role
         });
     }).sort({
         name: 'desc'
@@ -128,13 +134,15 @@ router.get('/sortByNameDesc', function(req, res, next) {
         var productChunks = [];
         var chunkSize = 4;
         var sort = 'namedesc';
+        var role = 'Tutti';
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
         res.render('shop/index', {
             title: 'League Shop',
             champions: productChunks,
-            sort: sort
+            sort: sort,
+            role: role
         });
     }).sort({
         name: 'asc'
@@ -155,7 +163,8 @@ router.get('/role/:role', function(req, res, next) {
         }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks
+            champions: productChunks,
+            role: role
         });
     }).sort({
         price: 'desc',
