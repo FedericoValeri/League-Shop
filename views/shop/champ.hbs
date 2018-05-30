@@ -110,11 +110,13 @@
         </div>
         {{#each skills}}
         <div id="prova" class="row">
-            <div class="col-md-2">
-                <div id="prova" class="row">
-                    <img width="80" height="80" src="{{imageSrc}}" id="imageSkillBio">
+
+            <div class="col-md-2" id="prova">
+                <div id="prova" name="rowskill" class="row">
+                    <img width="100" height="100" src="{{imageSrc}}" id="imageSkillBio">
                 </div>
             </div>
+
             <div class="col-md-9">
                 <div id="prova" class="row">
                     <h3 id="letterTitleBio">{{letter}} - {{title}}</h3>

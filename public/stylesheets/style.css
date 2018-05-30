@@ -131,7 +131,7 @@ body {
 /*champ bio*/
 
 [id=prova] {
-    border-style: solid;
+    /*border-style: solid;*/
     border-width: 1px;
     border-color: rgb(255, 0, 0);
 }
@@ -159,14 +159,25 @@ body {
     margin-left: 5%;
 }
 
+[id=holder] {
+    background: url("https://i.imgur.com/PVDnzNu.png") no-repeat center center;
+    height: 150px;
+    width: 150px;
+    border: 5px solid red;
+}
+
 [id="imageSkillBio"] {
-    margin-top: 25px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
+}
+
+[name=rowskill] {
+    width: 100%;
+    height: 100%;
+    margin: auto;
 }
 
 [id="letterTitleBio"] {
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 [id="imageBio"] {
