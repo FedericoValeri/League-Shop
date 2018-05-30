@@ -9,12 +9,12 @@ var Champion = require('../models/champion');
 router.get('/', function(req, res, next) {
     if (!req.session.cart) {
         return res.render('shop/cart', {
-            products: null
+            champions: null
         });
     }
     var cart = new Cart(req.session.cart);
     res.render('shop/cart', {
-        products: cart.generateArray(),
+        champions: cart.generateArray(),
         totalPrice: cart.totalPrice
     });
 });
@@ -45,7 +45,7 @@ router.get('/remove/:id', function(req, res, next) {
 router.get('/checkout', function(req, res, next) {
     if (!req.session.cart) {
         return res.redirect('/cart', {
-            products: null
+            champions: null
         });
     }
     var cart = new Cart(req.session.cart);

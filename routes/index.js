@@ -26,18 +26,24 @@ router.get('/', function(req, res, next) {
     });
 });
 
+//aggiungi al carrello
 router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
-    var productId = req.params.id;
+    var championId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
 
-    Champion.findById(productId, function(err, product) {
+    Champion.findById(championId, function(err, champion) {
         if (err) {
             return res.redirect('/');
         }
-        cart.add(product, product.id);
-        req.session.cart = cart;
-        console.log(req.session.cart);
-        res.redirect('/');
+        if (!cart.isInCart(champion, champion.id)) {
+            cart.add(champion, champion.id);
+            req.session.cart = cart;
+            console.log(req.session.cart);
+            res.redirect('/');
+        } else {
+            res.redirect('/');
+        }
+
     });
 });
 

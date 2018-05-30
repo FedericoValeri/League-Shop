@@ -31,6 +31,7 @@ var champRoutes = require('./routes/champion');
 
 var app = express();
 
+//connect to database
 mongoose.connect('mongodb://localhost:27017/shopping');
 require('./config/passport');
 

@@ -42,4 +42,13 @@ module.exports = function Cart(oldCart) {
         }
         return arr;
     };
+
+    this.isInCart = function(item, id) {
+        var storedItem = this.items[id];
+        if (storedItem) {
+            return true
+        } else {
+            return false;
+        }
+    };
 };
