@@ -7,6 +7,7 @@ var Champion = require('../models/champion');
 
 router.get('/:name', function(req, res, next) {
     const name = req.params.name;
+
     Champion.findOne({
         name: name
     }, function(err, docs) {

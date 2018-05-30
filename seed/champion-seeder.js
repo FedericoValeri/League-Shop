@@ -1,10 +1,10 @@
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/shopping');
+mongoose.connect('mongodb://localhost:27017/league-shop');
 
 
 //richiedo lo schema per l'oggetto Champion
 var Champion = require('../models/champion');
-
+var User = require('../models/user');
 //richiedo lo schema per l'oggetto Skill
 var Skill = require('../models/skill');
 
@@ -998,305 +998,364 @@ var Skills = [
 */
 
 
-var champions = [
-    new Champion({
-        imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Veigar_Splash_Tile_0.jpg",
-        name: 'Veigar',
-        title: "Il piccolo genio del male",
-        role: "Mago",
-        description: "Maestro della stregoneria oscura, Veigar ha accolto poteri ai quali pochi mortali osano avvicinarsi. Uno spirito libero di Bandle City, ha superato i limiti della magia yordle rivolgendosi a testi arcani rimasti nascosti per millenni. Veigar, creatura testarda affascinata dai misteri dell'universo, viene spesso sottovalutato, ma, nonostante si consideri malvagio, possiede un codice morale che lo porta a mettere in discussione le sue profonde motivazioni.",
-        price: 1350,
-        skills: veigarSkills
+var champions = [];
+
+
+Veigar = new Champion({
+    imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Veigar_Splash_Tile_0.jpg",
+    name: 'Veigar',
+    title: "Il piccolo genio del male",
+    role: "Mago",
+    description: "Maestro della stregoneria oscura, Veigar ha accolto poteri ai quali pochi mortali osano avvicinarsi. Uno spirito libero di Bandle City, ha superato i limiti della magia yordle rivolgendosi a testi arcani rimasti nascosti per millenni. Veigar, creatura testarda affascinata dai misteri dell'universo, viene spesso sottovalutato, ma, nonostante si consideri malvagio, possiede un codice morale che lo porta a mettere in discussione le sue profonde motivazioni.",
+    price: 1350,
+    skills: veigarSkills
+});
+champions.push(Veigar);
+
+Katarina = new Champion({
+    imagePath: "https://i.imgur.com/XCqT8gK.jpg",
+    name: 'Katarina',
+    title: "La lama sinistra",
+    role: "Assassino",
+    description: "Katarina è un'assassina noxiana di altissimo livello, veloce nel giudizio e letale in combattimento. È la figlia maggiore del leggendario generale Du Couteau e si è fatta conoscere uccidendo rapidamente i suoi ignari nemici. La sua ambizione l'ha spinta verso i bersagli più protetti, anche al costo di mettere a rischio i suoi alleati. A prescindere dalla missione, Katarina compie sempre il suo dovere in un tripudio di lame.",
+    price: 3150,
+    skills: katarinaSkills
+});
+champions.push(Katarina);
+
+
+Talon = new Champion({
+    imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Talon_Splash_Tile_0.jpg",
+    name: 'Talon',
+    title: "L'ombra della lama",
+    role: "Assassino",
+    description: "Talon è la lama dell'oscurità, uno spietato assassino capace di colpire senza preavviso e fuggire prima che venga dato l'allarme. Si è fatto una reputazione per le violente strade di Noxus, dove per sopravvivere è stato costretto a rubare, combattere e uccidere. Adottato dalla famigerata famiglia Du Couteau, porta avanti la sua attività omicida al servizio dell'impero assassinando capi, capitani ed eroi nemici... oltre a ogni noxiano abbastanza sciocco da scatenare l'ira dei suoi padroni.",
+    price: 4800,
+    skills: talonSkills
+});
+champions.push(Talon);
+
+
+MissFortune = new Champion({
+    imagePath: "https://i.imgur.com/5RpBl17.jpg",
+    name: 'Miss Fortune',
+    title: "La cacciatrice di taglie",
+    role: "Tiratore",
+    description: "Sarah Fortune, una spietata capitana di Bilgewater nota per la sua bellezza e per la sua determinazione, si staglia in mezzo ai criminali che popolano la città portuale. Da bambina ha visto il re dei pirati Gangplank massacrare la sua famiglia, un atto che avrebbe vendicato anni dopo, facendo saltare la sua nave mentre lui era ancora a bordo. Chi la sottovaluta è destinato a trovarsi davanti a un nemico pericoloso e imprevedibile... e con tutta probabilità a un paio di proiettili nello stomaco.",
+    price: 3150,
+    skills: missfortuneSkills
+});
+champions.push(MissFortune);
+
+
+Jhin = new Champion({
+    imagePath: "https://i.imgur.com/7hAatJk.jpg",
+    name: 'Jhin',
+    title: "Il virtuoso",
+    role: "Tiratore",
+    description: "Jhin è un criminale psicopatico e meticoloso che vede la morte come un'opera d'arte. In passato fu prigioniero dal popolo di Ionia, ma fu liberato da uomini misteriosi appartenenti al consiglio decisionale di Ionia, diventando l'assassino della congrega. Usa la sua arma come pennello per creare opere artistiche dalle sfumature brutali, terrorizzando le sue vittime e gli spettatori. Avverte un perfido piacere quando sale sul palcoscenico del suo teatro degli orrori, l'occasione ideale per mandare uno dei suoi messaggi più forti: terrore.",
+    price: 6300,
+    skills: jhinSkills
+});
+champions.push(Jhin);
+
+Jinx = new Champion({
+    imagePath: "https://i.imgur.com/nqmxqR5.jpg",
+    name: 'Jinx',
+    title: "La mina vagante",
+    role: "Tiratore",
+    description: "Jinx è una criminale impulsiva e maniacale di Zaun, che vive per seminare il panico senza pensare alle conseguenze. Con un arsenale di armi letali, scatena le esplosioni più forti e spettacolari per poi lasciarsi alle spalle una scia di caos. Jinx odia la noia e porta felicemente con sé il suo pandemonio personale, ovunque vada.",
+    price: 6300,
+    skills: jinxSkills
+});
+champions.push(Jinx);
+
+
+Caitlyn = new Champion({
+    imagePath: "https://i.imgur.com/Ed7mh6F.jpg",
+    name: 'Caitlyn',
+    title: "Lo sceriffo di Piltover",
+    role: "Tiratore",
+    description: "Caitlyn, nota come la migliore agente di Piltover, è anche la migliore opportunità che ha la città di liberarsi dai suoi sfuggenti criminali. Spesso è in coppia con Vi, come contrappunto alla natura impetuosa della sua partner. Anche se ha un fucile hextech unico al mondo, la vera arma segreta di Caitlyn è un intelletto superiore, che le permette di tendere elaborati tranelli ai criminali così stolti da agire nella città del progresso.",
+    price: 4800,
+    skills: caitlynSkills
+});
+champions.push(Caitlyn);
+
+
+Annie = new Champion({
+    imagePath: "https://i.imgur.com/JbK7Svh.jpg",
+    name: 'Annie',
+    title: "La bambina oscura",
+    role: "Mago",
+    description: "Pericolosa e incredibilmente precoce, Annie è una maga bambina con immensi poteri di piromanzia. Anche nell'ombra delle montagne a nord di Noxus, è una bizzarria magica. La sua naturale affinità col fuoco si è manifestata sin dai suoi primi giorni con imprevedibili esplosioni di emozioni, che ha presto imparato a controllare sotto forma di trucchetti. Il suo trucchetto preferito è l'evocazione del suo adorato orsacchiotto, Tibbers, un protettore incendiario. Persa nell'eterna innocenza della sua infanzia, Annie vaga nelle foreste più buie, in cerca di qualcuno con cui giocare.",
+    price: 450,
+    skills: annieSkills
+});
+champions.push(Annie);
+
+
+Xayah = new Champion({
+    imagePath: "https://i.imgur.com/nUD2D3M.jpg",
+    name: 'Xayah',
+    title: "La ribelle",
+    role: "Tiratore",
+    description: "Volubile e affascinante, Rakan è un famigerato piantagrane vastayano, nonché il più grande danzatore guerriero mai vissuto della tribù di Lhotlan. Per gli umani dell'altopiano di Ionia, il suo nome è da tempo sinonimo di feste selvagge, musica anarchica e danze fuori controllo. Pochi sospettano che questo energico showman errante è anche il compagno della ribelle Xayah e che è dedito alla sua causa",
+    price: 6300,
+    skills: xayahSkills
+});
+champions.push(Xayah);
+
+
+Rakan = new Champion({
+    imagePath: "https://i.imgur.com/KH0lGJz.jpg",
+    name: 'Rakan',
+    title: "L'ammaliatore",
+    role: "Supporto",
+    description: "Letale e precisa, Xayah è una rivoluzionaria vastayana che lotta per salvare il suo popolo. Con l'astuzia, la velocità e le sue affilatissime piume, stronca chiunque cerchi di ostacolarla. Xayah lotta al fianco del suo compagno e amante, Rakan, per proteggere la sua tribù in declino e riportare la sua razza alla sua idea di antica gloria.",
+    price: 6300,
+    skills: rakanSkills
+});
+champions.push(Rakan);
+
+
+Ekko = new Champion({
+    imagePath: "https://i.imgur.com/bmRAISw.jpg",
+    name: 'Ekko',
+    title: "Il viaggiatore del tempo",
+    role: "Assassino",
+    description: "Ekko è un prodigio che viene dalle pericolose strade di Zaun, in grado di manipolare il tempo per volgere qualsiasi situazione a proprio vantaggio. Usando la sua invenzione, il Motore-Zero, esplora le varie possibilità della realtà per costruirsi il momento perfetto. Per quanto sia uno spirito libero, se uno dei suoi amici è in pericolo è pronto a tutto per difenderlo. A chi non conosce le sue abilità, Ekko sembra in grado di fare l'impossibile, con facilità, sempre al primo tentativo.",
+    price: 6300,
+    skills: ekkoSkills
+});
+champions.push(Ekko);
+
+Poppy = new Champion({
+    imagePath: "https://i.imgur.com/xx1FPfd.jpg",
+    name: 'Poppy',
+    title: "La custode del martello",
+    role: "Tank",
+    description: "A Runeterra non mancano i valenti campioni, ma pochi hanno la determinazione di Poppy. Con il leggendario martello di Orlon, un'arma grande il doppio di lei, questa risoluta yordle ha passato un numero enorme di anni alla ricerca segreta del favoleggiato 'Eroe di Demacia' che si dice esserne il legittimo proprietario. Fino ad allora affronta la battaglia guidata dal suo senso del dovere, respingendo con ogni colpo i nemici del regno.",
+    price: 450,
+    skills: poppySkills
+});
+champions.push(Poppy);
+
+Galio = new Champion({
+    imagePath: "https://i.imgur.com/ycRJYoe.jpg",
+    name: 'Galio',
+    title: "Il colosso",
+    role: "Tank",
+    description: "Fuori dalla scintillante città di Demacia, il colosso di pietra Galio monta una guardia costante. Costruito come protezione dai maghi nemici, è in grado di rimanere immobile per intere decadi, fino a che non si manifesta una presenza magica tale da riportarlo in vita. Quando si attiva, Galio non perde tempo e assapora il brivido del combattimento e il raro onore di difendere i suoi compatrioti. I suoi trionfi hanno sempre un retrogusto amaro, poiché la magia che distrugge è anche la fonte della sua rianimazione, e ogni vittoria lo fa tornare al suo sonno eterno.",
+    price: 3150,
+    skills: galioSkills
+});
+champions.push(Galio);
+
+Zac = new Champion({
+    imagePath: "https://i.imgur.com/RhxJTEd.jpg",
+    name: 'Zac',
+    title: "L'arma segreta",
+    role: "Tank",
+    description: "Zac è il risultato di una fuga di materiali tossici fuoriuscita da una tubatura chemtech e accumulatisi in una caverna isolata nel Sump di Zaun. Nonostante queste umili origini, Zac si è evoluto da massa informe primordiale a creatura senziente che abita nelle tubature della città. Di tanto in tanto emerge per aiutare gli indifesi o per ricostruire le infrastrutture danneggiate di Zaun.",
+    price: 6300,
+    skills: zacSkills
+});
+champions.push(Zac);
+
+Lux = new Champion({
+    imagePath: "https://i.imgur.com/uRwdRLl.jpg",
+    name: 'Lux',
+    title: "La signora della luce",
+    role: "Mago",
+    description: "Luxanna Crownguard viene da Demacia, un reame isolato dove le capacità magiche vengono viste con timore e sospetto. Capace di piegare la luce alla sua volontà, è cresciuta nel timore, costretta a tenere segreto il suo potere per mantenere la reputazione della sua famiglia. Nonostante questo, la resistenza e l'ottimismo di Lux l'hanno portata ad accettare le sue capacità e ora le utilizza in segreto al servizio della sua patria.",
+    price: 3150,
+    skills: luxSkills
+});
+champions.push(Lux);
+
+Rengar = new Champion({
+    imagePath: "https://i.imgur.com/wcWDnjC.jpg",
+    name: 'Rengar',
+    title: "Il cacciatore ferale",
+    role: "Assassino",
+    description: "Rengar è un pericoloso cacciatore vastayano che vive per il brivido di trovare e uccidere le creature più pericolose. Gira il mondo in cerca delle belve più feroci, in particolare di Kha'Zix, la creatura del Vuoto che gli ha cavato un occhio. Rengar dà la caccia alle sue prede non per il cibo o per la gloria, ma per la bellezza della caccia stessa.",
+    price: 4800,
+    skills: rengarSkills
+});
+champions.push(Rengar);
+
+Nami = new Champion({
+    imagePath: "https://i.imgur.com/aWfkz5V.jpg",
+    name: 'Nami',
+    title: "Lo spirito delle maree",
+    role: "Supporto",
+    description: "Nami, una risoluta vastaya del mare, fu la prima della tribù Marai a lasciare l'acqua per avventurarsi sulla terraferma, quando venne infranto l'antico patto con i targoniani. Costretta dagli eventi, ha deciso di completare da sola il rituale sacro per assicurare la sicurezza del suo popolo. Nel caos di questa nuova era, Nami affronta un futuro incerto con coraggio e determinazione, utilizzando la sua asta dello Spirito delle maree per evocare la forza degli oceani.",
+    price: 4800,
+    skills: namiSkills
+});
+champions.push(Nami);
+
+Maokai = new Champion({
+    imagePath: "https://i.imgur.com/0YlAjPX.jpg",
+    name: 'Maokai',
+    title: "Il treant demoniaco",
+    role: "Tank",
+    description: "Maokai è un rabbioso e imponente treant che combatte gli orrori innaturali delle Isole Ombra. Venne trasformato in una forza vendicativa dopo che un cataclisma magico distrusse la sua terra natia, sopravvivendo alla non-morte solo grazie alle acque vitali infuse nel suo legno. Maokai era un pacifico spirito della natura, ma oggi combatte con ferocia per scacciare il flagello della non-morte dalle Isole Ombra e riportarle al loro antico splendore.",
+    price: 4800,
+    skills: maokaiSkills
+});
+champions.push(Maokai);
+
+Zoe = new Champion({
+    imagePath: "https://i.imgur.com/fmeEG6z.jpg",
+    name: 'Zoe',
+    title: "L'incarnazione del crepuscolo",
+    role: "Mago",
+    description: "Incarnazione di malizia, immaginazione e cambiamento, Zoe è la messaggera cosmica di Targon. La sua comparsa è portatrice di avvenimenti in grado di plasmare mondi interi. La sua semplice presenza, infatti, a volte può distorcere gli equilibri metafisici alla base della realtà fino a causare cataclismi, senza alcuna intenzione malevola. Ciò può forse spiegare la noncuranza con la quale Zoe assolve ai suoi doveri, cosa che le permette di dedicare tempo a giocare, ingannare i mortali o più generalmente divertirsi. Incontrare Zoe può essere un'epifania di gioia vitale, ma con un significato nascosto e spesso molto pericoloso.",
+    price: 6300,
+    skills: zoeSkills
+});
+champions.push(Zoe);
+
+/*
+new Champion({
+    imagePath: "",
+    name: '',
+    title: "",
+    role: "",
+    description: "",
+    price: ,
+    skills: 
+}),
+*/
+
+Pyke = new Champion({
+    imagePath: "https://i.imgur.com/QE2SBla.jpg",
+    name: 'Pyke',
+    title: "Lo squartatore del porto",
+    role: "Supporto",
+    description: "Abbandonato dal suo equipaggio ai leviatani delle profondità, Pyke è affogato, ma non è rimasto morto. Anni dopo, il famigerato revenant noto come lo squartatore del porto insanguinato si aggira per i Moli del sangue, spuntando nomi da una lista che sembra infinita. Aspetta... tu hai un'aria familiare...",
+    price: 7800,
+    skills: pykeSkills
+});
+champions.push(Pyke);
+
+Nasus = new Champion({
+    imagePath: "https://i.imgur.com/f4hHJMs.jpg",
+    name: 'Nasus',
+    title: "Il custode delle dune",
+    role: "Combattente",
+    description: "Nasus è un imponente essere Asceso con il volto da sciacallo originario dell'antica Shurima, una figura eroica che la gente del deserto considera un semidio. Estremamente intelligente, era un guardiano della conoscenza e un eccelso stratega il cui buon senso guidò per secoli l'antico impero di Shurima verso la grandezza. In seguito alla caduta dell'impero, andò in esilio per sua scelta, diventando poco più che una leggenda. Ora che l'antica città di Shurima è risorta, Nasus è tornato, determinato a impedire un'altra simile sorte.",
+    price: 1350,
+    skills: nasusSkills
+});
+champions.push(Nasus);
+
+Kaisa = new Champion({
+    imagePath: "https://i.imgur.com/KzYd5Z1.jpg",
+    name: "Kai'Sa",
+    title: "Figlia del Vuoto",
+    role: "Tiratore",
+    description: "Reclamata dal Vuoto quando era soltanto una bambina, Kai'Sa è riuscita a sopravvivere con la sua incredibile tenacia e la sua forza di volontà. L'esperienza l'ha resa una cacciatrice letale, nonché la portatrice di un destino che molte delle sue prede preferirebbero non scoprire. Essendo entrata in una difficile simbiosi con un carapace del Vuoto, dovrà presto decidere se perdonare i mortali che la considerano un mostro, per affrontare insieme l'oscurità... o se dimenticarli, mentre il Vuoto consuma tutto ciò che si è lasciata alle spalle.",
+    price: 6300,
+    skills: kaisaSkills
+});
+champions.push(Kaisa);
+
+Tristana = new Champion({
+    imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Tristana_Splash_Tile_0.jpg",
+    name: 'Tristana',
+    title: "L'artigliere degli Yordle",
+    role: "Tiratore",
+    description: "Mentre molti altri yordle si dedicano alle scoperte, alle invenzioni o agli intrighi, Tristana è stata sempre affascinata dalle avventure dei grandi guerrieri. Ha sentito molto parlare di Runeterra, delle sue fazioni e delle sue guerre, e ha pensato di essere anche lei degna di divenire materia delle leggende. Dopo aver messo piede nel mondo per la prima volta, ha imbracciato il suo fidato cannone Boomer e ora si lancia in battaglia con coraggio e ottimismo.",
+    price: 1350,
+    skills: tristanaSkills
+});
+champions.push(Tristana);
+
+Thresh = new Champion({
+    imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Thresh_Splash_Tile_0.jpg",
+    name: 'Thresh',
+    title: "Il carceriere",
+    role: "Supporto",
+    description: "Sadico e astuto, Thresh è uno spirito inquieto e ambizioso delle Isole Ombra. Un tempo custode di innumerevoli arcani segreti, ha cercato un potere più grande della vita e della morte e ora si alimenta tormentando e uccidendo il prossimo con spietatezza e creatività. Le sue vittime soffrono ben oltre la morte, poiché Thresh infligge l'agonia sulle loro anime, imprigionandole nella sua empia lanterna per torturarle per l'eternità.",
+    price: 6300,
+    skills: threshSkills
+});
+champions.push(Thresh);
+
+Garen = new Champion({
+    imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Garen_Splash_Tile_0.jpg",
+    name: 'Garen',
+    title: "La potenza di Demacia",
+    role: "Combattente",
+    description: "Un guerriero nobile e orgoglioso, Garen combatte come membro dell'Indomita avanguardia. I suoi compagni lo stimano e i nemici lo rispettano, anche perché è il rampollo della prestigiosa famiglia Crownguard, con il compito di difendere Demacia e i suoi ideali. Protetto da un'armatura resistente alla magia e armato di una possente spada a due mani, Garen è pronto ad affrontare maghi e stregoni sul campo di battaglia, in un vero e proprio tornado d'acciaio.",
+    price: 450,
+    skills: garenSkills
+});
+champions.push(Garen);
+
+Irelia = new Champion({
+    imagePath: "https://i.imgur.com/WM2uxhI.jpg",
+    name: 'Irelia',
+    title: "La danzatrice delle lame",
+    role: "Combattente",
+    description: "L'occupazione noxiana di Ionia ha creato molti eroi, ma nessuno più improbabile della giovane Irelia di Navori. Addestrata nelle antiche danze della sua provincia, ha adattato la sua arte alla guerra, utilizzando le eleganti ed esperte movenze per far levitare una serie di letali lame. Dopo aver dimostrato il suo valore di guerriera, è stata nominata capo e simbolo della resistenza, e si dedica ancora oggi alla protezione della sua patria.",
+    price: 4800,
+    skills: ireliaSkills
+});
+champions.push(Irelia);
+
+Yasuo = new Champion({
+    imagePath: "https://i.imgur.com/3DosUt7.jpg",
+    name: 'Yasuo',
+    title: "Il reietto",
+    role: "Combattente",
+    description: "Un determinato abitante di Ionia, Yasuo è un agile spadaccino che usa l'aria come arma contro i suoi avversari. Giovane, abile e fiero, è stato accusato ingiustamente di aver ucciso il suo maestro: incapace di dimostrare la sua innocenza, è stato costretto a uccidere il suo stesso fratello per difendersi. Anche dopo la scoperta del vero assassino del suo maestro, Yasuo non è riuscito a liberarsi del senso di colpa e ora vaga per la sua terra natia con il vento a guidare la sua lama.",
+    price: 6300,
+    skills: yasuoSkills
+});
+champions.push(Yasuo);
+
+Ashe = new Champion({
+    imagePath: "https://i.imgur.com/iXo6dyK.jpg",
+    name: 'Ashe',
+    title: "L'arciere dei ghiacci",
+    role: "Tiratore",
+    description: "Ashe è la madre guerriera, figlia del gelo, della tribù degli Avarosani, che comanda l'orda più popolosa del nord. Stoica, intelligente e idealista, ma al tempo stesso inquieta nel suo ruolo di leader, sfrutta la magia arcana della sua stirpe per brandire un arco di Vero Ghiaccio. Ritenuta la reincarnazione della mitologica Avarosa dal suo popolo, Ashe spera di riunire il Freljord riconquistando le antiche terre tribali.",
+    price: 450,
+    skills: asheSkills
+});
+champions.push(Ashe);
+
+
+
+
+var users = [
+    new User({
+        email: 'fede@fede.it',
+        password: 'fede',
+        champions: [Veigar, Talon, Tristana],
+        blueEssence: 50000
     }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/XCqT8gK.jpg",
-        name: 'Katarina',
-        title: "La lama sinistra",
-        role: "Assassino",
-        description: "Katarina è un'assassina noxiana di altissimo livello, veloce nel giudizio e letale in combattimento. È la figlia maggiore del leggendario generale Du Couteau e si è fatta conoscere uccidendo rapidamente i suoi ignari nemici. La sua ambizione l'ha spinta verso i bersagli più protetti, anche al costo di mettere a rischio i suoi alleati. A prescindere dalla missione, Katarina compie sempre il suo dovere in un tripudio di lame.",
-        price: 3150,
-        skills: katarinaSkills
-    }),
-
-    new Champion({
-        imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Talon_Splash_Tile_0.jpg",
-        name: 'Talon',
-        title: "L'ombra della lama",
-        role: "Assassino",
-        description: "Talon è la lama dell'oscurità, uno spietato assassino capace di colpire senza preavviso e fuggire prima che venga dato l'allarme. Si è fatto una reputazione per le violente strade di Noxus, dove per sopravvivere è stato costretto a rubare, combattere e uccidere. Adottato dalla famigerata famiglia Du Couteau, porta avanti la sua attività omicida al servizio dell'impero assassinando capi, capitani ed eroi nemici... oltre a ogni noxiano abbastanza sciocco da scatenare l'ira dei suoi padroni.",
-        price: 4800,
-        skills: talonSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/5RpBl17.jpg",
-        name: 'Miss Fortune',
-        title: "La cacciatrice di taglie",
-        role: "Tiratore",
-        description: "Sarah Fortune, una spietata capitana di Bilgewater nota per la sua bellezza e per la sua determinazione, si staglia in mezzo ai criminali che popolano la città portuale. Da bambina ha visto il re dei pirati Gangplank massacrare la sua famiglia, un atto che avrebbe vendicato anni dopo, facendo saltare la sua nave mentre lui era ancora a bordo. Chi la sottovaluta è destinato a trovarsi davanti a un nemico pericoloso e imprevedibile... e con tutta probabilità a un paio di proiettili nello stomaco.",
-        price: 3150,
-        skills: missfortuneSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/7hAatJk.jpg",
-        name: 'Jhin',
-        title: "Il virtuoso",
-        role: "Tiratore",
-        description: "Jhin è un criminale psicopatico e meticoloso che vede la morte come un'opera d'arte. In passato fu prigioniero dal popolo di Ionia, ma fu liberato da uomini misteriosi appartenenti al consiglio decisionale di Ionia, diventando l'assassino della congrega. Usa la sua arma come pennello per creare opere artistiche dalle sfumature brutali, terrorizzando le sue vittime e gli spettatori. Avverte un perfido piacere quando sale sul palcoscenico del suo teatro degli orrori, l'occasione ideale per mandare uno dei suoi messaggi più forti: terrore.",
-        price: 6300,
-        skills: jhinSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/nqmxqR5.jpg",
-        name: 'Jinx',
-        title: "La mina vagante",
-        role: "Tiratore",
-        description: "Jinx è una criminale impulsiva e maniacale di Zaun, che vive per seminare il panico senza pensare alle conseguenze. Con un arsenale di armi letali, scatena le esplosioni più forti e spettacolari per poi lasciarsi alle spalle una scia di caos. Jinx odia la noia e porta felicemente con sé il suo pandemonio personale, ovunque vada.",
-        price: 6300,
-        skills: jinxSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/Ed7mh6F.jpg",
-        name: 'Caitlyn',
-        title: "Lo sceriffo di Piltover",
-        role: "Tiratore",
-        description: "Caitlyn, nota come la migliore agente di Piltover, è anche la migliore opportunità che ha la città di liberarsi dai suoi sfuggenti criminali. Spesso è in coppia con Vi, come contrappunto alla natura impetuosa della sua partner. Anche se ha un fucile hextech unico al mondo, la vera arma segreta di Caitlyn è un intelletto superiore, che le permette di tendere elaborati tranelli ai criminali così stolti da agire nella città del progresso.",
-        price: 4800,
-        skills: caitlynSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/JbK7Svh.jpg",
-        name: 'Annie',
-        title: "La bambina oscura",
-        role: "Mago",
-        description: "Pericolosa e incredibilmente precoce, Annie è una maga bambina con immensi poteri di piromanzia. Anche nell'ombra delle montagne a nord di Noxus, è una bizzarria magica. La sua naturale affinità col fuoco si è manifestata sin dai suoi primi giorni con imprevedibili esplosioni di emozioni, che ha presto imparato a controllare sotto forma di trucchetti. Il suo trucchetto preferito è l'evocazione del suo adorato orsacchiotto, Tibbers, un protettore incendiario. Persa nell'eterna innocenza della sua infanzia, Annie vaga nelle foreste più buie, in cerca di qualcuno con cui giocare.",
-        price: 450,
-        skills: annieSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/nUD2D3M.jpg",
-        name: 'Xayah',
-        title: "La ribelle",
-        role: "Tiratore",
-        description: "Volubile e affascinante, Rakan è un famigerato piantagrane vastayano, nonché il più grande danzatore guerriero mai vissuto della tribù di Lhotlan. Per gli umani dell'altopiano di Ionia, il suo nome è da tempo sinonimo di feste selvagge, musica anarchica e danze fuori controllo. Pochi sospettano che questo energico showman errante è anche il compagno della ribelle Xayah e che è dedito alla sua causa",
-        price: 6300,
-        skills: xayahSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/KH0lGJz.jpg",
-        name: 'Rakan',
-        title: "L'ammaliatore",
-        role: "Supporto",
-        description: "Letale e precisa, Xayah è una rivoluzionaria vastayana che lotta per salvare il suo popolo. Con l'astuzia, la velocità e le sue affilatissime piume, stronca chiunque cerchi di ostacolarla. Xayah lotta al fianco del suo compagno e amante, Rakan, per proteggere la sua tribù in declino e riportare la sua razza alla sua idea di antica gloria.",
-        price: 6300,
-        skills: rakanSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/bmRAISw.jpg",
-        name: 'Ekko',
-        title: "Il viaggiatore del tempo",
-        role: "Assassino",
-        description: "Ekko è un prodigio che viene dalle pericolose strade di Zaun, in grado di manipolare il tempo per volgere qualsiasi situazione a proprio vantaggio. Usando la sua invenzione, il Motore-Zero, esplora le varie possibilità della realtà per costruirsi il momento perfetto. Per quanto sia uno spirito libero, se uno dei suoi amici è in pericolo è pronto a tutto per difenderlo. A chi non conosce le sue abilità, Ekko sembra in grado di fare l'impossibile, con facilità, sempre al primo tentativo.",
-        price: 6300,
-        skills: ekkoSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/xx1FPfd.jpg",
-        name: 'Poppy',
-        title: "La custode del martello",
-        role: "Tank",
-        description: "A Runeterra non mancano i valenti campioni, ma pochi hanno la determinazione di Poppy. Con il leggendario martello di Orlon, un'arma grande il doppio di lei, questa risoluta yordle ha passato un numero enorme di anni alla ricerca segreta del favoleggiato 'Eroe di Demacia' che si dice esserne il legittimo proprietario. Fino ad allora affronta la battaglia guidata dal suo senso del dovere, respingendo con ogni colpo i nemici del regno.",
-        price: 450,
-        skills: poppySkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/ycRJYoe.jpg",
-        name: 'Galio',
-        title: "Il colosso",
-        role: "Tank",
-        description: "Fuori dalla scintillante città di Demacia, il colosso di pietra Galio monta una guardia costante. Costruito come protezione dai maghi nemici, è in grado di rimanere immobile per intere decadi, fino a che non si manifesta una presenza magica tale da riportarlo in vita. Quando si attiva, Galio non perde tempo e assapora il brivido del combattimento e il raro onore di difendere i suoi compatrioti. I suoi trionfi hanno sempre un retrogusto amaro, poiché la magia che distrugge è anche la fonte della sua rianimazione, e ogni vittoria lo fa tornare al suo sonno eterno.",
-        price: 3150,
-        skills: galioSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/RhxJTEd.jpg",
-        name: 'Zac',
-        title: "L'arma segreta",
-        role: "Tank",
-        description: "Zac è il risultato di una fuga di materiali tossici fuoriuscita da una tubatura chemtech e accumulatisi in una caverna isolata nel Sump di Zaun. Nonostante queste umili origini, Zac si è evoluto da massa informe primordiale a creatura senziente che abita nelle tubature della città. Di tanto in tanto emerge per aiutare gli indifesi o per ricostruire le infrastrutture danneggiate di Zaun.",
-        price: 6300,
-        skills: zacSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/uRwdRLl.jpg",
-        name: 'Lux',
-        title: "La signora della luce",
-        role: "Mago",
-        description: "Luxanna Crownguard viene da Demacia, un reame isolato dove le capacità magiche vengono viste con timore e sospetto. Capace di piegare la luce alla sua volontà, è cresciuta nel timore, costretta a tenere segreto il suo potere per mantenere la reputazione della sua famiglia. Nonostante questo, la resistenza e l'ottimismo di Lux l'hanno portata ad accettare le sue capacità e ora le utilizza in segreto al servizio della sua patria.",
-        price: 3150,
-        skills: luxSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/wcWDnjC.jpg",
-        name: 'Rengar',
-        title: "Il cacciatore ferale",
-        role: "Assassino",
-        description: "Rengar è un pericoloso cacciatore vastayano che vive per il brivido di trovare e uccidere le creature più pericolose. Gira il mondo in cerca delle belve più feroci, in particolare di Kha'Zix, la creatura del Vuoto che gli ha cavato un occhio. Rengar dà la caccia alle sue prede non per il cibo o per la gloria, ma per la bellezza della caccia stessa.",
-        price: 4800,
-        skills: rengarSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/aWfkz5V.jpg",
-        name: 'Nami',
-        title: "Lo spirito delle maree",
-        role: "Supporto",
-        description: "Nami, una risoluta vastaya del mare, fu la prima della tribù Marai a lasciare l'acqua per avventurarsi sulla terraferma, quando venne infranto l'antico patto con i targoniani. Costretta dagli eventi, ha deciso di completare da sola il rituale sacro per assicurare la sicurezza del suo popolo. Nel caos di questa nuova era, Nami affronta un futuro incerto con coraggio e determinazione, utilizzando la sua asta dello Spirito delle maree per evocare la forza degli oceani.",
-        price: 4800,
-        skills: namiSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/0YlAjPX.jpg",
-        name: 'Maokai',
-        title: "Il treant demoniaco",
-        role: "Tank",
-        description: "Maokai è un rabbioso e imponente treant che combatte gli orrori innaturali delle Isole Ombra. Venne trasformato in una forza vendicativa dopo che un cataclisma magico distrusse la sua terra natia, sopravvivendo alla non-morte solo grazie alle acque vitali infuse nel suo legno. Maokai era un pacifico spirito della natura, ma oggi combatte con ferocia per scacciare il flagello della non-morte dalle Isole Ombra e riportarle al loro antico splendore.",
-        price: 4800,
-        skills: maokaiSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/fmeEG6z.jpg",
-        name: 'Zoe',
-        title: "L'incarnazione del crepuscolo",
-        role: "Mago",
-        description: "Incarnazione di malizia, immaginazione e cambiamento, Zoe è la messaggera cosmica di Targon. La sua comparsa è portatrice di avvenimenti in grado di plasmare mondi interi. La sua semplice presenza, infatti, a volte può distorcere gli equilibri metafisici alla base della realtà fino a causare cataclismi, senza alcuna intenzione malevola. Ciò può forse spiegare la noncuranza con la quale Zoe assolve ai suoi doveri, cosa che le permette di dedicare tempo a giocare, ingannare i mortali o più generalmente divertirsi. Incontrare Zoe può essere un'epifania di gioia vitale, ma con un significato nascosto e spesso molto pericoloso.",
-        price: 6300,
-        skills: zoeSkills
-    }),
-
-    /*
-    new Champion({
-        imagePath: "",
-        name: '',
-        title: "",
-        role: "",
-        description: "",
-        price: ,
-        skills: 
-    }),
-    */
-
-    new Champion({
-        imagePath: "https://i.imgur.com/QE2SBla.jpg",
-        name: 'Pyke',
-        title: "Lo squartatore del porto",
-        role: "Supporto",
-        description: "Abbandonato dal suo equipaggio ai leviatani delle profondità, Pyke è affogato, ma non è rimasto morto. Anni dopo, il famigerato revenant noto come lo squartatore del porto insanguinato si aggira per i Moli del sangue, spuntando nomi da una lista che sembra infinita. Aspetta... tu hai un'aria familiare...",
-        price: 7800,
-        skills: pykeSkills
-
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/f4hHJMs.jpg",
-        name: 'Nasus',
-        title: "Il custode delle dune",
-        role: "Combattente",
-        description: "Nasus è un imponente essere Asceso con il volto da sciacallo originario dell'antica Shurima, una figura eroica che la gente del deserto considera un semidio. Estremamente intelligente, era un guardiano della conoscenza e un eccelso stratega il cui buon senso guidò per secoli l'antico impero di Shurima verso la grandezza. In seguito alla caduta dell'impero, andò in esilio per sua scelta, diventando poco più che una leggenda. Ora che l'antica città di Shurima è risorta, Nasus è tornato, determinato a impedire un'altra simile sorte.",
-        price: 1350,
-        skills: nasusSkills
-
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/KzYd5Z1.jpg",
-        name: "Kai'Sa",
-        title: "Figlia del Vuoto",
-        role: "Tiratore",
-        description: "Reclamata dal Vuoto quando era soltanto una bambina, Kai'Sa è riuscita a sopravvivere con la sua incredibile tenacia e la sua forza di volontà. L'esperienza l'ha resa una cacciatrice letale, nonché la portatrice di un destino che molte delle sue prede preferirebbero non scoprire. Essendo entrata in una difficile simbiosi con un carapace del Vuoto, dovrà presto decidere se perdonare i mortali che la considerano un mostro, per affrontare insieme l'oscurità... o se dimenticarli, mentre il Vuoto consuma tutto ciò che si è lasciata alle spalle.",
-        price: 6300,
-        skills: kaisaSkills
-
-    }),
-
-    new Champion({
-        imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Tristana_Splash_Tile_0.jpg",
-        name: 'Tristana',
-        title: "L'artigliere degli Yordle",
-        role: "Tiratore",
-        description: "Mentre molti altri yordle si dedicano alle scoperte, alle invenzioni o agli intrighi, Tristana è stata sempre affascinata dalle avventure dei grandi guerrieri. Ha sentito molto parlare di Runeterra, delle sue fazioni e delle sue guerre, e ha pensato di essere anche lei degna di divenire materia delle leggende. Dopo aver messo piede nel mondo per la prima volta, ha imbracciato il suo fidato cannone Boomer e ora si lancia in battaglia con coraggio e ottimismo.",
-        price: 1350,
-        skills: tristanaSkills
-    }),
-
-    new Champion({
-        imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Thresh_Splash_Tile_0.jpg",
-        name: 'Thresh',
-        title: "Il carceriere",
-        role: "Supporto",
-        description: "Sadico e astuto, Thresh è uno spirito inquieto e ambizioso delle Isole Ombra. Un tempo custode di innumerevoli arcani segreti, ha cercato un potere più grande della vita e della morte e ora si alimenta tormentando e uccidendo il prossimo con spietatezza e creatività. Le sue vittime soffrono ben oltre la morte, poiché Thresh infligge l'agonia sulle loro anime, imprigionandole nella sua empia lanterna per torturarle per l'eternità.",
-        price: 6300,
-        skills: threshSkills
-
-    }),
-
-    new Champion({
-        imagePath: "https://d181w3hxxigzvh.cloudfront.net/wp-content/uploads/2017/09/Garen_Splash_Tile_0.jpg",
-        name: 'Garen',
-        title: "La potenza di Demacia",
-        role: "Combattente",
-        description: "Un guerriero nobile e orgoglioso, Garen combatte come membro dell'Indomita avanguardia. I suoi compagni lo stimano e i nemici lo rispettano, anche perché è il rampollo della prestigiosa famiglia Crownguard, con il compito di difendere Demacia e i suoi ideali. Protetto da un'armatura resistente alla magia e armato di una possente spada a due mani, Garen è pronto ad affrontare maghi e stregoni sul campo di battaglia, in un vero e proprio tornado d'acciaio.",
-        price: 450,
-        skills: garenSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/WM2uxhI.jpg",
-        name: 'Irelia',
-        title: "La danzatrice delle lame",
-        role: "Combattente",
-        description: "L'occupazione noxiana di Ionia ha creato molti eroi, ma nessuno più improbabile della giovane Irelia di Navori. Addestrata nelle antiche danze della sua provincia, ha adattato la sua arte alla guerra, utilizzando le eleganti ed esperte movenze per far levitare una serie di letali lame. Dopo aver dimostrato il suo valore di guerriera, è stata nominata capo e simbolo della resistenza, e si dedica ancora oggi alla protezione della sua patria.",
-        price: 4800,
-        skills: ireliaSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/3DosUt7.jpg",
-        name: 'Yasuo',
-        title: "Il reietto",
-        role: "Combattente",
-        description: "Un determinato abitante di Ionia, Yasuo è un agile spadaccino che usa l'aria come arma contro i suoi avversari. Giovane, abile e fiero, è stato accusato ingiustamente di aver ucciso il suo maestro: incapace di dimostrare la sua innocenza, è stato costretto a uccidere il suo stesso fratello per difendersi. Anche dopo la scoperta del vero assassino del suo maestro, Yasuo non è riuscito a liberarsi del senso di colpa e ora vaga per la sua terra natia con il vento a guidare la sua lama.",
-        price: 6300,
-        skills: yasuoSkills
-    }),
-
-    new Champion({
-        imagePath: "https://i.imgur.com/iXo6dyK.jpg",
-        name: 'Ashe',
-        title: "L'arciere dei ghiacci",
-        role: "Tiratore",
-        description: "Ashe è la madre guerriera, figlia del gelo, della tribù degli Avarosani, che comanda l'orda più popolosa del nord. Stoica, intelligente e idealista, ma al tempo stesso inquieta nel suo ruolo di leader, sfrutta la magia arcana della sua stirpe per brandire un arco di Vero Ghiaccio. Ritenuta la reincarnazione della mitologica Avarosa dal suo popolo, Ashe spera di riunire il Freljord riconquistando le antiche terre tribali.",
-        price: 450,
-        skills: asheSkills
+    new User({
+        email: 'fra@fra.it',
+        password: 'pippo',
+        champions: [Irelia, Poppy, Kaisa],
+        blueEssence: 30000
     })
-
 ];
 
+var done = 0;
+for (var i = 0; i < users.length; i++) {
+    users[i].save(function(err, result) {
+        done++;
+        if (done === users.length) {
+            exit();
+        }
+    });
+}
 
 var done = 0;
 for (var i = 0; i < champions.length; i++) {

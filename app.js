@@ -32,7 +32,7 @@ var champRoutes = require('./routes/champion');
 var app = express();
 
 //connect to database
-mongoose.connect('mongodb://localhost:27017/shopping');
+mongoose.connect('mongodb://localhost:27017/league-shop');
 require('./config/passport');
 
 // view engine setup

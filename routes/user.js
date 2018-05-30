@@ -6,8 +6,24 @@ var passport = require('passport');
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
+var User = require('../models/user');
+
+
+
 router.get('/profile', isLoggedIn, function(req, res, next) {
-    res.render('user/profile');
+
+    User.findOne({
+        email: req.user.email
+
+    }, function(err, docs) {
+        var users = [];
+        users.push(docs);
+        console.log(users);
+        res.render('user/profile', {
+            users: users
+        });
+
+    })
 });
 
 router.get('/logout', isLoggedIn, function(req, res, next) {
