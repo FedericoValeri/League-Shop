@@ -131,7 +131,7 @@ body {
 /*champ bio*/
 
 [id=prova] {
-    /*border-style: solid;*/
+    border-style: solid;
     border-width: 1px;
     border-color: rgb(255, 0, 0);
 }
