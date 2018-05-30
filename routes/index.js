@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
         var chunkSize = 4;
         var sort = 'pricedesc';
         var role = 'Tutti';
+        var champInCart = false;
         for (var i = 0; i < docs.length; i += chunkSize) {
             productChunks.push(docs.slice(i, i + chunkSize));
         }
@@ -18,7 +19,8 @@ router.get('/', function(req, res, next) {
             title: 'League Shop',
             champions: productChunks,
             sort: sort,
-            role: role
+            role: role,
+            champInCart: champInCart
         });
     }).sort({
         price: 'desc',
@@ -41,7 +43,28 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
             console.log(req.session.cart);
             res.redirect('/');
         } else {
-            res.redirect('/');
+            //some error message on page
+            console.log("Campione già nel carrello!");
+            Champion.find(function(err, docs) {
+                var productChunks = [];
+                var chunkSize = 4;
+                var sort = 'pricedesc';
+                var role = 'Tutti';
+                var champInCart = true;
+                for (var i = 0; i < docs.length; i += chunkSize) {
+                    productChunks.push(docs.slice(i, i + chunkSize));
+                }
+                res.render('shop/index', {
+                    title: 'League Shop',
+                    champions: productChunks,
+                    sort: sort,
+                    role: role,
+                    champInCart: champInCart
+                });
+            }).sort({
+                price: 'desc',
+                name: 'asc'
+            });
         }
 
     });
