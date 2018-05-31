@@ -11,6 +11,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 
+
 //ifeq
 var Handlebars = require('handlebars');
 
@@ -22,9 +23,11 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
     }
 });
 
+
 var indexRouter = require('./routes/index');
 var userRoutes = require('./routes/user');
 var cartRoutes = require('./routes/cart');
+var adminRoutes = require('./routes/admin');
 
 //CODE BY FEDE
 var champRoutes = require('./routes/champion');
@@ -72,11 +75,14 @@ app.use(function(req, res, next) {
 });
 
 //CODE BY FEDE
+app.use('/', indexRouter);
+app.use('/user', userRoutes);
 app.use('/champions', champRoutes);
 app.use('/cart', cartRoutes);
+app.use('/admin', adminRoutes);
 
-app.use('/user', userRoutes);
-app.use('/', indexRouter);
+
+
 
 
 // catch 404 and forward to error handler

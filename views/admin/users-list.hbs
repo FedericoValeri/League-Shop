@@ -1,0 +1,47 @@
+<div class="row">
+    {{#each users}}
+    <div class="row">
+        {{#each this}}
+        <div class="col-sm-6 col-md-6">
+            <div class="card" id="champ">
+                <img class="card-img-top" name="champImage" src="">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-12">
+                            <h2 class="card-title" name="email">Email: {{this.email}}</h2>
+                        </div>
+                    </div>
+                    <h3 class="titleHome" name="titleHome">Password: {{this.password}}
+                    </h3>
+                    <div class="row" id="rowbottoni">
+                        <div class="col-md-6" id="yo">
+                            <a href="/user/{{this.email}}" class="button" role="button">
+                                <span>Info Utente</span>
+                            </a>
+                        </div>
+                        <div class="col-md-6" id="yo">
+                            <form action="/admin/{{this._id}}" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+                                    <button onclick="ConfirmDelete()" type="submit" class="btn btn-danger">Delete Account</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</div>
+
+
+<script>
+    function ConfirmDelete() {
+        var x = confirm("Sei sicuro di voler cancellare l'utente?");
+        if (x)
+            return true;
+        else
+            return false;
+    }</script>

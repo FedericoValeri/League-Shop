@@ -14,11 +14,12 @@ router.get('/profile', isLoggedIn, function(req, res, next) {
 
     User.findOne({
         email: req.user.email
-
     }, function(err, docs) {
         var users = [];
         users.push(docs);
+        var prova = "ciao";
         console.log(users);
+        console.log(req.session);
         res.render('user/profile', {
             users: users
         });
@@ -79,6 +80,25 @@ router.post('/signin', passport.authenticate('local.signin', {
         res.redirect('/user/profile');
     }
 });
+
+
+router.get('/:email', function(req, res, next) {
+    const email = req.params.email;
+    User.findOne({
+        email: email
+    }, function(err, docs) {
+        var user = [];
+        user.push(docs);
+        console.log(docs);
+
+        res.render('shop/user', {
+            title: 'League Shop',
+            users: user
+        });
+    })
+});
+
+
 
 module.exports = router;
 

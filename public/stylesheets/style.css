@@ -6,7 +6,7 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
+    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
@@ -29,14 +29,6 @@ body {
 }
 
 [id=filtra] {
-    float: right;
-}
-
-[name=EB] {
-    margin-top: 3px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 0px;
     float: right;
 }
 
@@ -63,12 +55,12 @@ body {
 }
 
 [name=rigaTitoloPrezzo] {
-    margin-top: -5px;
-    margin-left: -10px;
+    width: 100%;
+    margin: 0%;
 }
 
 [name=titleHome] {
-    margin-top: 7px;
+    margin-top: 10px;
     margin-bottom: 20px;
     margin-left: 3px;
     font-size: 23px;
@@ -76,7 +68,16 @@ body {
 
 [name=price] {
     color: rgb(0, 128, 208);
-    float: left;
+    float: right;
+    margin: 0%;
+}
+
+[name=EB] {
+    margin-top: 4px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 3px;
+    float: right;
 }
 
 [name=main-container] {
@@ -84,12 +85,16 @@ body {
 }
 
 [name=prezzo] {
-    padding-left: 0px;
+    padding: 0px;
+}
+
+[id=rowprezzo] {
+    width: 100%;
+    margin: 0%;
 }
 
 [name=champName] {
-    padding-right: 0px;
-    padding-left: 17px;
+    padding: 0%;
 }
 
 [name=ordinaPer] {
@@ -108,10 +113,26 @@ body {
     margin-left: 80px;
 }
 
+[id=rowbottoni] {
+    width: 100%;
+    margin: 0%;
+}
+
 [id="aggiungi"] {
-    float: right;
     height: 36px;
-    width: 160px;
+    width: 59%;
+    float: right;
+    font-size: 100%;
+}
+
+[id=yo] {
+    margin: 0%;
+    padding: 0%;
+}
+
+[id=yo2] {
+    margin: 0%;
+    padding: 0%;
 }
 
 [id=colonnaCarta] {
@@ -127,12 +148,17 @@ body {
     border-bottom-right-radius: 5px;
 }
 
+[class=card-title] {
+    padding-left: 4%;
+    margin: 0%;
+}
+
 
 /*champ bio*/
 
 [id=prova] {
     /*border-style: solid;*/
-    border-width: 1px;
+    /*border-width: 1px;*/
     border-color: rgb(255, 0, 0);
 }
 
@@ -185,6 +211,8 @@ body {
     margin-left: auto;
     margin-top: 40px;
     margin-bottom: 40px;
+    width: 100%;
+    height: 100%;
 }
 
 
@@ -273,9 +301,9 @@ body {
     border: none;
     color: rgb(236, 177, 82);
     text-align: center;
-    font-size: 16px;
+    font-size: 100%;
     padding: 6px;
-    width: 150px;
+    width: 39%;
     transition: all 0.5s;
     cursor: pointer;
 }

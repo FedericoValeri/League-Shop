@@ -7,7 +7,6 @@ var Champion = require('../models/champion');
 
 router.get('/:name', function(req, res, next) {
     const name = req.params.name;
-
     Champion.findOne({
         name: name
     }, function(err, docs) {
@@ -20,7 +19,6 @@ router.get('/:name', function(req, res, next) {
             champion: champ
         });
     })
-
 });
 
 /*role selection*/
@@ -45,6 +43,7 @@ router.get('/role/:role', function(req, res, next) {
         name: 'asc'
     });
 });
+
 
 
 
