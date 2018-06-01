@@ -5,6 +5,7 @@ var router = express.Router();
 
 var Champion = require('../models/champion');
 
+
 router.get('/:name', function(req, res, next) {
     const name = req.params.name;
     Champion.findOne({
@@ -20,6 +21,8 @@ router.get('/:name', function(req, res, next) {
         });
     })
 });
+
+
 
 /*role selection*/
 

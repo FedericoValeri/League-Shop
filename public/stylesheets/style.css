@@ -6,7 +6,7 @@
 
 body {
     background-color: rgb(255, 255, 255);
-    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
+    /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
