@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+var Skill = require('../models/skill');
 var User = require('../models/user');
 var Champion = require('../models/champion');
 
@@ -19,6 +20,21 @@ router.get('/usersList', function(req, res, next) {
         res.render('admin/users-list', {
             users: userChunks
         });
+    });
+});
+
+//get champions list
+router.get('/championsList', function(req, res, next) {
+    Champion.find(function(err, docs) {
+        var championsChunks = [];
+
+        championsChunks.push(docs);
+
+        res.render('admin/champions-list', {
+            champions: championsChunks
+        });
+    }).sort({
+        name: 'asc'
     });
 });
 
@@ -45,6 +61,7 @@ router.post("/:id", (req, res, next) => {
     });
 });
 
+//add new champ
 router.post('/add/newChamp', (req, res) => {
     console.log(req.body);
     //creazione skills 
@@ -91,6 +108,7 @@ router.post('/add/newChamp', (req, res) => {
         skills: champSkills
     })
     champion.save();
+    res.redirect("/admin/");
 });
 
 

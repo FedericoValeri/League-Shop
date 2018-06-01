@@ -7,17 +7,17 @@ var Champion = require('../models/champion');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     Champion.find(function(err, docs) {
-        var productChunks = [];
-        var chunkSize = 4;
+        var campioni = [];
+
         var sort = 'pricedesc';
         var role = 'Tutti';
         var champInCart = false;
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
+
+        campioni.push(docs);
+
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks,
+            champions: campioni,
             sort: sort,
             role: role,
             champInCart: champInCart
@@ -46,17 +46,17 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
             //some error message on page
             console.log("Campione già nel carrello!");
             Champion.find(function(err, docs) {
-                var productChunks = [];
-                var chunkSize = 4;
+                var campioni = [];
+
                 var sort = 'pricedesc';
                 var role = 'Tutti';
                 var champInCart = true;
-                for (var i = 0; i < docs.length; i += chunkSize) {
-                    productChunks.push(docs.slice(i, i + chunkSize));
-                }
+
+                campioni.push(docs);
+
                 res.render('shop/index', {
                     title: 'League Shop',
-                    champions: productChunks,
+                    champions: campioni,
                     sort: sort,
                     role: role,
                     champInCart: champInCart
@@ -74,16 +74,14 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
 //price asc
 router.get('/EB', function(req, res, next) {
     Champion.find(function(err, docs) {
-        var productChunks = [];
-        var chunkSize = 4;
+        var campioni = [];
+
         var sort = 'priceasc';
         var role = 'Tutti';
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
+        campioni.push(docs);
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks,
+            champions: campioni,
             sort: sort,
             role: role
         });
@@ -94,16 +92,14 @@ router.get('/EB', function(req, res, next) {
 //nome asc
 router.get('/Z-A', function(req, res, next) {
     Champion.find(function(err, docs) {
-        var productChunks = [];
-        var chunkSize = 4;
+        var campioni = [];
+
         var sort = 'nameasc';
         var role = 'Tutti';
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
+        campioni.push(docs);
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks,
+            champions: campioni,
             sort: sort,
             role: role
         });
@@ -114,16 +110,14 @@ router.get('/Z-A', function(req, res, next) {
 //nome desc
 router.get('/A-Z', function(req, res, next) {
     Champion.find(function(err, docs) {
-        var productChunks = [];
-        var chunkSize = 4;
+        var campioni = [];
+
         var sort = 'namedesc';
         var role = 'Tutti';
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
+        campioni.push(docs);
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks,
+            champions: campioni,
             sort: sort,
             role: role
         });
