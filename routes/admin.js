@@ -12,13 +12,12 @@ router.get('/', function(req, res, next) {
 //get users list
 router.get('/usersList', function(req, res, next) {
     User.find(function(err, docs) {
-        var userChunks = [];
-        var chunkSize = 3;
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            userChunks.push(docs.slice(i, i + chunkSize));
-        }
+        var users = [];
+
+        users.push(docs);
+
         res.render('admin/users-list', {
-            users: userChunks
+            users: users
         });
     });
 });

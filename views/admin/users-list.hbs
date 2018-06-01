@@ -7,15 +7,18 @@
                 <div class="card-body">
                     <h5 class="card-title">Email: {{this.email}}</h5>
                     <p class="card-text">Password: {{this.password}}</p>
-                    <a href="/user/{{this.email}}" class="btn btn-info" role="button">
-                        <span>Info Utente</span>
-                    </a>
-                    <form action="/admin/{{this._id}}" method="post">
-                        <div class="form-group">
-                            <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                            <button type="submit" class="btn btn-danger">Delete Account</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="/user/{{this.email}}" class="btn btn-info">
+                                <span>Info Utente</span>
+                            </a>
+                            <form action="/admin/{{this._id}}" method="post">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-danger">Delete Account</button>
+                                </div>
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

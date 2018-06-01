@@ -40,7 +40,9 @@ passport.use('local.signup', new LocalStrategy({
                 message: 'Email is already in use.'
             });
         }
-        var newUser = new User();
+        var newUser = new User({
+            blueEssence: 50000
+        });
         newUser.email = email;
         newUser.password = password;
         //newUser.password = newUser.encryptPassword(password);
