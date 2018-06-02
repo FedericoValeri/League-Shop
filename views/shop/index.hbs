@@ -3,8 +3,8 @@
 <!--Filters and Search bar-->
 <div class="row" id="barrasopra">
     <!--filter by role column-->
-    <div class="col-sm-3 col-md-3">
-        <label id="filtra" style="font-size: 22px">Filtra per:</label>
+    <div class="col-5 col-md-3">
+        <label id="filtra" style="font-size: 21px">Filtra: </label>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             {{role}}
@@ -21,7 +21,7 @@
 
     </div>
     <!--Search bar column-->
-    <div class="col-sm-6 col-md-6">
+    <div class="col-2 col-md-6">
         <!--
         <div class="box">
             <div class="container-4">
@@ -33,8 +33,8 @@
         </div>-->
     </div>
     <!--Sort by...column-->
-    <div class="col-sm-3 col-md-3" name="colonna3">
-        <label id="ordina" style="font-size: 22px">Ordina per:</label>
+    <div class="col-5 col-md-3" name="colonna3">
+        <label id="ordina" style="font-size: 21px">Ordina: </label>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
@@ -92,7 +92,7 @@
     {{#each champions}}
     <div class="row">
         {{#each this}}
-        <div class="col-sm-6 col-md-3" id="colonnaCarta">
+        <div class="col-12 col-md-3" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
@@ -100,7 +100,7 @@
                         <div class="col-sm-6 col-md-8" name="champName">
                             <h2 class="card-title" name="name"> {{this.name}}</h2>
                         </div>
-                        <div class="col-sm-6 col-md-4" align="right" name="prezzo">
+                        <div class="col-md-4" align="right" name="prezzo">
                             <div class="row" id="rowprezzo">
                                 <div class="col-md-12" id="yo2">
                                     <img name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
