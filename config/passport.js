@@ -1,14 +1,26 @@
 var passport = require('passport');
 var User = require('../models/user');
+var Admin = require('../models/admin');
 var LocalStrategy = require('passport-local').Strategy;
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
 });
 
+passport.serializeUser(function(admin, done) {
+    done(null, admin.id);
+});
+
+
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         done(err, user);
+    });
+});
+
+passport.deserializeUser(function(id, done) {
+    Admin.findById(id, function(err, admin) {
+        done(err, admin);
     });
 });
 
@@ -87,5 +99,40 @@ passport.use('local.signin', new LocalStrategy({
             });
         }
         return done(null, user);
+    });
+}));
+
+passport.use('local.admin.signin', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true
+}, function(req, username, password, done) {
+    req.checkBody('username', 'Invalid username').notEmpty();
+    req.checkBody('password', 'Invalid password').notEmpty();
+    var errors = req.validationErrors();
+    if (errors) {
+        var messages = [];
+        errors.forEach(function(error) {
+            messages.push(error.msg);
+        });
+        return done(null, false, req.flash('error', messages));
+    }
+    Admin.findOne({
+        'username': username
+    }, function(err, admin) {
+        if (err) {
+            return done(err);
+        }
+        if (!admin) {
+            return done(null, false, {
+                message: 'You are not admin. Get out of here!'
+            });
+        }
+        if (!admin.validPassword(password)) {
+            return done(null, false, {
+                message: 'Wrong password.'
+            });
+        }
+        return done(null, admin);
     });
 }));

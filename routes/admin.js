@@ -1,13 +1,44 @@
 var express = require('express');
 var router = express.Router();
+var csrf = require('csurf');
+var passport = require('passport');
+
+var csrfProtection = csrf();
+router.use(csrfProtection);
 
 var Skill = require('../models/skill');
 var User = require('../models/user');
 var Champion = require('../models/champion');
 
-router.get('/', function(req, res, next) {
+
+router.get('/home', function(req, res, next) {
     res.render('admin/admin-page', {});
 });
+
+
+router.get('/signin', function(req, res, next) {
+    var messages = req.flash('error');
+    res.render('admin/signin', {
+        csrfToken: req.csrfToken(),
+        messages: messages,
+        hasErrors: messages.length > 0
+    });
+});
+
+router.post('/signin', passport.authenticate('local.admin.signin', {
+    failureRedirect: '/admin/signin',
+    failureFlash: true
+}), function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/admin/home');
+    }
+});
+
+
 
 //get users list
 router.get('/usersList', function(req, res, next) {
@@ -109,8 +140,5 @@ router.post('/add/newChamp', (req, res) => {
     champion.save();
     res.redirect("/admin/");
 });
-
-
-
 
 module.exports = router;

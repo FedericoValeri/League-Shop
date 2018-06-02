@@ -33,7 +33,10 @@ userSchema.methods.encryptPassword = function(password) {
 
 userSchema.methods.validPassword = function(password) {
     //return bcrypt.compareSync(password, this.password);
-    return true;
+    if (this.password === password) {
+        return true
+    } else
+        return false
 };
 
 
