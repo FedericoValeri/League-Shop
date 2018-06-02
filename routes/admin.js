@@ -50,12 +50,12 @@ router.post("/:id", (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-            console.log("Errore");
+            console.log("Errorrrre");
             return res.redirect("/admin/");
         }
 
         req.flash("success", "Your account has been deleted.");
-
+        console.log("Bravo Federico");
         return res.redirect("/admin/usersList");
     });
 });
