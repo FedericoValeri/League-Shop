@@ -78,9 +78,10 @@ app.use(function(req, res, next) {
 //CODE BY FEDE
 app.use('/', indexRouter);
 app.use('/user', userRoutes);
+app.use('/admin', adminRoutes);
 app.use('/champions', champRoutes);
 app.use('/cart', cartRoutes);
-app.use('/admin', adminRoutes);
+
 
 
 
