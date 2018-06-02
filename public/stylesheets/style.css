@@ -5,11 +5,12 @@
 }
 
 body {
-    background-color: rgb(255, 255, 255);
-    /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
+    background-color: rgb(0, 0, 0);
+    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: 100%;
+    background-position: center center;
+    background-size: cover;
 }
 
 [id="btnsmall"] {
@@ -58,6 +59,16 @@ body {
 [name=champImage] {
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+}
+
+[name=plusImage] {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #000014e1;
+}
+
+[id=pluscard] {
+    height: 80px;
 }
 
 [name=rigaTitoloPrezzo] {
@@ -132,13 +143,20 @@ body {
 }
 
 [id=yo] {
-    margin: 0%;
+    margin: auto;
     padding: 0%;
+}
+
+[id=plustesto] {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 [id=yo2] {
     margin: 0%;
     padding: 0%;
+    align-content: center;
 }
 
 [id=colonnaCarta] {
