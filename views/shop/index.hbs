@@ -1,34 +1,27 @@
 <br>
 
 <!--Filters and Search bar-->
-<div class="row" align="center" id="barrasopra">
+<div class="row" id="barrasopra">
     <!--filter by role column-->
-    <div class="col-sm-6 col-md-4">
-        <div class="row">
-            <div class="col-md-4">
-                <h4 id="filtra">Filtra per:</h4>
-            </div>
-            <div class="col-sm-6 col-md-8">
-                <div class="dropdown" align="left">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        {{role}}
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropFiltra">
-                        <a class="dropdown-item" href="/">Tutti</a>
-                        <a class="dropdown-item" href="/champions/role/Assassino">Assassino</a>
-                        <a class="dropdown-item" href="/champions/role/Tank">Tank</a>
-                        <a class="dropdown-item" href="/champions/role/Tiratore">Tiratore</a>
-                        <a class="dropdown-item" href="/champions/role/Mago">Mago</a>
-                        <a class="dropdown-item" href="/champions/role/Supporto">Supporto</a>
-                        <a class="dropdown-item" href="/champions/role/Combattente">Combattente</a>
-                    </div>
-                </div>
-            </div>
+    <div class="col-sm-3 col-md-3">
+        <label id="filtra" style="font-size: 22px">Filtra per:</label>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{role}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropFiltra">
+            <a class="dropdown-item" href="/">Tutti</a>
+            <a class="dropdown-item" href="/champions/role/Assassino">Assassino</a>
+            <a class="dropdown-item" href="/champions/role/Tank">Tank</a>
+            <a class="dropdown-item" href="/champions/role/Tiratore">Tiratore</a>
+            <a class="dropdown-item" href="/champions/role/Mago">Mago</a>
+            <a class="dropdown-item" href="/champions/role/Supporto">Supporto</a>
+            <a class="dropdown-item" href="/champions/role/Combattente">Combattente</a>
         </div>
+
     </div>
     <!--Search bar column-->
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-6">
         <!--
         <div class="box">
             <div class="container-4">
@@ -40,45 +33,42 @@
         </div>-->
     </div>
     <!--Sort by...column-->
-    <div class="col-sm-6 col-md-4" name="colonna3">
-        <div class="row">
-            <div class="col-sm-6 col-md-8">
-                <h4 id="ordina">Ordina per:</h4>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
-                    ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Alfabetico ↑{{/if_eq}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {{#if_eq sort 'pricedesc'}}
-                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
-                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
-                    {{/if_eq}} {{#if_eq sort 'priceasc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
-                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
-                    {{/if_eq}} {{#if_eq sort 'nameasc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
-                    {{/if_eq}} {{#if_eq sort 'namedesc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
-                    {{/if_eq}}
-                </div>
-            </div>
+    <div class="col-sm-3 col-md-3" name="colonna3">
+        <label id="ordina" style="font-size: 22px">Ordina per:</label>
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
+            ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Alfabetico ↑{{/if_eq}}
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            {{#if_eq sort 'pricedesc'}}
+            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            {{/if_eq}} {{#if_eq sort 'priceasc'}}
+            <a class="dropdown-item" href="/">Prezzo ↓</a>
+            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            {{/if_eq}} {{#if_eq sort 'nameasc'}}
+            <a class="dropdown-item" href="/">Prezzo ↓</a>
+            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+            {{/if_eq}} {{#if_eq sort 'namedesc'}}
+            <a class="dropdown-item" href="/">Prezzo ↓</a>
+            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
+            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            {{/if_eq}}
         </div>
     </div>
+
+
 </div>
 
 
 <br>
 <br>
 
+<!--div per messaggio "Campione già presente nel carrello!"-->
 <div class="row">
     <div class="col-sm-6 col-md-3">
 
@@ -96,6 +86,8 @@
 
     </div>
 </div>
+
+
 <div class="row">
     {{#each champions}}
     <div class="row">
