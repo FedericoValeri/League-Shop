@@ -37,26 +37,26 @@
         <strong id="ordina" style="font-size: 21px">Ordina: </strong>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
-            {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
-            ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Alfabetico ↑{{/if_eq}}
+            {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Nome
+            ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Nome ↑{{/if_eq}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {{#if_eq sort 'pricedesc'}}
             <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
-            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
+            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
             {{/if_eq}} {{#if_eq sort 'priceasc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
-            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
-            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
+            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
             {{/if_eq}} {{#if_eq sort 'nameasc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
             <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/A-Z">Alfabetico ↓</a>
+            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
             {{/if_eq}} {{#if_eq sort 'namedesc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
             <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/Z-A">Alfabetico ↑</a>
+            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
             {{/if_eq}}
         </div>
     </div>
