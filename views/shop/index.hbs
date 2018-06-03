@@ -4,7 +4,7 @@
 <div class="row" id="barrasopra">
     <!--filter by role column-->
     <div class="col-5 col-md-3">
-        <label id="filtra" style="font-size: 21px">Filtra: </label>
+        <strong id="filtra" style="font-size: 21px">Filtra: </strong>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             {{role}}
@@ -34,7 +34,7 @@
     </div>
     <!--Sort by...column-->
     <div class="col-5 col-md-3" name="colonna3">
-        <label id="ordina" style="font-size: 21px">Ordina: </label>
+        <strong id="ordina" style="font-size: 21px">Ordina: </strong>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Alfabetico
@@ -92,7 +92,7 @@
     {{#each champions}}
     <div class="row">
         {{#each this}}
-        <div class="col-12 col-md-3" id="colonnaCarta">
+        <div class="col-12 col-sm-6 col-md-3" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
