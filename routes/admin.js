@@ -3,8 +3,8 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 
-var csrfProtection = csrf();
-router.use(csrfProtection);
+//var csrfProtection = csrf();
+//router.use(csrfProtection);
 
 var Skill = require('../models/skill');
 var User = require('../models/user');
@@ -16,7 +16,7 @@ router.get('/home', function(req, res, next) {
 });
 
 
-router.get('/signin', function(req, res, next) {
+router.get('/signin', csrf(), function(req, res, next) {
     var messages = req.flash('error');
     res.render('admin/signin', {
         csrfToken: req.csrfToken(),
@@ -85,7 +85,7 @@ router.post("/:id", (req, res, next) => {
             return res.redirect("/admin/");
         }
 
-        req.flash("success", "Your account has been deleted.");
+        req.flash("success", "The account has been deleted.");
         console.log("Bravo Federico");
         return res.redirect("/admin/usersList");
     });

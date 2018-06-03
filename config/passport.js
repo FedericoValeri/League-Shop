@@ -29,6 +29,8 @@ passport.use('local.signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done) {
+    var username = req.body.username;
+    req.checkBody('username', 'Invalid username').notEmpty();
     req.checkBody('email', 'Invalid email').notEmpty().isEmail();
     req.checkBody('password', 'Invalid password').notEmpty().isLength({
         min: 4
@@ -41,20 +43,22 @@ passport.use('local.signup', new LocalStrategy({
         });
         return done(null, false, req.flash('error', messages));
     }
-    User.findOne({
-        'email': email
+    User.find({
+        'email': email,
+        'username': username
     }, function(err, user) {
         if (err) {
             return done(err);
         }
         if (user) {
             return done(null, false, {
-                message: 'Email is already in use.'
+                message: 'User already exists.'
             });
         }
         var newUser = new User({
             blueEssence: 50000
         });
+        newUser.username = username;
         newUser.email = email;
         newUser.password = password;
         //newUser.password = newUser.encryptPassword(password);

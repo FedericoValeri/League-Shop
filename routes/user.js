@@ -3,8 +3,8 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 
-var csrfProtection = csrf();
-router.use(csrfProtection);
+//var csrfProtection = csrf();
+//router.use(csrfProtection);
 
 var User = require('../models/user');
 
@@ -37,7 +37,7 @@ router.use('/', notLoggedIn, function(req, res, next) {
     next();
 });
 
-router.get('/signup', function(req, res, next) {
+router.get('/signup', csrf(), function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/signup', {
         csrfToken: req.csrfToken(),
@@ -59,7 +59,7 @@ router.post('/signup', passport.authenticate('local.signup', {
     }
 });
 
-router.get('/signin', function(req, res, next) {
+router.get('/signin', csrf(), function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/signin', {
         csrfToken: req.csrfToken(),
