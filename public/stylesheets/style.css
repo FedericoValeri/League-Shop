@@ -323,7 +323,7 @@ body {
 }
 
 [name="rowSkill"] {
-    height: 150px;
+    min-height: 150px;
     align-content: center;
 }
 
