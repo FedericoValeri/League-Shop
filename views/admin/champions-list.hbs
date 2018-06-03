@@ -2,18 +2,20 @@
     {{#each champions}}
     <div class="row">
         <div class="col-sm-6 col-md-2" id="colonnaCarta">
-            <div class="card" style="width: 100%;" id="champ">
-                <a href="/admin/insertNewChamp" class="new-champ-button hvr-float-shadow">
+            <a style="text-decoration:none;" href="/admin/insertNewChamp" class="new-champ-button hvr-float-shadow">
+                <div class="card" style="width: 100%;" id="plus">
                     <img class="card-img-top" name="plusImage" src="https://i.imgur.com/DGErFFv.png">
                     <div class="card-body" id="pluscard">
-                </a>
-                <div class="row" id="rowplus">
-                    <div class="col-sm-6 col-md-12">
-                        <h5 id="plustesto">Aggiungi campione</h5>
+                        <div class="col-md-12" id="colonnaaggiugi">
+                            <div class="row" id="rowplus">
+                                <div class="col-sm-6 col-md-12">
+                                    <h5 id="plustesto">Aggiungi campione</h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-            </div>
+            </a>
         </div>
         {{#each this}}
         <div class="col-6 col-md-2" id="colonnaCarta">
