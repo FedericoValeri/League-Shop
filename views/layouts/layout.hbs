@@ -23,9 +23,17 @@
 
   {{> header}}
 
+
   <div name="main-container" class="container-fluid">
-    {{{body}}}
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8">
+        {{{body}}}
+      </div>
+      <div class="col-0 col-md-2"></div>
+    </div>
   </div>
+
 
   <script>
     // When the user scrolls down 200px from the top of the document, show the button
@@ -47,7 +55,8 @@
   </script>
 
   <button onclick="topFunction()" id="myBtn" title="Go to top">
-      Up <i class="fas fa-angle-double-up"></i>
+    Up
+    <i class="fas fa-angle-double-up"></i>
   </button>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

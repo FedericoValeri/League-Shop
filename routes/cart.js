@@ -12,10 +12,21 @@ router.get('/', function(req, res, next) {
             champions: null
         });
     }
+
+    //calcola il nuovo bilancio dell'utente che sta per acquistare dei campioni, e lo salva nella variabile saldo.
+    function nuovoBilancio() {
+        var saldo = req.user.blueEssence - req.session.cart.totalPrice;
+        if (saldo < 0) {
+            return false;
+        } else
+            return saldo;
+    }
+
     var cart = new Cart(req.session.cart);
     res.render('shop/cart', {
         champions: cart.generateArray(),
-        totalPrice: cart.totalPrice
+        totalPrice: cart.totalPrice,
+        nuovoBilancio: nuovoBilancio()
     });
 });
 

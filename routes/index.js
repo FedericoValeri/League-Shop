@@ -47,7 +47,6 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
             console.log("Campione già nel carrello!");
             Champion.find(function(err, docs) {
                 var campioni = [];
-
                 var sort = 'pricedesc';
                 var role = 'Tutti';
                 var champInCart = true;

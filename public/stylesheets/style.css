@@ -139,10 +139,6 @@ body {
     float: right;
 }
 
-[name=main-container] {
-    width: 75%;
-}
-
 [name=prezzo] {
     padding: 0px;
 }
@@ -337,11 +333,13 @@ body {
 [id="letterTitleBio"] {
     margin: 0%;
     margin-bottom: 1%;
+    width: 100%;
 }
 
 [id=descSkillBio] {
     margin: 0%;
     margin-bottom: 1%;
+    width: 100%;
 }
 
 [id="imageBio"] {

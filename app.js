@@ -12,9 +12,11 @@ var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 
 var User = require('./models/user');
-//ifeq
+
+//hbs helpers
 var Handlebars = require('handlebars');
 
+//equals hepler
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
         return opts.fn(this);
@@ -73,14 +75,14 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-    //res.locals.login = req.isAuthenticated();
+    //verifica se è un utente normale e salva la variabile loggedAsUser.
     function isUser() {
         if (req.user && req.user.isAdmin === false) {
             return true;
         } else return false;
     }
     res.locals.loggedAsUser = isUser();
-
+    //verifica se è un admin e salva la variabile loggedAsAdmin.
     function isAdmin() {
         if (req.user && req.user.isAdmin === true) {
             return true;
@@ -89,6 +91,8 @@ app.use(function(req, res, next) {
     res.locals.loggedAsAdmin = isAdmin();
 
     res.locals.session = req.session;
+
+    //req.user di passport salvato nella variabile user
     res.locals.user = req.user;
 
     next();
