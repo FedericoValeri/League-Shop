@@ -88,36 +88,33 @@
 </div>
 
 
-<div class="row">
+<div class="row carte">
     {{#each champions}}
     <div class="row">
         {{#each this}}
-        <div class="col-6 col-sm-6 col-md-3" id="colonnaCarta">
+        <div class="colonna-carta" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
                     <div class="row" name="rigaTitoloPrezzo">
-                        <div class="col-sm-6 col-md-8" name="champName">
+                        <div class="col-12 col-md-8" name="champName">
                             <h2 class="card-title" name="name"> {{this.name}}</h2>
                         </div>
-                        <div class="col-md-4" align="right" name="prezzo">
+                        <div class="col-12 col-md-4" name="prezzo">
                             <div class="row" id="rowprezzo">
                                 <div class="col-md-12" id="yo2">
-                                    <img name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
-                                    <h2 name="price">{{this.price}}</h2>
+                                    <img class="eb-icon" name="EB" width="25" height="34" src="https://i.imgur.com/YsdvMMg.png">
+                                    <h2 class="price-card" name="price">{{this.price}}</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <h3 class="titleHome" name="titleHome">{{this.title}}
                     </h3>
                     <div class="row" id="rowbottoni">
                         <div class="col-md-12" id="yo">
-                            <a href="/champions/{{this.name}}" class="button" style="vertical-align:middle" role="button" id="informazioni">
-                                <span>Informazioni </span>
-                            </a>
-                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success" role="button" id="aggiungi">Aggiungi al carrello</a>
+                            <a href="/champions/{{this.name}}" class="btn btn-dark alert informazioni" role="button" id="informazioni">Informazioni</a>
+                            <a href="/add-to-cart/{{this._id}}" class="btn btn-success aggiungi" id="aggiungi">Aggiungi al carrello</a>
                         </div>
                     </div>
                 </div>

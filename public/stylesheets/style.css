@@ -1,559 +1,516 @@
-@font-face {
-    font-family: League;
-    font-weight: bolder;
-    src: local('D:/Università/Terzo anno/Web/League-Shop/public/fonts/Beaufort-Bold.ttf');
-}
-
-body {
-    background-color: rgb(0, 0, 0);
-    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center center;
-    background-size: cover;
-}
-
-
-/*navbar icon*/
-
-.navbar-brand {
-    padding: 0px;
-}
-
-[id=plus] {
-    border-width: 0px;
-    padding: 0%;
-    box-shadow: 0px 20px 50px #000000;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-[id=plus]:hover {
-    box-shadow: 0px 0px 20px #ffffff98;
-}
-
-[id="btnsmall"] {
-    margin: 2px;
-    margin-top: 10px;
-    font-size: 13.4px;
-    height: 30px;
-}
-
-[id=barrasopra] {
-    background: fixed;
-}
-
-[id=dropOrdina] {
-    /*float: left;*/
-}
-
-[id=ordina] {
-    /*float: right;*/
-}
-
-[id=dropFiltra] {
-    /*float: left;*/
-}
-
-[id=filtra] {
-    /*float: right;*/
-}
-
-
-/*button go to top*/
-
-#myBtn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 30px;
-    z-index: 99;
-    font-size: 18px;
-    border: none;
-    outline: none;
-    background-color: rgb(102, 79, 6);
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 4px;
-}
-
-#myBtn:hover {
-    background-color: rgba(214, 201, 11, 0.774);
-}
-
-.thumbnail .description {
-    color: rgba(51, 29, 29, 0.918);
-    margin-top: 0px;
-    margin-bottom: 30px;
-}
-
-.thumbnail {
-    background-color: rgba(255, 255, 255, 0.775);
-}
-
-[id=champ] {
-    border-width: 0px;
-    padding: 0%;
-    box-shadow: 0px 20px 50px #000000;
-    background-color: rgba(255, 255, 255, 0);
-}
-
-[name=champImage] {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-}
-
-[name=plusImage] {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #000014e1;
-}
-
-[id=pluscard] {
-    height: 83px;
-}
-
-[name=rigaTitoloPrezzo] {
-    width: 100%;
-    margin: 0%;
-}
-
-[name=titleHome] {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-left: 3px;
-    font-size: 23px;
-}
-
-[name=price] {
-    color: rgb(0, 128, 208);
-    float: right;
-    margin: 0%;
-}
-
-[name=EB] {
-    margin-top: 4px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    margin-right: 3px;
-    float: right;
-}
-
-[name=prezzo] {
-    padding: 0px;
-}
-
-[id=rowprezzo] {
-    width: 100%;
-    margin: 0%;
-}
-
-[name=champName] {
-    padding: 0%;
-}
-
-[name=ordinaPer] {
-    font-size: 16px;
-    color: rgb(172, 169, 169);
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #29292b;
-}
-
-[name=colonna3] {
-    padding-right: 0px;
-}
-
-[name=caret] {
-    margin-left: 80px;
-}
-
-[id=rowbottoni] {
-    width: 100%;
-    margin: 0%;
-}
-
-[id="aggiungi"] {
-    height: 36px;
-    width: 59%;
-    float: right;
-    font-size: 100%;
-}
-
-[id=yo] {
-    margin: auto;
-    padding: 0%;
-}
-
-[id=plustesto] {
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-    text-decoration: none;
-    color: #000000;
-}
-
-[id=yo2] {
-    margin: 0%;
-    padding: 0%;
-    align-content: center;
-}
-
-[id=colonnaCarta] {
-    padding-bottom: 10px;
-    padding-top: 10px;
-}
-
-[class=card-body] {
-    padding: 2%;
-    padding-top: 6%;
-    background-color: #ffffffbf;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
-
-[class=card-title] {
-    padding-left: 4%;
-    margin: 0%;
-}
-
-[id=colonnaaggiugi] {
-    padding: 3%;
-}
-
-.new-champ-button {}
-
-
-/* Float */
-
-.hvr-float-shadow {
-    display: inline-block;
-    vertical-align: middle;
-    -webkit-transform: perspective(1px) translateZ(0);
-    transform: perspective(1px) translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-    position: relative;
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform;
-    transition-property: transform;
-}
-
-.hvr-float-shadow:before {
-    pointer-events: none;
-    position: absolute;
-    z-index: -1;
-    content: '';
-    top: 100%;
-    left: 5%;
-    height: 10px;
-    width: 90%;
-    opacity: 0;
-    background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
-    /* W3C */
-    -webkit-transition-duration: 0.3s;
-    transition-duration: 0.3s;
-    -webkit-transition-property: transform, opacity;
-    transition-property: transform, opacity;
-}
-
-.hvr-float-shadow:hover,
-.hvr-float-shadow:focus,
-.hvr-float-shadow:active {
-    -webkit-transform: translateY(-3px);
-    transform: translateY(-3px);
-    /* move the element up by 5px */
-}
-
-.hvr-float-shadow:hover:before,
-.hvr-float-shadow:focus:before,
-.hvr-float-shadow:active:before {
-    opacity: 1;
-    -webkit-transform: translateY(3px);
-    transform: translateY(3px);
-    /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
-}
-
-
-/*champ bio*/
-
-[id=prova] {
-    /*border-style: solid;*/
-    border-width: 1px;
-    border-color: rgb(255, 0, 0);
-}
-
-[id="iconRoleBio"] {
-    margin: auto;
-}
-
-[id="roleBio"] {
-    margin: auto;
-}
-
-[id="nameBio"] {
-    margin-left: 9%;
-    font-size: 60px;
-}
-
-[id="titleBio"] {
-    margin-left: 7%;
-    font-size: 40px;
-}
-
-[id="abilità"] {
-    margin: 15px;
-    margin-left: 5%;
-}
-
-[id=holder] {
-    background: url("https://i.imgur.com/PVDnzNu.png") no-repeat center center;
-    height: 150px;
-    width: 150px;
-    border: 5px solid red;
-}
-
-[id="imageSkillBio"] {
-    margin: auto;
-}
-
-[name=rowImageSkill] {
-    width: 100%;
-    height: 100%;
-    min-height: 150px;
-    margin: auto;
-}
-
-[name="rowSkill"] {
-    min-height: 150px;
-    align-content: center;
-}
-
-[id="letterTitleBio"] {
-    margin: 0%;
-    margin-bottom: 1%;
-    width: 100%;
-}
-
-[id=descSkillBio] {
-    margin: 0%;
-    margin-bottom: 1%;
-    width: 100%;
-}
-
-[id="imageBio"] {
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
-    height: 100%;
-}
-
-
-/*search bar home page*/
-
-.container-4 {
-    overflow: hidden;
-    width: 450px;
-    vertical-align: middle;
-    white-space: nowrap;
-}
-
-.container-4 input#search {
-    width: 450px;
-    height: 65px;
-    background: #29292b;
-    opacity: 70%;
-    border: none;
-    font-size: 20pt;
-    float: left;
-    color: #fff;
-    padding-left: 15px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.container-4 input#search::-webkit-input-placeholder {
-    color: rgb(172, 169, 169);
-}
-
-.container-4 input#search:-moz-placeholder {
-    /* Firefox 18- */
-    color: #65737e;
-}
-
-.container-4 input#search::-moz-placeholder {
-    /* Firefox 19+ */
-    color: #65737e;
-}
-
-.container-4 input#search:-ms-input-placeholder {
-    color: #65737e;
-}
-
-.container-4 button.icon {
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border: none;
-    background: #1f1501;
-    height: 65px;
-    width: 65px;
-    color: #d1d6db;
-    opacity: 0;
-    font-size: 20pt;
-    -webkit-transition: all .55s ease;
-    -moz-transition: all .55s ease;
-    -ms-transition: all .55s ease;
-    -o-transition: all .55s ease;
-    transition: all .55s ease;
-}
-
-.container-4:hover button.icon,
-.container-4:active button.icon,
-.container-4:focus button.icon {
-    outline: none;
-    opacity: 1;
-    margin-left: -65px;
-}
-
-.container-4:hover button.icon:hover {
-    background: white;
-}
-
-
-/*bottone Informazioni*/
-
-.button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: rgb(26, 20, 9);
-    border: none;
-    color: rgb(236, 177, 82);
-    text-align: center;
-    font-size: 100%;
-    padding: 6px;
-    width: 39%;
-    transition: all 0.5s;
-    cursor: pointer;
-}
-
-.button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-}
-
-.button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-}
-
-.button:hover span {
-    padding-right: 25px;
-}
-
-.button:hover span:after {
-    opacity: 1;
-    right: 0;
-}
-
-
-/*login page*/
-
-.form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
-}
-
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 10px;
-}
-
-.form-signin .checkbox {
-    font-weight: normal;
-}
-
-.form-signin .form-control {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-
-.form-signin input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background-color: #1f1c1c;
-    color: #fff;
-}
-
-.form-signin input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    background-color: #1f1c1c;
-    color: #fff;
-}
-
-.account-wall {
-    margin-top: 5px;
-    padding: 10px 0px 20px 0px;
-    background-color: #000000;
-    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
-.login-title {
-    color: rgb(138, 96, 5);
-    margin-top: 10px;
-    font-size: 24px;
-    font-weight: 400;
-    display: block;
-}
-
-.profile-img {
-    width: 100%;
-    height: 100%;
-    margin: 10px auto 10px;
-    display: block;
-}
-
-.login-button {
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-[name="login-button"] {
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 20px;
-    color: #d1d6db;
-    background-color: #504c3e;
-}
-
-[name="login"] {
-    background-color: #000000;
-}
+    @font-face {
+        font-family: League;
+        font-weight: bolder;
+        src: local('D:/Università/Terzo anno/Web/League-Shop/public/fonts/Beaufort-Bold.ttf');
+    }
+    
+    body {
+        /*background-color: rgb(0, 0, 0);
+        background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center center;
+        background-size: cover;
+        background-color: rgb(255, 255, 255);
+    }
+    /*navbar icon*/
+    
+    .navbar-brand {
+        padding: 0px;
+    }
+    
+    [id=plus] {
+        border-width: 0px;
+        padding: 0%;
+        box-shadow: 0px 20px 50px #000000;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    
+    [id=plus]:hover {
+        box-shadow: 0px 0px 20px #ffffff98;
+    }
+    
+    [id="btnsmall"] {
+        margin: 2px;
+        margin-top: 10px;
+        font-size: 13.4px;
+        height: 30px;
+    }
+    
+    [id=barrasopra] {
+        background: fixed;
+    }
+    
+    [id=dropOrdina] {
+        /*float: left;*/
+    }
+    
+    [id=ordina] {
+        /*float: right;*/
+    }
+    
+    [id=dropFiltra] {
+        /*float: left;*/
+    }
+    
+    [id=filtra] {
+        /*float: right;*/
+    }
+    /*button go to top*/
+    
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: rgb(102, 79, 6);
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+    
+    #myBtn:hover {
+        background-color: rgba(214, 201, 11, 0.774);
+    }
+    
+    .thumbnail .description {
+        color: rgba(51, 29, 29, 0.918);
+        margin-top: 0px;
+        margin-bottom: 30px;
+    }
+    
+    .thumbnail {
+        background-color: rgba(255, 255, 255, 0.775);
+    }
+    
+    [id=champ] {
+        border-width: 0px;
+        padding: 0%;
+        box-shadow: 0px 10px 50px #000000;
+        background-color: rgba(255, 255, 255, 0);
+    }
+    
+    [name=champImage] {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    
+    [name=plusImage] {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        background-color: #000014e1;
+    }
+    
+    [id=pluscard] {
+        height: 83px;
+    }
+    
+    [name=rigaTitoloPrezzo] {
+        width: 100%;
+        margin: 0%;
+    }
+    
+    [name=titleHome] {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        margin-left: 3px;
+        font-size: 23px;
+    }
+    
+    [name=price] {
+        color: rgb(0, 128, 208);
+        float: right;
+        margin: 0%;
+    }
+    
+    [name=EB] {
+        margin-top: 4px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+        float: right;
+    }
+    
+    [name=prezzo] {
+        padding: 0px;
+    }
+    
+    [id=rowprezzo] {
+        width: 100%;
+        margin: 0%;
+    }
+    
+    [name=champName] {
+        padding: 0%;
+    }
+    
+    [name=ordinaPer] {
+        font-size: 16px;
+        color: rgb(172, 169, 169);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background-color: #29292b;
+    }
+    
+    [name=colonna3] {
+        padding-right: 0px;
+    }
+    
+    [name=caret] {
+        margin-left: 80px;
+    }
+    
+    [id=rowbottoni] {
+        width: 100%;
+        margin: 0%;
+    }
+    
+    [id=aggiungi] {
+        float: right;
+        width: 57%;
+    }
+    
+    [id=informazioni] {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        padding-right: 12px;
+        padding-left: 12px;
+        float: left;
+        font-size: 100%;
+        margin-bottom: 0%;
+        width: 41%;
+    }
+    
+    [id=yo] {
+        margin: auto;
+        padding: 0%;
+    }
+    
+    [id=plustesto] {
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+        text-decoration: none;
+        color: #000000;
+    }
+    
+    [id=yo2] {
+        margin: 0%;
+        padding: 0%;
+        align-content: center;
+    }
+    
+    [id=colonnaCarta] {
+        padding-bottom: 10px;
+        padding-top: 10px;
+        padding-right: 7px;
+        padding-left: 7px;
+        width: 20%;
+    }
+    
+    [class=card-body] {
+        padding: 2%;
+        padding-top: 6%;
+        background-color: #ffffffbf;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+    
+    [class=card-title] {
+        padding-left: 4%;
+        margin: 0%;
+    }
+    
+    [id=colonnaaggiugi] {
+        padding: 3%;
+    }
+    /* Float */
+    
+    .hvr-float-shadow {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+    }
+    
+    .hvr-float-shadow:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        top: 100%;
+        left: 5%;
+        height: 10px;
+        width: 90%;
+        opacity: 0;
+        background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        /* W3C */
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform, opacity;
+        transition-property: transform, opacity;
+    }
+    
+    .hvr-float-shadow:hover,
+    .hvr-float-shadow:focus,
+    .hvr-float-shadow:active {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+        /* move the element up by 5px */
+    }
+    
+    .hvr-float-shadow:hover:before,
+    .hvr-float-shadow:focus:before,
+    .hvr-float-shadow:active:before {
+        opacity: 1;
+        -webkit-transform: translateY(3px);
+        transform: translateY(3px);
+        /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
+    }
+    /*champ bio*/
+    
+    [id=prova] {
+        /*border-style: solid;*/
+        border-width: 1px;
+        border-color: rgb(255, 0, 0);
+    }
+    
+    [id="iconRoleBio"] {
+        margin: auto;
+    }
+    
+    [id="roleBio"] {
+        margin: auto;
+    }
+    
+    [id="nameBio"] {
+        margin-left: 9%;
+        font-size: 60px;
+    }
+    
+    [id="titleBio"] {
+        margin-left: 7%;
+        font-size: 40px;
+    }
+    
+    [id="abilità"] {
+        margin: 15px;
+        margin-left: 5%;
+    }
+    
+    [id=holder] {
+        background: url("https://i.imgur.com/PVDnzNu.png") no-repeat center center;
+        height: 150px;
+        width: 150px;
+        border: 5px solid red;
+    }
+    
+    [id="imageSkillBio"] {
+        margin: auto;
+    }
+    
+    [name=rowImageSkill] {
+        width: 100%;
+        height: 100%;
+        min-height: 150px;
+        margin: auto;
+    }
+    
+    [name="rowSkill"] {
+        min-height: 150px;
+        align-content: center;
+    }
+    
+    [id="letterTitleBio"] {
+        margin: 0%;
+        margin-bottom: 1%;
+        width: 100%;
+    }
+    
+    [id=descSkillBio] {
+        margin: 0%;
+        margin-bottom: 1%;
+        width: 100%;
+    }
+    
+    [id="imageBio"] {
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        width: 100%;
+        height: 100%;
+    }
+    /*search bar home page*/
+    
+    .container-4 {
+        overflow: hidden;
+        width: 450px;
+        vertical-align: middle;
+        white-space: nowrap;
+    }
+    
+    .container-4 input#search {
+        width: 450px;
+        height: 65px;
+        background: #29292b;
+        opacity: 70%;
+        border: none;
+        font-size: 20pt;
+        float: left;
+        color: #fff;
+        padding-left: 15px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+    
+    .container-4 input#search::-webkit-input-placeholder {
+        color: rgb(172, 169, 169);
+    }
+    
+    .container-4 input#search:-moz-placeholder {
+        /* Firefox 18- */
+        color: #65737e;
+    }
+    
+    .container-4 input#search::-moz-placeholder {
+        /* Firefox 19+ */
+        color: #65737e;
+    }
+    
+    .container-4 input#search:-ms-input-placeholder {
+        color: #65737e;
+    }
+    
+    .container-4 button.icon {
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 5px;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomright: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        border: none;
+        background: #1f1501;
+        height: 65px;
+        width: 65px;
+        color: #d1d6db;
+        opacity: 0;
+        font-size: 20pt;
+        -webkit-transition: all .55s ease;
+        -moz-transition: all .55s ease;
+        -ms-transition: all .55s ease;
+        -o-transition: all .55s ease;
+        transition: all .55s ease;
+    }
+    
+    .container-4:hover button.icon,
+    .container-4:active button.icon,
+    .container-4:focus button.icon {
+        outline: none;
+        opacity: 1;
+        margin-left: -65px;
+    }
+    
+    .container-4:hover button.icon:hover {
+        background: white;
+    }
+    /*login page*/
+    
+    .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    
+    .form-signin .form-signin-heading,
+    .form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+    
+    .form-signin .checkbox {
+        font-weight: normal;
+    }
+    
+    .form-signin .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    .form-signin .form-control:focus {
+        z-index: 2;
+    }
+    
+    .form-signin input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: #1f1c1c;
+        color: #fff;
+    }
+    
+    .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        background-color: #1f1c1c;
+        color: #fff;
+    }
+    
+    .account-wall {
+        margin-top: 5px;
+        padding: 10px 0px 20px 0px;
+        background-color: #000000;
+        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    }
+    
+    .login-title {
+        color: rgb(138, 96, 5);
+        margin-top: 10px;
+        font-size: 24px;
+        font-weight: 400;
+        display: block;
+    }
+    
+    .profile-img {
+        width: 100%;
+        height: 100%;
+        margin: 10px auto 10px;
+        display: block;
+    }
+    
+    .login-button {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+    
+    [name="login-button"] {
+        padding-left: 40px;
+        padding-right: 40px;
+        font-size: 20px;
+        color: #d1d6db;
+        background-color: #504c3e;
+    }
+    
+    [name="login"] {
+        background-color: #000000;
+    }
