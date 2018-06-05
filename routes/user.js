@@ -11,15 +11,12 @@ var User = require('../models/user');
 
 
 router.get('/profile', isLoggedIn, function(req, res, next) {
-
+    console.log(req.user);
     User.findOne({
         email: req.user.email
     }, function(err, docs) {
         var users = [];
         users.push(docs);
-        var prova = "ciao";
-        console.log(users);
-        console.log(req.session);
         res.render('user/profile', {
             users: users
         });
@@ -103,7 +100,7 @@ router.get('/:email', function(req, res, next) {
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
+    if (req.user && req.user.isAdmin === false) {
         return next();
     }
     res.redirect('/');

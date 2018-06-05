@@ -2,15 +2,22 @@
     <div class="navbar-header">
         <a class="navbar-brand" href="/">
             <img src="https://orig00.deviantart.net/6f51/f/2017/006/5/f/new_league_of_legends_icon_token_style_light__dark_by_flexo013-dauff79.png"
-                width="25" height="25" alt="">
+                width="35" height="35" alt="">
         </a>
     </div>
+    {{#if loggedAsUser}}
+    <div class="navbar-header">
+        <strong style="color:rgb(211, 147, 8); font-size: 26px; text-transform: uppercase;">&nbsp;{{user.username}}&ensp;</strong>
+        <strong style="color:rgb(0, 128, 208); font-size: 23px"> {{user.blueEssence}} EB</strong>
+    </div>
+    {{/if}}
     <div class="navbar-header">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -20,14 +27,22 @@
                 </a>
             </li>
             <li class="nav-item dropdown">
+                {{#if loggedAsUser}}
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
-                    <i class="fas fa-user"></i> User managment
+                    <i class="fas fa-user"></i> Ciao {{user.username}}
                     <span class="caret"></span>
                 </a>
+                {{else}}
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fas fa-user"></i> Account
+                    <span class="caret"></span>
+                </a>
+                {{/if}}
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    {{#if login}}
-                    <a class="dropdown-item" href="/user/profile">User account</a>
+                    {{#if loggedAsUser}}
+                    <a class="dropdown-item" href="/user/profile">Profilo</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/user/logout">Logout</a>
                     {{else}}
@@ -36,13 +51,24 @@
                     {{/if}}
                 </div>
             </li>
-            {{#unless login}}
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/signin">
-                    <i class="fas fa-user-lock"></i>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    <i class="fas fa-user-lock"></i> Area protetta
+                    <span class="caret"></span>
                 </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {{#if loggedAsAdmin}}
+                    <a class="dropdown-item" href="/admin/home">Profilo</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    {{else}}
+                    <a class="dropdown-item" href="/admin/signin">Login</a>
+                    {{/if}}
+                </div>
             </li>
-            {{/unless}}
+
         </ul>
     </div>
+
 </nav>

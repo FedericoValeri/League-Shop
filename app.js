@@ -11,7 +11,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 
-
+var User = require('./models/user');
 //ifeq
 var Handlebars = require('handlebars');
 
@@ -37,6 +37,8 @@ var app = express();
 //connect to database
 mongoose.connect('mongodb://localhost:27017/league-shop');
 require('./config/passport');
+
+
 
 // view engine setup
 app.engine('.hbs', expressHsb({
@@ -67,11 +69,28 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-    res.locals.login = req.isAuthenticated();
+    //res.locals.login = req.isAuthenticated();
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
+    }
+    res.locals.loggedAsUser = isUser();
+
+    function isAdmin() {
+        if (req.user && req.user.isAdmin === true) {
+            return true;
+        } else return false;
+    }
+    res.locals.loggedAsAdmin = isAdmin();
+
     res.locals.session = req.session;
+    res.locals.user = req.user;
+
     next();
 });
 
@@ -81,9 +100,6 @@ app.use('/user', userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/champions', champRoutes);
 app.use('/cart', cartRoutes);
-
-
-
 
 
 

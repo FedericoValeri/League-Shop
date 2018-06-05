@@ -13,7 +13,6 @@ router.get('/:name', function(req, res, next) {
     }, function(err, docs) {
         var champ = [];
         champ.push(docs);
-        console.log(docs);
 
         res.render('shop/champ.hbs', {
             title: 'League Shop',
@@ -31,14 +30,11 @@ router.get('/role/:role', function(req, res, next) {
     Champion.find({
         role: role
     }, function(err, docs) {
-        var productChunks = [];
-        var chunkSize = 4;
-        for (var i = 0; i < docs.length; i += chunkSize) {
-            productChunks.push(docs.slice(i, i + chunkSize));
-        }
+        var champs = [];
+        champs.push(docs);
         res.render('shop/index', {
             title: 'League Shop',
-            champions: productChunks,
+            champions: champs,
             role: role
         });
     }).sort({

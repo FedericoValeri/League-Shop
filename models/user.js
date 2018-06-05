@@ -24,7 +24,12 @@ var userSchema = new Schema({
     blueEssence: {
         type: Number,
         required: false
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
+
 
 });
 

@@ -11,9 +11,17 @@ var User = require('../models/user');
 var Champion = require('../models/champion');
 
 
-router.get('/home', function(req, res, next) {
+router.get('/home', isAdmin, function(req, res, next) {
+    console.log(req.user);
     res.render('admin/admin-page', {});
 });
+
+
+router.get('/logout', isAdmin, function(req, res, next) {
+    req.logout();
+    res.redirect('/');
+});
+
 
 
 router.get('/signin', csrf(), function(req, res, next) {
@@ -81,19 +89,18 @@ router.post("/:id", (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-            console.log("Errorrrre");
+            console.log("Errore");
             return res.redirect("/admin/");
         }
 
         req.flash("success", "The account has been deleted.");
-        console.log("Bravo Federico");
         return res.redirect("/admin/usersList");
     });
 });
 
 //add new champ
 router.post('/add/newChamp', (req, res) => {
-    console.log(req.body);
+    console.log("È stato aggiunto il campione:" + req.body.nameC);
     //creazione skills 
     var champSkills = [
         new Skill({
@@ -142,3 +149,18 @@ router.post('/add/newChamp', (req, res) => {
 });
 
 module.exports = router;
+
+function isAdmin(req, res, next) {
+    if (req.user && req.user.isAdmin === true) {
+        return next();
+    }
+    res.redirect('/');
+}
+
+
+function notLoggedIn(req, res, next) {
+    if (!req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/');
+}
