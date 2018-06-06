@@ -6,14 +6,13 @@ var Champion = require('../models/champion');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Champion.find(function(err, docs) {
-        var campioni = [];
 
+    Champion.find(function(err, docs) {
         var sort = 'pricedesc';
         var role = 'Tutti';
         var champInCart = false;
+        var campioni = docs;
 
-        campioni.push(docs);
 
         res.render('shop/index', {
             title: 'League Shop',
@@ -69,61 +68,65 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
     });
 });
 
-/* sort home page. */
-//price asc
-router.get('/EB', function(req, res, next) {
-    Champion.find(function(err, docs) {
-        var campioni = [];
+/*role selection*/
 
-        var sort = 'priceasc';
-        var role = 'Tutti';
-        campioni.push(docs);
+router.get('/role/:role', function(req, res, next) {
+    var role = req.params.role;
+    Champion.find({
+        role: role
+    }, function(err, docs) {
+        var champs = docs;
         res.render('shop/index', {
             title: 'League Shop',
-            champions: campioni,
-            sort: sort,
+            champions: champs,
             role: role
         });
     }).sort({
-        price: 'asc'
-    });
-});
-//nome asc
-router.get('/Z-A', function(req, res, next) {
-    Champion.find(function(err, docs) {
-        var campioni = [];
-
-        var sort = 'nameasc';
-        var role = 'Tutti';
-        campioni.push(docs);
-        res.render('shop/index', {
-            title: 'League Shop',
-            champions: campioni,
-            sort: sort,
-            role: role
-        });
-    }).sort({
-        name: 'desc'
-    });
-});
-//nome desc
-router.get('/A-Z', function(req, res, next) {
-    Champion.find(function(err, docs) {
-        var campioni = [];
-
-        var sort = 'namedesc';
-        var role = 'Tutti';
-        campioni.push(docs);
-        res.render('shop/index', {
-            title: 'League Shop',
-            champions: campioni,
-            sort: sort,
-            role: role
-        });
-    }).sort({
+        price: 'desc',
         name: 'asc'
     });
 });
+
+
+/* sort home page. */
+
+router.get('/sort/:type/:order', function(req, res, next) {
+    var type = req.params.type;
+    var order = req.params.order;
+    if (type === "price") {
+        Champion.find(function(err, docs) {
+            var campioni = docs;
+            res.render('shop/index', {
+                title: 'League Shop',
+                champions: campioni,
+                role: 'Tutti',
+                sort: 'price' + order
+            });
+        }).sort({
+            price: order,
+            name: 'asc'
+        });
+    }
+    if (type === "name") {
+        Champion.find(function(err, docs) {
+            var campioni = docs;
+            res.render('shop/index', {
+                title: 'League Shop',
+                champions: campioni,
+                role: 'Tutti',
+                sort: 'name' + order
+            });
+        }).sort({
+            name: order
+        });
+    } else {
+        console.log("ma allora che cazzoo")
+    }
+
+});
+
+
+
 
 module.exports = router;
 

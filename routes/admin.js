@@ -49,7 +49,7 @@ router.post('/signin', passport.authenticate('local.admin.signin', {
 
 
 //get users list
-router.get('/usersList', function(req, res, next) {
+router.get('/usersList', isAdmin, function(req, res, next) {
     User.find(function(err, docs) {
         var users = [];
 
@@ -62,14 +62,15 @@ router.get('/usersList', function(req, res, next) {
 });
 
 //get champions list
-router.get('/championsList', function(req, res, next) {
+router.get('/championsList', isAdmin, function(req, res, next) {
     Champion.find(function(err, docs) {
-        var championsChunks = [];
+        var campioni = docs;
+        var numeroCampioni = docs.length;
 
-        championsChunks.push(docs);
 
         res.render('admin/champions-list', {
-            champions: championsChunks
+            champions: campioni,
+            numeroCampioni: numeroCampioni
         });
     }).sort({
         name: 'asc'
@@ -77,7 +78,7 @@ router.get('/championsList', function(req, res, next) {
 });
 
 //get champion insert form
-router.get('/insertNewChamp', function(req, res, next) {
+router.get('/insertNewChamp', isAdmin, function(req, res, next) {
     res.render('admin/newChamp');
 });
 
@@ -145,21 +146,73 @@ router.post('/add/newChamp', (req, res) => {
         skills: champSkills
     })
     champion.save();
-    res.redirect("/admin/");
+    res.redirect("/admin/championsList");
+});
+
+router.get('/updateChamp/:name', function(req, res, next) {
+
+    const name = req.params.name;
+    Champion.findOne({
+        name: name
+    }, function(err, docs) {
+        var champ = [];
+        champ.push(docs);
+
+        res.render('admin/champ-update', {
+            title: 'League Shop',
+            champion: champ
+        });
+    })
+});
+
+//update champ
+router.patch('/champ/:id', function(req, res, next) {
+    const id = req.params.id;
+    const updateOps = {};
+    for (const ops of req.body) {
+        updateOps[ops.propName] = ops.value;
+    }
+    Champion.update({
+        _id: id
+    }, {
+        $set: updateOps
+    }).exec().then(result => {
+        res.status(200).json({
+            message: 'Product updated',
+            request: {
+                type: 'PATCH',
+                url: 'http://localhost8080/products/' + id
+            }
+        });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+            error: err
+        });
+    });
+});
+
+//delete champ
+router.post("/delete/:id", (req, res, next) => {
+    const id = req.params.id;
+    Champion.findOneAndRemove({
+        _id: id
+    }, (err) => {
+        if (err) {
+            req.flash("error", err);
+            console.log("Errore");
+            return res.redirect("/admin/");
+        }
+
+        req.flash("success", "The account has been deleted.");
+        return res.redirect("/admin/championsList");
+    });
 });
 
 module.exports = router;
 
 function isAdmin(req, res, next) {
     if (req.user && req.user.isAdmin === true) {
-        return next();
-    }
-    res.redirect('/');
-}
-
-
-function notLoggedIn(req, res, next) {
-    if (!req.isAuthenticated()) {
         return next();
     }
     res.redirect('/');

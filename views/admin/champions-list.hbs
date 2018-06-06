@@ -1,5 +1,13 @@
+<br>
+
 <div class="row">
-    {{#each champions}}
+    <h2>Campioni presenti: {{numeroCampioni}}</h2>
+</div>
+
+
+
+<div class="row">
+
     <div class="row">
         <div class="col-6 col-sm-6 col-md-2" id="colonnaCarta">
             <a style="text-decoration:none;" href="/admin/insertNewChamp" class="new-champ-button hvr-float-shadow">
@@ -17,7 +25,8 @@
                 </div>
             </a>
         </div>
-        {{#each this}}
+
+        {{#each champions}}
         <div class="col-6 col-md-2" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
@@ -41,8 +50,11 @@
                             <a href="/champions/{{this.name}}" id="btnsmall" class="btn btn-info">
                                 <span>Info</span>
                             </a>
-                            <a href="#" class="btn btn-warning" id="btnsmall" role="button">Modifica</a>
-                            <a href="#" class="btn btn-danger" id="btnsmall" role="button">Elimina</a>
+                            <a href="/admin/updateChamp/{{this.name}}" class="btn btn-warning" id="btnsmall" role="button">Modifica</a>
+                            <form action="<!--/admin/delete/{{this._id}}-->" method="post">
+                                <button type="submit" class="btn btn-danger" id="btnsmall" role="button">Elimina</button>
+                            </form>
+
                         </div>
                     </div>
                 </div>
@@ -50,5 +62,5 @@
         </div>
         {{/each}}
     </div>
-    {{/each}}
+
 </div>

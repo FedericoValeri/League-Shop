@@ -119,7 +119,7 @@
         margin-top: 10px;
         margin-bottom: 20px;
         margin-left: 3px;
-        font-size: 23px;
+        font-size: 22px;
     }
     
     [name=price] {
@@ -211,6 +211,7 @@
         padding-right: 7px;
         padding-left: 7px;
         width: 20%;
+        /*margin: auto;*/
     }
     
     [class=card-body] {

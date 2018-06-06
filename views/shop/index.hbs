@@ -11,12 +11,12 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropFiltra">
             <a class="dropdown-item" href="/">Tutti</a>
-            <a class="dropdown-item" href="/champions/role/Assassino">Assassino</a>
-            <a class="dropdown-item" href="/champions/role/Tank">Tank</a>
-            <a class="dropdown-item" href="/champions/role/Tiratore">Tiratore</a>
-            <a class="dropdown-item" href="/champions/role/Mago">Mago</a>
-            <a class="dropdown-item" href="/champions/role/Supporto">Supporto</a>
-            <a class="dropdown-item" href="/champions/role/Combattente">Combattente</a>
+            <a class="dropdown-item" href="/role/Assassino">Assassino</a>
+            <a class="dropdown-item" href="/role/Tank">Tank</a>
+            <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
+            <a class="dropdown-item" href="/role/Mago">Mago</a>
+            <a class="dropdown-item" href="/role/Supporto">Supporto</a>
+            <a class="dropdown-item" href="/role/Combattente">Combattente</a>
         </div>
 
     </div>
@@ -38,26 +38,27 @@
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
             {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Nome
-            ↓{{/if_eq}} {{#if_eq sort 'nameasc'}}Nome ↑{{/if_eq}}
+            ↑{{/if_eq}} {{#if_eq sort 'nameasc'}}Nome ↓{{/if_eq}}
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             {{#if_eq sort 'pricedesc'}}
-            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
-            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
+            <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+            <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
+            <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
             {{/if_eq}} {{#if_eq sort 'priceasc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
-            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
-            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
+            <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
+            <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
             {{/if_eq}} {{#if_eq sort 'nameasc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
-            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/A-Z">Nome ↓</a>
-            {{/if_eq}} {{#if_eq sort 'namedesc'}}
+            <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+            <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
+            {{/if_eq}}{{#if_eq sort 'namedesc'}}
             <a class="dropdown-item" href="/">Prezzo ↓</a>
-            <a class="dropdown-item" href="/EB">Prezzo ↑</a>
-            <a class="dropdown-item" href="/Z-A">Nome ↑</a>
+            <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+            <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
             {{/if_eq}}
+
         </div>
     </div>
 
@@ -88,10 +89,12 @@
 </div>
 
 
+
+
 <div class="row carte">
-    {{#each champions}}
+
     <div class="row">
-        {{#each this}}
+        {{#each champions}}
         <div class="colonna-carta" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
@@ -114,7 +117,9 @@
                     <div class="row" id="rowbottoni">
                         <div class="col-md-12" id="yo">
                             <a href="/champions/{{this.name}}" class="btn btn-dark alert informazioni" role="button" id="informazioni">Informazioni</a>
+
                             <a href="/add-to-cart/{{this._id}}" class="btn btn-success aggiungi" id="aggiungi">Aggiungi al carrello</a>
+
                         </div>
                     </div>
                 </div>
@@ -122,5 +127,5 @@
         </div>
         {{/each}}
     </div>
-    {{/each}}
+
 </div>

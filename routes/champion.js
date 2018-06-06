@@ -22,28 +22,4 @@ router.get('/:name', function(req, res, next) {
 });
 
 
-
-/*role selection*/
-
-router.get('/role/:role', function(req, res, next) {
-    var role = req.params.role;
-    Champion.find({
-        role: role
-    }, function(err, docs) {
-        var champs = [];
-        champs.push(docs);
-        res.render('shop/index', {
-            title: 'League Shop',
-            champions: champs,
-            role: role
-        });
-    }).sort({
-        price: 'desc',
-        name: 'asc'
-    });
-});
-
-
-
-
 module.exports = router;

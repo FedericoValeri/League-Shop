@@ -59,9 +59,11 @@ router.get('/checkout', function(req, res, next) {
             champions: null
         });
     }
+
     var cart = new Cart(req.session.cart);
     res.render('shop/checkout', {
-        total: cart.totalPrice
+        total: cart.totalPrice,
+        champions: cart.generateArray()
     });
 });
 
