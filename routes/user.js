@@ -3,25 +3,32 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 
+var User = require('../models/user');
+var Order = require('../models/order');
+var Cart = require('../models/cart');
+
 //var csrfProtection = csrf();
 //router.use(csrfProtection);
 
-var User = require('../models/user');
-
-
-
 router.get('/profile', isLoggedIn, function(req, res, next) {
-    console.log(req.user);
-    User.findOne({
-        email: req.user.email
-    }, function(err, docs) {
-        var users = [];
-        users.push(docs);
-        res.render('user/profile', {
-            users: users
-        });
 
-    })
+    Order.find({
+        user: req.user
+    }, function(err, orders) {
+        if (err) {
+            return res.write('Error!');
+        }
+        var cart;
+        orders.forEach(function(order) {
+            cart = new Cart(order.cart);
+            order.items = cart.generateArray();
+        });
+        //provvisorio (scala EB solo nella vista del profilo, non dal db nè dalla home)
+        //req.user.blueEssence -= cart.totalPrice;
+        res.render('user/profile', {
+            orders: orders
+        });
+    });
 });
 
 router.get('/logout', isLoggedIn, function(req, res, next) {

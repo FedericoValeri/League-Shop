@@ -1,3 +1,4 @@
+<!--
 <br> {{#each users}}
 <div class="row">
     <div id="prova" class="col-md-12">
@@ -18,18 +19,75 @@
                 <h3>Collezione campioni: </h3>
             </div>
         </div>
-        {{#each champions}}
-        <div id="prova" class="row">
-            <div class="card text-white bg-dark" style="width: 14rem;">
-                <img class="card-img-top" src="{{this.imagePath}}" alt="Card image cap">
-                <div class="card-body">
-                    <h2>{{this.name}}</h2>
-                    <hr>
-                    <h4 class="card-text">{{this.title}}.</h4>
+        <div class="row carte">
+
+            <div class="row">
+                {{#each champions}}
+                <div class="colonna-carta" id="colonnaCarta">
+                    <div class="card" style="width: 100%;" id="champ">
+                        <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
+                        <div class="card-body">
+                            <div class="row" name="rigaTitoloPrezzo">
+                                <div class="col-12 col-md-8" name="champName">
+                                    <h2 class="card-title" name="name"> {{this.name}}</h2>
+                                </div>
+                                <div class="col-12 col-md-4" name="prezzo">
+                                    <div class="row" id="rowprezzo">
+                                        <div class="col-md-12" id="yo2">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </h3>
+                            <div class="row" id="rowbottoni">
+                                <div class="col-md-12" id="yo">
+                                    <a href="/champions/{{this.name}}" class="btn btn-dark alert informazioni" role="button" id="informazioni">Informazioni</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}-->
+<div class="row">
+    <div id="prova" class="col-md-8">
+        <h1>Benvenuto {{user.username}}</h1>
+    </div>
+    <div id="prova" class="col-md-4">
+        <div class="float-right">
+            <strong style="font-size: 46px; color:rgb(9, 147, 211)">{{user.blueEssence}}
+                <img align="middle" id="ebprofile" width="40" height="50" src="https://i.imgur.com/qeZVwiU.png">
+            </strong>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>I miei campioni</h2>
+        {{#each orders }}
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <ul class="list-group">
+                    {{#each this.items }}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img width="200" height="200" src="{{this.item.imagePath}}">
+                            </div>
+                            <div class="col-md-9">
+                                <h4>{{this.item.name}} - {{this.item.title}}</h4>
+                                <a href="/champions/{{this.item.name}}" class="btn btn-warning" role="button">Informazioni</a>
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
         {{/each}}
     </div>
 </div>
-{{/each}}

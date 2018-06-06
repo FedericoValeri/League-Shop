@@ -3,6 +3,8 @@ var router = express.Router();
 
 var Cart = require('../models/cart');
 var Champion = require('../models/champion');
+var Order = require('../models/order');
+var User = require('../models/user');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -89,7 +91,6 @@ router.get('/role/:role', function(req, res, next) {
 
 
 /* sort home page. */
-
 router.get('/sort/:type/:order', function(req, res, next) {
     var type = req.params.type;
     var order = req.params.order;
@@ -119,14 +120,30 @@ router.get('/sort/:type/:order', function(req, res, next) {
         }).sort({
             name: order
         });
-    } else {
-        console.log("ma allora che cazzoo")
     }
-
 });
 
+router.post('/checkout', isLoggedIn, function(req, res, next) {
+    if (!req.session.cart) {
+        return res.redirect('/cart');
+    }
+    var cart = new Cart(req.session.cart);
+    var order = new Order({
+        user: req.user,
+        cart: cart
+    });
+    order.save(function(err, result) {
+        req.flash('success', 'Successfully bought product!');
+        req.session.cart = null;
+        //fare l'update delle blueEssence
+        //req.user.blueEssence -= cart.totalPrice;
+        res.redirect('/user/profile');
+    });
 
 
+    console.log(req.user.blueEssence -= cart.totalPrice);
+
+});
 
 module.exports = router;
 

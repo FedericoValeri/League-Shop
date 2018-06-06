@@ -1,29 +1,38 @@
 <br>
 <div class="row">
-    <div class="col-sm-6 col-md-6 col-md-offset-4 col-sm-offset-3">
-        <h1>Riepilogo</h1>
-        <h4>Totale: {{total}} EB</h4>
-
+    <div class="col-md-6 col-md-offset-4 col-sm-offset-3">
+        <h1>Riepilogo:</h1>
         <ul class="list-group">
             {{#each champions}}
             <li class="list-group-item">
                 <div class="row">
-                    <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
-                        <img width="120" height="120" src="{{this.item.imagePath}}"></img>
+                    <div class="col-md-7 col-md-offset-3 col-sm-offset-3">
+                        <img width="150" height="150" src="{{this.item.imagePath}}"></img>
                     </div>
-                    <div class="col-sm-6 col-md-3  col-md-offset-3 col-sm-offset-3">
-                        <strong>{{this.item.name}}</strong>
+                    <div class="col-md-3  col-md-offset-3 col-sm-offset-3">
+                        <label>Nome campione:</label>
+                        <br>
+                        <strong> {{this.item.name}}</strong>
                     </div>
-                    <div class="col-sm-6 col-md-3  col-md-offset-3 col-sm-offset-3">
-                        <span style="color:rgb(26, 198, 250);font-weight:bold">{{this.price}} EB</span>
+                    <div class="col-md-2  col-md-offset-3 col-sm-offset-3">
+                        <label>Prezzo:</label>
+                        <br>
+                        <sreong style="color:rgb(26, 198, 250);font-weight:bold">{{this.price}} EB</strong>
                     </div>
                 </div>
             </li>
             {{/each}}
         </ul>
+        <h4>Totale: {{total}} EB</h4>
+        <h4>Nuovo bilancio: {{nuovoBilancio}}</h4>
         <hr>
-        <form action="/checkout" method="post" id="checkout-form">
-            <button type="submit" class="btn btn-success">Buy now</button>
-        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <form style="float:left" action="/checkout" method="post" id="checkout-form">
+                    <button type="submit" class="btn btn-success">Buy now</button>
+                </form>
+                <a style="float: right" href="/cart" class="btn btn-light">Torna indietro</a>
+            </div>
+        </div>
     </div>
 </div>
