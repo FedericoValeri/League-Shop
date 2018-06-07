@@ -10,29 +10,33 @@
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>I miei campioni</h2>
-        {{#each orders }}
+        {{#each users}} {{#each champions }}
         <div class="panel panel-default">
             <div class="panel-body">
                 <ul class="list-group">
-                    {{#each cart.items }}
+
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-md-3">
-                                <img width="200" height="200" src="{{this.item.imagePath}}">
+                                <img width="200" height="200" src="{{this.imagePath}}">
                             </div>
                             <div class="col-md-9">
-                                <h4>{{this.item.name}} - {{this.item.title}}</h4>
-                                <a href="/champions/{{this.item.name}}" class="btn btn-warning" role="button">Informazioni</a>
+                                <h4>{{this.name}} - {{this.title}}</h4>
+                                <a href="/champions/{{this.name}}" class="btn btn-warning" role="button">Informazioni</a>
                             </div>
                         </div>
                     </li>
-                    {{/each}}
+
                 </ul>
             </div>
         </div>
-        {{/each}}
+        {{/each}} {{/each}}
     </div>
 </div>
+{{#each orders}}
+{{date}} <br>
+{{/each}}

@@ -12,7 +12,7 @@ var Champion = require('../models/champion');
 
 
 router.get('/home', isAdmin, function(req, res, next) {
-    console.log(req.user);
+
     res.render('admin/admin-page', {});
 });
 
@@ -90,7 +90,7 @@ router.post("/:id", (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-            console.log("Errore");
+
             return res.redirect("/admin/");
         }
 
@@ -101,7 +101,7 @@ router.post("/:id", (req, res, next) => {
 
 //add new champ
 router.post('/add/newChamp', (req, res) => {
-    console.log("È stato aggiunto il campione:" + req.body.nameC);
+
     //creazione skills 
     var champSkills = [
         new Skill({
@@ -200,7 +200,7 @@ router.post("/delete/:id", (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-            console.log("Errore");
+
             return res.redirect("/admin/");
         }
 

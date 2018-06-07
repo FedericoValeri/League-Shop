@@ -9,12 +9,35 @@ var User = require('../models/user');
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
+    }
     Champion.find(function(err, docs) {
         var sort = 'pricedesc';
         var role = 'Tutti';
         var champInCart = false;
-        var campioni = docs;
+        var campioni = [];
 
+        if (isUser()) {
+            var userChamps = req.user.champions;
+            var controllo = false;
+            for (championDocs of docs) {
+                controllo = false;
+                for (championUser of userChamps) {
+                    if (championDocs.name === championUser.name) {
+                        controllo = true;
+                        break;
+                    }
+                }
+                if (!controllo) {
+                    campioni.push(championDocs);
+                }
+            }
+        } else {
+            campioni = docs;
+        }
 
         res.render('shop/index', {
             title: 'League Shop',
@@ -41,18 +64,16 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
         if (!cart.isInCart(champion, champion.id)) {
             cart.add(champion, champion.id);
             req.session.cart = cart;
-            console.log(req.session.cart);
             res.redirect('/');
         } else {
             //some error message on page
-            console.log("Campione già nel carrello!");
+
             Champion.find(function(err, docs) {
-                var campioni = [];
+                var campioni = docs;
                 var sort = 'pricedesc';
                 var role = 'Tutti';
                 var champInCart = true;
 
-                campioni.push(docs);
 
                 res.render('shop/index', {
                     title: 'League Shop',
@@ -74,13 +95,39 @@ router.get('/add-to-cart/:id', isLoggedIn, function(req, res, next) {
 
 router.get('/role/:role', function(req, res, next) {
     var role = req.params.role;
+
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
+    }
+
     Champion.find({
         role: role
     }, function(err, docs) {
-        var champs = docs;
+        var campioni = [];
+
+        if (isUser()) {
+            var userChamps = req.user.champions;
+            var controllo = false;
+            for (championDocs of docs) {
+                controllo = false;
+                for (championUser of userChamps) {
+                    if (championDocs.name === championUser.name) {
+                        controllo = true;
+                        break;
+                    }
+                }
+                if (!controllo) {
+                    campioni.push(championDocs);
+                }
+            }
+        } else {
+            campioni = docs;
+        }
         res.render('shop/index', {
             title: 'League Shop',
-            champions: champs,
+            champions: campioni,
             role: role
         });
     }).sort({
@@ -92,11 +139,34 @@ router.get('/role/:role', function(req, res, next) {
 
 /* sort home page. */
 router.get('/sort/:type/:order', function(req, res, next) {
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
+    }
     var type = req.params.type;
     var order = req.params.order;
     if (type === "price") {
         Champion.find(function(err, docs) {
-            var campioni = docs;
+            var campioni = [];
+            if (isUser()) {
+                var userChamps = req.user.champions;
+                var controllo = false;
+                for (championDocs of docs) {
+                    controllo = false;
+                    for (championUser of userChamps) {
+                        if (championDocs.name === championUser.name) {
+                            controllo = true;
+                            break;
+                        }
+                    }
+                    if (!controllo) {
+                        campioni.push(championDocs);
+                    }
+                }
+            } else {
+                campioni = docs;
+            }
             res.render('shop/index', {
                 title: 'League Shop',
                 champions: campioni,
@@ -110,7 +180,25 @@ router.get('/sort/:type/:order', function(req, res, next) {
     }
     if (type === "name") {
         Champion.find(function(err, docs) {
-            var campioni = docs;
+            var campioni = [];
+            if (isUser()) {
+                var userChamps = req.user.champions;
+                var controllo = false;
+                for (championDocs of docs) {
+                    controllo = false;
+                    for (championUser of userChamps) {
+                        if (championDocs.name === championUser.name) {
+                            controllo = true;
+                            break;
+                        }
+                    }
+                    if (!controllo) {
+                        campioni.push(championDocs);
+                    }
+                }
+            } else {
+                campioni = docs;
+            }
             res.render('shop/index', {
                 title: 'League Shop',
                 champions: campioni,
@@ -123,38 +211,56 @@ router.get('/sort/:type/:order', function(req, res, next) {
     }
 });
 
+//checkout
+
 router.post('/checkout/:id', isLoggedIn, function(req, res, next) {
+
     if (!req.session.cart) {
         return res.redirect('/cart');
     }
+    var date = new Date().toLocaleString();
+    var oldChampions = req.user.champions;
     var id = req.params.id;
     var cart = new Cart(req.session.cart);
     var order = new Order({
         user: req.user,
-        cart: cart
+        cart: cart,
+        date: date
     });
+    var cartItems = cart.generateArray();
+    for (var field of cartItems) {
+
+        //creazione skills 
+        var champSkills = field.item.skills;
+
+        //creazione champ
+        var champion = new Champion({
+            imagePath: field.item.imagePath,
+            name: field.item.name,
+            title: field.item.title,
+            role: field.item.role,
+            description: field.item.description,
+            price: field.item.price,
+            skills: champSkills
+        })
+
+        oldChampions.push(champion);
+    }
+
     order.save(function(err, result) {
         req.flash('success', 'Successfully bought product!');
-
-        //fare l'update delle blueEssence
 
         User.update({
             _id: id
         }, {
             $set: {
-                blueEssence: req.user.blueEssence - cart.totalPrice
+                blueEssence: req.user.blueEssence - cart.totalPrice,
+                champions: oldChampions
             }
-        }, function(err, docs) {
-
-
-        });
-
+        }, function(err, docs) {});
         req.session.cart = null;
         res.redirect('/user/profile');
     });
-
-
-
 });
 
 module.exports = router;

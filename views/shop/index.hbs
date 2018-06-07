@@ -35,6 +35,7 @@
     </div>
     <!--Sort by...column-->
     <div class="col-5 col-md-3" name="colonna3">
+        {{#if_eq role 'Tutti'}}
         <strong id="ordina" style="font-size: 21px">Ordina: </strong>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false">
@@ -59,8 +60,8 @@
             <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
             <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
             {{/if_eq}}
-
         </div>
+        {{/if_eq}}
     </div>
 </div>
 <br>

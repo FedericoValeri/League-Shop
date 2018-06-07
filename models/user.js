@@ -19,17 +19,16 @@ var userSchema = new Schema({
     champions: [{
         type: mongoose.Schema.Types.Mixed,
         ref: 'Champion',
-        required: false
+        required: true
     }],
     blueEssence: {
         type: Number,
-        required: false
+        required: true
     },
     isAdmin: {
         type: Boolean,
         default: false
     }
-
 
 });
 

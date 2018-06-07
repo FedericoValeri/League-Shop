@@ -26,7 +26,8 @@ router.get('/profile', isLoggedIn, function(req, res, next) {
         //provvisorio (scala EB solo nella vista del profilo, non dal db nè dalla home)
 
         res.render('user/profile', {
-            orders: orders
+            orders: orders,
+            users: req.user
         });
     });
 });
@@ -93,7 +94,6 @@ router.get('/:email', function(req, res, next) {
     }, function(err, docs) {
         var user = [];
         user.push(docs);
-        console.log(docs);
 
         res.render('shop/user', {
             title: 'League Shop',
