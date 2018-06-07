@@ -405,7 +405,7 @@ var missfortuneSkills = [
     new Skill({
         imageSrc: "https://i.imgur.com/pSmXIAS.png",
         letter: 'E',
-        title: 'Pioggia id piombo',
+        title: 'Pioggia di piombo',
         description: "Miss Fortune rivela un'area con una pioggia di proiettili, infliggendo danni a ondate agli avversari e rallentandoli."
     }),
     new Skill({
@@ -1330,33 +1330,7 @@ Ashe = new Champion({
 champions.push(Ashe);
 
 
-
-
-var users = [
-    new User({
-        email: 'fede@fede.it',
-        password: 'fede',
-        champions: [Veigar, Talon, Tristana],
-        blueEssence: 50000
-    }),
-    new User({
-        email: 'fra@fra.it',
-        password: 'pippo',
-        champions: [Irelia, Poppy, Kaisa],
-        blueEssence: 30000
-    })
-];
-
-var done = 0;
-for (var i = 0; i < users.length; i++) {
-    users[i].save(function(err, result) {
-        done++;
-        if (done === users.length) {
-            exit();
-        }
-    });
-}
-
+/*
 var done = 0;
 for (var i = 0; i < champions.length; i++) {
     champions[i].save(function(err, result) {
@@ -1366,7 +1340,7 @@ for (var i = 0; i < champions.length; i++) {
         }
     });
 }
-
+*/
 function exit() {
     mongoose.disconnect();
 }
