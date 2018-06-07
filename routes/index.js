@@ -123,10 +123,11 @@ router.get('/sort/:type/:order', function(req, res, next) {
     }
 });
 
-router.post('/checkout', isLoggedIn, function(req, res, next) {
+router.post('/checkout/:id', isLoggedIn, function(req, res, next) {
     if (!req.session.cart) {
         return res.redirect('/cart');
     }
+    var id = req.params.id;
     var cart = new Cart(req.session.cart);
     var order = new Order({
         user: req.user,
@@ -134,14 +135,25 @@ router.post('/checkout', isLoggedIn, function(req, res, next) {
     });
     order.save(function(err, result) {
         req.flash('success', 'Successfully bought product!');
-        req.session.cart = null;
+
         //fare l'update delle blueEssence
-        //req.user.blueEssence -= cart.totalPrice;
+
+        User.update({
+            _id: id
+        }, {
+            $set: {
+                blueEssence: req.user.blueEssence - cart.totalPrice
+            }
+        }, function(err, docs) {
+
+
+        });
+
+        req.session.cart = null;
         res.redirect('/user/profile');
     });
 
 
-    console.log(req.user.blueEssence -= cart.totalPrice);
 
 });
 

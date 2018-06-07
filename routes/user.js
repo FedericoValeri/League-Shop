@@ -24,7 +24,7 @@ router.get('/profile', isLoggedIn, function(req, res, next) {
             order.items = cart.generateArray();
         });
         //provvisorio (scala EB solo nella vista del profilo, non dal db nè dalla home)
-        //req.user.blueEssence -= cart.totalPrice;
+
         res.render('user/profile', {
             orders: orders
         });
