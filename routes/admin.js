@@ -33,6 +33,19 @@ router.get('/signin', csrf(), function(req, res, next) {
     });
 });
 
+router.post('/signup', passport.authenticate('local.admin.signup', {
+    failureRedirect: '/',
+    failureFlash: true
+}), function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/admin/home');
+    }
+});
+
 router.post('/signin', passport.authenticate('local.admin.signin', {
     failureRedirect: '/admin/signin',
     failureFlash: true

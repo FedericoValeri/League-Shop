@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var User = require('../models/user');
 var Cart = require('../models/cart');
-var Champion = require('../models/champion');
 
 //route per il carrello
 router.get('/', function(req, res, next) {

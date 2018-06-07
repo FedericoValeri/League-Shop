@@ -10,7 +10,7 @@ var userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true
+        required: false
     },
     password: {
         type: String,
@@ -23,7 +23,7 @@ var userSchema = new Schema({
     }],
     blueEssence: {
         type: Number,
-        required: true
+        required: false
     },
     isAdmin: {
         type: Boolean,
@@ -37,11 +37,7 @@ userSchema.methods.encryptPassword = function(password) {
 };
 
 userSchema.methods.validPassword = function(password) {
-    //return bcrypt.compareSync(password, this.password);
-    if (this.password === password) {
-        return true
-    } else
-        return false
+    return bcrypt.compareSync(password, this.password);
 };
 
 
