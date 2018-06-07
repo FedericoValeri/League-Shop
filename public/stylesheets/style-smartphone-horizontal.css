@@ -1,6 +1,6 @@
 body {
+    background-color: #040016;
     background-image: none;
-    background-color: #000000;
 }
 
 .carte {
@@ -56,4 +56,52 @@ body {
     margin-left: 1%;
     margin-bottom: 1%;
     font-size: 14px;
+}
+
+[id=titleBio] {
+    font-size: 35px;
+}
+
+[id=iconRoleBio] {
+    width: 90px;
+    height: 90px;
+    margin-top: 6px;
+}
+
+[id=nameBio] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[id=titleBio] {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+[id=imageBio] {
+    width: 100%;
+    height: 81%;
+}
+
+[id=rowDescBio] {
+    margin-top: 10%;
+    ;
+    margin-bottom: auto;
+}
+
+[id=nameBio] {
+    font-size: 70px;
+}
+
+[id=colonnaNomeTitolo] {
+    padding-left: 0%;
+    padding-right: 5%;
+}
+
+[name=rowSkill] {
+    padding-right: 8%;
+}
+
+[id=bio] {
+    background-color: rgb(255, 238, 226);
 }
