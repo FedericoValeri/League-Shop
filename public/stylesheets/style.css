@@ -6,7 +6,7 @@
     
     body {
         background-color: rgb(0, 0, 0);
-        background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
+        /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
@@ -99,6 +99,10 @@
         background-color: rgba(255, 255, 255, 0);
     }
     
+    [name=name] {
+        font-size: 31px;
+    }
+    
     [name=champImage] {
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -123,13 +127,14 @@
         margin-top: 10px;
         margin-bottom: 20px;
         margin-left: 3px;
-        font-size: 22px;
+        font-size: 21px;
     }
     
     [name=price] {
         color: rgb(0, 128, 208);
         float: right;
         margin: 0%;
+        font-size: 29px;
     }
     
     [name=EB] {
