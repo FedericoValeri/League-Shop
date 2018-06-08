@@ -37,9 +37,13 @@
         height: 30px;
     }
     
-    [id=barrasopra] {
-        background: fixed;
-    }
+    [id=colonnaFiltra] {}
+    
+    [id=colonnaSearch] {}
+    
+    [id=colonnaOrdina] {}
+    
+    [id=navbarprincipale] {}
     
     [id=dropOrdina] {
         /*float: left;*/

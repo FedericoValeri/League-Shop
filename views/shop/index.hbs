@@ -4,37 +4,40 @@
 <!--Filters and Search bar-->
 <div class="row" id="barrasopra">
     <!--filter by role column-->
-    <div class="col-5 col-md-3">
-        <strong id="filtra" style="font-size: 21px">Filtra: </strong>
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">
-            {{role}}
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropFiltra">
-            <a class="dropdown-item" href="/">Tutti</a>
-            <a class="dropdown-item" href="/role/Assassino">Assassino</a>
-            <a class="dropdown-item" href="/role/Tank">Tank</a>
-            <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
-            <a class="dropdown-item" href="/role/Mago">Mago</a>
-            <a class="dropdown-item" href="/role/Supporto">Supporto</a>
-            <a class="dropdown-item" href="/role/Combattente">Combattente</a>
-        </div>
+    <div class="col-5 col-md-3" style="margin:auto">
+        
+            <div class="float-right">
+                <strong id="filtra" style="font-size: 21px">Filtra: </strong>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                    {{role}}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropFiltra">
+                    <a class="dropdown-item" href="/">Tutti</a>
+                    <a class="dropdown-item" href="/role/Assassino">Assassino</a>
+                    <a class="dropdown-item" href="/role/Tank">Tank</a>
+                    <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
+                    <a class="dropdown-item" href="/role/Mago">Mago</a>
+                    <a class="dropdown-item" href="/role/Supporto">Supporto</a>
+                    <a class="dropdown-item" href="/role/Combattente">Combattente</a>
+                
+            </div>
 
+        </div>
     </div>
     <!--Search bar column-->
-    <div class="col-2 col-md-6">
-        <!--
-        <div class="box">
-            <div class="container-4">
-                <input type="search" id="search" placeholder="Search..." />
+    <div class="col-2 col-md-6" style="margin:auto">
+        <div class="box ">
+            <div class="container-4" style="margin:auto">
+                <input type="text" id="search" onkeyup="myFunction()" placeholder="Trova un campione">
                 <button class="icon">
                     <i class="fa fa-search"></i>
                 </button>
             </div>
-        </div>-->
+        </div>
     </div>
     <!--Sort by...column-->
-    <div class="col-5 col-md-3" name="colonna3">
+    <div class="col-5 col-md-3" style="margin:auto">
         {{#if_eq role 'Tutti'}}
         <strong id="ordina" style="font-size: 21px">Ordina: </strong>
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
@@ -85,14 +88,10 @@
     </div>
 </div>
 
-
-
-
-<div class="row carte">
-
-    <div class="row">
-        {{#each champions}}
-        <div class="colonna-carta" id="colonnaCarta">
+<div class="row carte" id="myDIV">
+    {{#each champions}}
+    <section class="colonna-carta" id="colonnaCarta">
+        <div>
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
@@ -114,15 +113,38 @@
                     <div class="row" id="rowbottoni">
                         <div class="col-md-12" id="yo">
                             <a href="/champions/{{this.name}}" class="btn btn-dark alert informazioni" role="button" id="informazioni">Informazioni</a>
-
                             <a href="/add-to-cart/{{this._id}}" class="btn btn-success aggiungi" id="aggiungi">Aggiungi al carrello</a>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{/each}}
-    </div>
-
+    </section>
+    {{/each}}
 </div>
+
+<script>
+    function myFunction() {
+
+        var input, filter, div, ul, name, i, prova1, prova2;
+
+        prova1 = document.getElementById("myDIV");
+
+
+        input = document.getElementById("search");
+        filter = input.value.toUpperCase();
+        div = document.getElementById("myDIV");
+        ul = div.getElementsByTagName("section");
+        console.log(ul.length);
+        for (i = 0; i < ul.length; i++) {
+            console.log(ul[i]);
+            name = ul[i].getElementsByTagName("h2")[0];
+            if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                ul[i].style.display = "block";
+            } else {
+                ul[i].style.display = "none";
+
+            }
+        }
+    }
+</script>
