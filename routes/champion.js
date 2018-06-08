@@ -1,22 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-var Champion = require('../models/champion');
+const ChampionController = require('../controllers/champions');
 
-
-router.get('/:name', function(req, res, next) {
-    const name = req.params.name;
-    Champion.findOne({
-        name: name
-    }, function(err, docs) {
-        var champ = [];
-        champ.push(docs);
-
-        res.render('shop/champ.hbs', {
-            title: 'League Shop',
-            champion: champ
-        });
-    })
-});
+//get champion bio page
+router.get('/:name', ChampionController.get_champion_bio);
 
 module.exports = router;

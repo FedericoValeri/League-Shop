@@ -8,16 +8,20 @@ const UserController = require('../controllers/users');
 //var csrfProtection = csrf();
 //router.use(csrfProtection);
 
+//get user profile
 router.get('/profile', isLoggedIn, UserController.user_profile);
 
+//user logout
 router.get('/logout', isLoggedIn, UserController.user_logout);
 
 router.use('/', notLoggedIn, function(req, res, next) {
     next();
 });
 
+//get signup page
 router.get('/signup', csrf(), UserController.user_get_signup);
 
+//user signup
 router.post('/signup', passport.authenticate('local.signup', {
         failureRedirect: '/user/signup',
         failureFlash: true
@@ -32,8 +36,10 @@ router.post('/signup', passport.authenticate('local.signup', {
         }
     });
 
+//get signin page
 router.get('/signin', csrf(), UserController.user_get_signin);
 
+//user signin
 router.post('/signin', passport.authenticate('local.signin', {
     failureRedirect: '/user/signin',
     failureFlash: true
@@ -47,8 +53,6 @@ router.post('/signin', passport.authenticate('local.signin', {
     }
 });
 
-router.get('/:email', UserController.get_user);
-
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
@@ -57,7 +61,6 @@ function isLoggedIn(req, res, next) {
     }
     res.redirect('/');
 }
-
 
 function notLoggedIn(req, res, next) {
     if (!req.isAuthenticated()) {

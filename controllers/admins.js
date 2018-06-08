@@ -1,20 +1,21 @@
-var express = require('express');
-var router = express.Router();
-var csrf = require('csurf');
-var passport = require('passport');
-
 var Skill = require('../models/skill');
 var User = require('../models/user');
 var Champion = require('../models/champion');
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_home = function(req, res, next) {
     res.render('admin/admin-page', {});
 }
 
+//--------------------------------------------------------------------------------------------------------------------//
+
 exports.admin_logout = function(req, res, next) {
     req.logout();
     res.redirect('/');
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.admin_get_signin = function(req, res, next) {
     var messages = req.flash('error');
@@ -24,6 +25,8 @@ exports.admin_get_signin = function(req, res, next) {
         hasErrors: messages.length > 0
     });
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_usersList = function(req, res, next) {
     User.find(function(err, docs) {
@@ -36,6 +39,8 @@ exports.get_usersList = function(req, res, next) {
         });
     });
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_championsList = function(req, res, next) {
     Champion.find(function(err, docs) {
@@ -51,9 +56,13 @@ exports.get_championsList = function(req, res, next) {
     });
 }
 
+//--------------------------------------------------------------------------------------------------------------------//
+
 exports.get_newChamp_form = function(req, res, next) {
     res.render('admin/newChamp');
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.delete_user = (req, res, next) => {
     const id = req.params.id;
@@ -70,6 +79,8 @@ exports.delete_user = (req, res, next) => {
         return res.redirect("/admin/usersList");
     });
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.add_new_champ = (req, res) => {
     //creazione skills 
@@ -119,6 +130,8 @@ exports.add_new_champ = (req, res) => {
     console.log("È stao aggiunto il campione: " + champion.name);
     res.redirect("/admin/championsList");
 }
+
+//--------------------------------------------------------------------------------------------------------------------//
 
 exports.delete_champion = (req, res, next) => {
     const id = req.params.id;
