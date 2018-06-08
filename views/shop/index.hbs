@@ -5,22 +5,28 @@
 <div class="row" id="barrasopra">
     <!--filter by role column-->
     <div class="col-5 col-md-3" style="margin:auto">
-        
-            <div class="float-right">
-                <strong id="filtra" style="font-size: 21px">Filtra: </strong>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    {{role}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropFiltra">
-                    <a class="dropdown-item" href="/">Tutti</a>
-                    <a class="dropdown-item" href="/role/Assassino">Assassino</a>
-                    <a class="dropdown-item" href="/role/Tank">Tank</a>
-                    <a class="dropdown-item" href="/role/Tiratore">Tiratore</a>
-                    <a class="dropdown-item" href="/role/Mago">Mago</a>
-                    <a class="dropdown-item" href="/role/Supporto">Supporto</a>
-                    <a class="dropdown-item" href="/role/Combattente">Combattente</a>
-                
+
+        <div class="float-right">
+            <strong id="filtra" style="font-size: 21px">Filtra: </strong>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropFiltra" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <span id="bottoneFiltra">Tutti</span>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropFiltra" style="cursor:pointer">
+                <a class="dropdown-item" onclick="roleSelection('Tutti')">
+                    <!--href="/" -->Tutti</a>
+                <a class="dropdown-item" onclick="roleSelection('Assassino')">
+                    <!--href="/role/Assassino" -->Assassino</a>
+                <a class="dropdown-item" onclick="roleSelection('Tank')">
+                    <!--href="/role/Tank" -->Tank</a>
+                <a class="dropdown-item" onclick="roleSelection('Tiratore')">
+                    <!--href="/role/Tiratore" -->Tiratore</a>
+                <a class="dropdown-item" onclick="roleSelection('Mago')">
+                    <!--href="/role/Mago" -->Mago</a>
+                <a class="dropdown-item" onclick="roleSelection('Supporto')">
+                    <!--href="/role/Supporto" -->Supporto</a>
+                <a class="dropdown-item" onclick="roleSelection('Combattente')">
+                    <!--href="/role/Combattente" -->Combattente</a>
             </div>
 
         </div>
@@ -29,7 +35,7 @@
     <div class="col-2 col-md-6" style="margin:auto">
         <div class="box ">
             <div class="container-4" style="margin:auto">
-                <input type="text" id="search" onkeyup="myFunction()" placeholder="Trova un campione">
+                <input type="text" id="search" onkeyup="searchFunction()" placeholder="Trova un campione">
                 <button class="icon">
                     <i class="fa fa-search"></i>
                 </button>
@@ -98,6 +104,7 @@
                     <div class="row" name="rigaTitoloPrezzo">
                         <div class="col-12 col-md-8" name="champName">
                             <h2 class="card-title" name="name"> {{this.name}}</h2>
+                            <p hidden>{{this.role}}</p>
                         </div>
                         <div class="col-12 col-md-4" name="prezzo">
                             <div class="row" id="rowprezzo">
@@ -124,27 +131,41 @@
 </div>
 
 <script>
-    function myFunction() {
-
-        var input, filter, div, ul, name, i, prova1, prova2;
-
-        prova1 = document.getElementById("myDIV");
-
-
+    function searchFunction() {
+        var input, filter, div, ul, name, i;
         input = document.getElementById("search");
         filter = input.value.toUpperCase();
         div = document.getElementById("myDIV");
         ul = div.getElementsByTagName("section");
-        console.log(ul.length);
         for (i = 0; i < ul.length; i++) {
-            console.log(ul[i]);
             name = ul[i].getElementsByTagName("h2")[0];
             if (name.innerHTML.toUpperCase().indexOf(filter) > -1) {
                 ul[i].style.display = "block";
             } else {
                 ul[i].style.display = "none";
-
             }
         }
     }
+
+    function roleSelection(c) {
+        document.getElementById("bottoneFiltra").innerHTML = c;
+        var x, y, i;
+        x = document.getElementById("myDIV");
+        y = x.getElementsByTagName("section");
+        for (i = 0; i < y.length; i++) {
+            role = y[i].getElementsByTagName("p")[0];
+            if (c === 'Tutti') {
+                y[i].style.display = "block";
+            } else {
+                if (role.innerHTML === c) {
+                    y[i].style.display = "block";
+                } else {
+                    y[i].style.display = "none";
+                }
+            }
+        }
+    }
+
+
+
 </script>

@@ -9,8 +9,8 @@ router.get('/', IndexController.get_home_page);
 //aggiungi al carrello
 router.get('/add-to-cart/:id', isLoggedIn, IndexController.add_to_cart);
 
-//role selection
-router.get('/role/:role', IndexController.role_selection);
+//role selection(deprecated)
+//router.get('/role/:role', IndexController.role_selection);
 
 //sort home page
 router.get('/sort/:type/:order', IndexController.sort_by);
