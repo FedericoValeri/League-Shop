@@ -1,5 +1,5 @@
 body {
-    background-color: #040016;
+    background-color: #ff0000;
     background-image: none;
 }
 
@@ -105,3 +105,57 @@ body {
 [id=bio] {
     background-color: rgb(255, 238, 226);
 }
+
+
+/*PROFILO UTENTE*/
+
+[id=myChampions] {
+    columns: 2;
+}
+
+[id=prezzoChampTransazione] {
+    font-size: 20px;
+}
+
+[id=dataTransizione] {
+    font-size: 17px;
+}
+
+[id=pannelloTransazioni] {
+    width: 95%;
+}
+
+[id=totaleTransazione] {
+    font-size: 25px;
+    margin-left: 5px;
+}
+
+[id=imgChampProfile] {
+    width: 100px;
+    height: 100px;
+}
+
+[id=nameChampProfile] {
+    font-size: 20px;
+    margin-bottom: -10px;
+    margin-left: 5px;
+}
+
+[id=titleChampProfile] {
+    font-size: 0%;
+}
+
+[id=roleChampProfile] {
+    margin-top: 0%;
+    font-size: 15px;
+    margin-left: 5px;
+}
+
+[id=buttonInfoProfile] {
+    font-size: 12px;
+    padding: 5px;
+    margin-left: 5px;
+}
+
+
+/*fine*/

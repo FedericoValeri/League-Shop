@@ -1,6 +1,6 @@
 body {
     background-size: contain;
-    background-color: #ffffff;
+    background-color: #00ff51;
 }
 
 .carte {
@@ -54,4 +54,62 @@ body {
     margin-right: 1%;
     margin-left: 1%;
     margin-bottom: 1%;
+}
+
+
+/*PROFILO UTENTE*/
+
+[id=myChampions] {
+    columns: 1;
+    padding: 0%;
+}
+
+[id=imgChampProfile] {
+    width: 120px;
+    height: 120px;
+}
+
+[id=nameChampProfile] {
+    font-size: 25px;
+    margin-bottom: -5px;
+    margin-left: 5px;
+}
+
+[id=titleChampProfile] {
+    font-size: 0%;
+}
+
+[id=roleChampProfile] {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+}
+
+[id=prezzoChampTransazione] {
+    font-size: 20px;
+    margin-right: -7px;
+}
+
+[id=dataTransizione] {
+    font-size: 15px;
+}
+
+[id=nameChampTransazione] {
+    margin-left: -7px;
+    font-size: 17px;
+}
+
+[id=pannelloTransazioni] {
+    width: 105%;
+    margin-left: -13px;
+}
+
+[id=listaTransazioni] {
+    padding-left: 5%;
+    margin-top: -10px;
+}
+
+[id=totaleTransazione] {
+    font-size: 20px;
+    margin-left: 5px;
 }

@@ -91,6 +91,32 @@
     .thumbnail {
         background-color: rgba(255, 255, 255, 0.775);
     }
+    /*PROFILO UTENTE*/
+    
+    [id=myChampions] {
+        columns: 3;
+        column-gap: 12px;
+    }
+    
+    [id=prezzoChampTransazione] {
+        font-size: 25px;
+    }
+    
+    [id=ebprofile] {
+        margin-top: -15px;
+        margin-left: -5px;
+    }
+    
+    [id=totaleTransazione] {
+        font-size: 30px;
+        margin-left: 5px;
+    }
+    
+    [id=cellaChampProfilo] {
+        margin-bottom: 10px;
+        page-break-inside: avoid;
+    }
+    /*fine*/
     
     [id=champ] {
         border-width: 0px;

@@ -6,7 +6,7 @@
     <div id="prova" class="col-md-4">
         <div class="float-right">
             <strong style="font-size: 40px; color:rgb(9, 147, 211)">{{user.blueEssence}}
-                <img align="middle" id="ebprofile" width="40" height="50" src="https://i.imgur.com/qeZVwiU.png">
+                <img align="middle" id="ebprofile" width="45" height="60" src="https://i.imgur.com/qeZVwiU.png">
             </strong>
         </div>
     </div>
@@ -15,88 +15,86 @@
 <hr noshade>
 
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-sm-11 col-md-12">
         <h2>I miei campioni</h2>
-
         <br>
+        <!--        
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cerca campione..." title="Type in a name">
-        <br>
+        <br> -->
 
         <div class="panel panel-default">
             <div class="panel-body">
-                <ul class="list-group" id="myUL">
+                <ul class="columns" id="myChampions">
                     {{#each users}} {{#each champions }}
-                    <li class="list-group-item">
+                    <li class="list-group-item" id="cellaChampProfilo">
                         <div class="row">
-                            <div class="col-md-3">
-                                <img width="200" height="200" src="{{this.imagePath}}">
+                            <div class="col-5 col-sm-5 col-md-4">
+                                <img width="150" height="150" id="imgChampProfile" src="{{this.imagePath}}">
                             </div>
-                            <div class="col-md-6">
-                                <h3 id="prova">{{this.name}}</h3>
-                                <h4>{{this.title}}</h4>
+                            <div class="col-7 col-sm-7 col-md-8">
+                                <h2 id="nameChampProfile">{{this.name}}</h2>
+                                <h4 id="titleChampProfile">{{this.title}}</h4>
+                                <h5 id="roleChampProfile">{{this.role}}</h5>
+                                <a href="/champions/{{this.name}}" class="btn btn-warning" id="buttonInfoProfile" role="button">Informazioni</a>
                             </div>
-                            <div class="col-md-3">
-                                <a href="/champions/{{this.name}}" class="btn btn-warning float-right" role="button">Informazioni</a>
-                            </div>
-                        </div>
                     </li>
                     {{/each}} {{/each}}
                 </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<br>
-<hr noshade>
-<br>
+    <br>
+    <hr noshade>
+    <br>
 
-<div class="row">
-    <div class="col-md-12">
-        <h2>I miei acquisti</h2>
-    </div>
-</div>
-
-<br> {{#each orders }}
-<ul>
-    <li>
-        <h5>In data: {{date}}</h5>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <ul class="list-group">
-                    {{#each this.items }}
-                    <li class="list-group-item">
-                        <h4>{{this.item.name}} - {{this.item.title}}</h4>
-                        <span class="float-right">{{ this.price }} EB</span>
-
-                    </li>
-                    {{/each}}
-                </ul>
-            </div>
-            <br>
-            <div class="panel-footer">
-                <strong>Totale pagato: {{this.cart.totalPrice}} EB</strong>
-            </div>
-            <hr>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>I miei acquisti</h2>
         </div>
-    </li>
-</ul>
-{{/each}}
+    </div>
 
-<script>
-    function myFunction() {
-        var input, filter, ul, li, a, i;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        ul = document.getElementById("myUL");
-        li = ul.getElementsByTagName("li");
-        for (i = 0; i < li.length; i++) {
-            a = li[i].getElementsByTagName("h3")[0];
-            if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                li[i].style.display = "";
-            } else {
-                li[i].style.display = "none";
+    <br> {{#each orders }}
+    <ul id="listaTransazioni">
+        <li>
+            <h5 id="dataTransizione">In data: {{date}}</h5>
+            <div class="panel panel-default" id="pannelloTransazioni">
+                <div class="panel-body">
+                    <ul class="list-group">
+                        {{#each this.items }}
+                        <li class="list-group-item">
+                            <h4 id="nameChampTransazione">{{this.item.name}} - {{this.item.title}}</h4>
+                            <span id="prezzoChampTransazione" class="float-right">{{ this.price }} EB</span>
 
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <br>
+                <div class="panel-footer">
+                    <strong id="totaleTransazione">Totale pagato: {{this.cart.totalPrice}} EB</strong>
+                </div>
+                <hr>
+            </div>
+        </li>
+    </ul>
+    {{/each}}
+
+    <script>
+        function myFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("myChampions");
+            li = ul.getElementsByTagName("li");
+            for (i = 0; i < li.length; i++) {
+                a = li[i].getElementsByTagName("h3")[0];
+                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+
+                }
             }
         }
-    }
-</script>
+    </script>
