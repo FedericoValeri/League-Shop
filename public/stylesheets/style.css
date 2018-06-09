@@ -1,17 +1,16 @@
     @font-face {
-        font-family: League;
+        font-family: 'League';
         font-weight: bolder;
         src: local('D:/Università/Terzo anno/Web/League-Shop/public/fonts/Beaufort-Bold.ttf');
     }
     
     body {
         background-color: rgb(0, 0, 0);
-        /*background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");*/
+        background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center center;
         background-size: cover;
-        background-color: rgb(255, 255, 255);
     }
     /*navbar icon*/
     
@@ -341,6 +340,11 @@
         font-size: 40px;
     }
     
+    [id=imageSkillBioSmart] {
+        width: 0%;
+        height: 0%;
+    }
+    
     [id="abilità"] {
         margin: 15px;
         margin-left: 5%;
@@ -391,42 +395,35 @@
     
     .container-4 {
         overflow: hidden;
-        width: 450px;
+        width: 600px;
         vertical-align: middle;
         white-space: nowrap;
     }
     
     .container-4 input#search {
-        width: 450px;
+        width: 600px;
         height: 65px;
         background: #29292b;
+        background-image: url(https://i.imgur.com/ETnqJ53.png);
+        background-size: 5.3%;
+        background-position: 15px 5px;
+        background-repeat: no-repeat;
+        padding-left: 30px;
+        color: rgba(169, 141, 70, 0.809);
+        font-weight: 500;
         opacity: 70%;
         border: none;
         font-size: 20pt;
         float: left;
-        color: #fff;
         padding-left: 15px;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
+        padding: 12px 80px;
     }
     
     .container-4 input#search::-webkit-input-placeholder {
-        color: rgb(172, 169, 169);
-    }
-    
-    .container-4 input#search:-moz-placeholder {
-        /* Firefox 18- */
-        color: #65737e;
-    }
-    
-    .container-4 input#search::-moz-placeholder {
-        /* Firefox 19+ */
-        color: #65737e;
-    }
-    
-    .container-4 input#search:-ms-input-placeholder {
-        color: #65737e;
+        color: rgba(169, 141, 70, 0.809);
     }
     
     .container-4 button.icon {
@@ -440,7 +437,7 @@
         background: #1f1501;
         height: 65px;
         width: 65px;
-        color: #d1d6db;
+        color: rgba(169, 141, 70, 0.809);
         opacity: 0;
         font-size: 20pt;
         -webkit-transition: all .55s ease;
@@ -456,10 +453,6 @@
         outline: none;
         opacity: 1;
         margin-left: -65px;
-    }
-    
-    .container-4:hover button.icon:hover {
-        background: white;
     }
     /*login page*/
     

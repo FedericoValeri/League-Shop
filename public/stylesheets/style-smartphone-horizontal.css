@@ -3,6 +3,11 @@ body {
     background-image: none;
 }
 
+[id=barrasopra] {
+    margin-top: -30px;
+    margin-bottom: -30px;
+}
+
 .carte {
     padding-right: 6%;
     padding-left: 6%;
@@ -58,6 +63,9 @@ body {
     font-size: 14px;
 }
 
+
+/*CHAMP BIO*/
+
 [id=titleBio] {
     font-size: 35px;
 }
@@ -66,6 +74,11 @@ body {
     width: 90px;
     height: 90px;
     margin-top: 6px;
+}
+
+[id=imageSkillBioSmart] {
+    width: 0%;
+    height: 0%;
 }
 
 [id=nameBio] {
@@ -159,3 +172,44 @@ body {
 
 
 /*fine*/
+
+
+/*search bar home page*/
+
+.container-4 {
+    overflow: hidden;
+    width: 400px;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.container-4 input#search {
+    margin-top: 45px;
+    width: 400px;
+    height: 40px;
+    background: #29292b;
+    background-image: url(https://i.imgur.com/ETnqJ53.png);
+    background-size: 18px;
+    background-position: 15px 5px;
+    background-repeat: no-repeat;
+    color: rgba(169, 141, 70, 0.809);
+    font-weight: 500;
+    opacity: 70%;
+    border: none;
+    font-size: 23px;
+    float: left;
+    padding-left: 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 6px 45px;
+    margin-bottom: 15px;
+}
+
+.container-4 input#search::-webkit-input-placeholder {
+    color: rgba(169, 141, 70, 0.809);
+}
+
+.container-4 button.icon {
+    display: none;
+}
