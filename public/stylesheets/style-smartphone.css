@@ -60,6 +60,16 @@ body {
     margin-bottom: 1%;
 }
 
+[id=filtra] {
+    color: rgba(169, 141, 70, 0.809);
+}
+
+[id=colonnaSearch] {}
+
+[id=ordina] {
+    color: rgba(169, 141, 70, 0.809);
+}
+
 
 /*PROFILO UTENTE*/
 
@@ -120,6 +130,11 @@ body {
 
 
 /*CHAMP BIO*/
+
+[id=bio] {
+    color: rgba(169, 141, 70, 0.809);
+    background-color: #29292b0e;
+}
 
 [id=iconRoleBio] {
     width: 90px;

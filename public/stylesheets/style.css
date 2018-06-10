@@ -36,28 +36,24 @@
         height: 30px;
     }
     
-    [id=colonnaFiltra] {}
+    [id=filtra] {
+        color: rgba(255, 255, 255, 0.809);
+    }
     
     [id=colonnaSearch] {}
     
-    [id=colonnaOrdina] {}
+    [id=ordina] {
+        color: rgba(255, 255, 255, 0.809);
+    }
     
     [id=navbarprincipale] {}
     
     [id=dropOrdina] {
-        /*float: left;*/
-    }
-    
-    [id=ordina] {
-        /*float: right;*/
+        background: #29292b;
     }
     
     [id=dropFiltra] {
-        /*float: left;*/
-    }
-    
-    [id=filtra] {
-        /*float: right;*/
+        background: #29292b;
     }
     /*button go to top*/
     
@@ -78,7 +74,7 @@
     }
     
     #myBtn:hover {
-        background-color: rgba(214, 201, 11, 0.774);
+        background-color: rgba(169, 141, 70, 0.809);
     }
     
     .thumbnail .description {
@@ -322,6 +318,11 @@
         border-color: rgb(255, 0, 0);
     }
     
+    [id=bio] {
+        color: rgba(169, 141, 70, 0.809);
+        background-color: #29292bce;
+    }
+    
     [id="iconRoleBio"] {
         margin: auto;
     }
@@ -331,34 +332,29 @@
     }
     
     [id="nameBio"] {
-        margin-left: 9%;
+        margin: auto;
         font-size: 60px;
     }
     
     [id="titleBio"] {
-        margin-left: 7%;
+        margin: auto;
         font-size: 40px;
     }
-    
+    /*
     [id=imageSkillBioSmart] {
         width: 0%;
         height: 0%;
-    }
+    }*/
     
     [id="abilità"] {
         margin: 15px;
         margin-left: 5%;
     }
     
-    [id=holder] {
-        background: url("https://i.imgur.com/PVDnzNu.png") no-repeat center center;
-        height: 150px;
-        width: 150px;
-        border: 5px solid red;
-    }
-    
     [id="imageSkillBio"] {
         margin: auto;
+        border-style: double;
+        border-color: rgba(169, 141, 70, 0.809);
     }
     
     [name=rowImageSkill] {
@@ -390,6 +386,8 @@
         margin-left: auto;
         margin-top: 40px;
         margin-bottom: 40px;
+        border-style: double;
+        border-color: rgba(169, 141, 70, 0.809);
     }
     /*search bar home page*/
     
