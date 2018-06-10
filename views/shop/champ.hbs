@@ -1,6 +1,6 @@
 <br> {{#each champion}}
 <div class="row" id="bio">
-    <div id="prova" class="col-12 col-md-7">
+    <div id="inBio" class="col-12 col-md-7">
         <div id="prova" class="row">
             <div id="prova" class="col-12 col-sm-3 col-md-5">
                 <div id="prova" class="row">
@@ -22,14 +22,14 @@
                 </div>
                 <div id="prova" class="row">
                     <h2 id="titleBio"> {{title}}</h2>
-                </div>
+                </div><hr id="afterTitle">
                 <div id="rowAbilità" class="row">
                     <h3 id="abilità">Set di abilità:</h3>
                 </div>
             </div>
         </div>
-        {{#each skills}}
-        <div id="prova" class="row">
+        <hr id="beforeSkills"> {{#each skills}}
+        <div id="contenitoreSkill" class="row">
             <div class="col-12 col-sm-3 col-md-2" id="prova">
                 <div id="prova" name="rowImageSkill" class="row">
                     <img width="100" height="100" src="{{imageSrc}}" id="imageSkillBio">
@@ -46,9 +46,9 @@
                 <div id="prova" class="row"></div>
             </div>
         </div>
-        {{/each}}
+        <hr id="betweenSkills"> {{/each}}
     </div>
-    <div id="prova" class="col-sm-12 col-md-5">
+    <div class="col-sm-12 col-md-5">
         <div class="row" id="ritrattoDesc">
             <div id="colonnaRitrattoBio" class="col-sm-6 col-md-12">
                 <img width="550" height="550" src="{{imagePath}}" id="imageBio">

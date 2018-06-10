@@ -64,7 +64,9 @@ body {
     color: rgba(169, 141, 70, 0.809);
 }
 
-[id=colonnaSearch] {}
+[id=barrasopra] {
+    margin-bottom: -20px;
+}
 
 [id=ordina] {
     color: rgba(169, 141, 70, 0.809);
@@ -162,18 +164,21 @@ body {
 
 [id=colonnaRitrattoBio] {
     margin: auto;
+    margin-top: -15px;
 }
 
 [id=colonnaDescBio] {
+    padding: 0%;
     align-content: center;
     margin: auto;
-    width: 300px;
+    width: 100%;
+    margin-top: -10px;
 }
 
 [id=iconRoleBio] {
     width: 90px;
     height: 90px;
-    margin-top: 6px;
+    margin-top: -5px;
 }
 
 [id=nameBio] {
@@ -188,8 +193,8 @@ body {
 }
 
 [id=imageBio] {
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
 }
 
 [id=rowDescBio] {
@@ -201,7 +206,7 @@ body {
 }
 
 [id=descriptionBio] {
-    text-align: justify;
+    text-align: center;
 }
 
 [id=nameBio] {
@@ -211,29 +216,91 @@ body {
 
 [id=ritrattoDesc] {
     width: 100%;
+    margin: 0%;
 }
 
 [id=colonnaNomeTitolo] {
+    margin-top: 15px;
     padding-left: 0%;
     padding-right: 0%;
 }
 
+[id=beforeSkills] {
+    height: 20px;
+    margin-top: -25px;
+    margin-bottom: -10px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+[id=inBio] {
+    padding: 0%;
+}
+
+[id=afterTitle] {
+    height: 20px;
+    width: 96%;
+    margin-bottom: -10px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 1px 0 0 0;
+}
+
+[id=betweenSkills] {
+    height: 20px;
+    margin-bottom: -10px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+[id=betweenSkills]:before {
+    display: block;
+    content: "";
+    height: 20px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
 [name=rowSkill] {
     padding: 0%;
-    padding-left: 10px;
+    padding-right: 5%;
+    padding-left: 5%;
+    min-height: 0%;
 }
 
 [id=letterTitleBio] {
     display: inline;
+    text-align: center;
     margin: auto;
+    margin-bottom: 4px;
 }
 
 [id=descSkillBio] {
     margin: auto;
+    text-align: center;
+}
+
+[name=rowImageSkill] {
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-height: 0px;
+}
+
+[id=contenitoreSkill] {
+    margin-top: 0px;
 }
 
 [id=rowAbilità] {
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 [id=abilità] {

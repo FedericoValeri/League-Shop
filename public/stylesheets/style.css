@@ -50,10 +50,14 @@
     
     [id=dropOrdina] {
         background: #29292b;
+        border: none;
+        color: rgba(169, 141, 70, 0.809);
     }
     
     [id=dropFiltra] {
         background: #29292b;
+        border: none;
+        color: rgba(169, 141, 70, 0.809);
     }
     /*button go to top*/
     
@@ -289,7 +293,6 @@
     .hvr-float-shadow:active {
         -webkit-transform: translateY(-3px);
         transform: translateY(-3px);
-        /* move the element up by 5px */
     }
     
     .hvr-float-shadow:hover:before,
@@ -298,15 +301,8 @@
         opacity: 1;
         -webkit-transform: translateY(3px);
         transform: translateY(3px);
-        /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
     }
     /*champ bio*/
-    
-    [id=prova] {
-        /*border-style: solid;*/
-        border-width: 1px;
-        border-color: rgb(255, 0, 0);
-    }
     
     [id=bio] {
         color: rgba(169, 141, 70, 0.809);
@@ -325,17 +321,14 @@
     [id="nameBio"] {
         margin: auto;
         font-size: 60px;
+        color: rgba(145, 110, 22, 0.884);
     }
     
     [id=titleBio] {
         margin: auto;
         font-size: 40px;
+        color: rgba(149, 116, 34, 0.884);
     }
-    /*
-    [id=imageSkillBioSmart] {
-        width: 0%;
-        height: 0%;
-    }*/
     
     [id="abilità"] {
         font-size: 0%;
@@ -362,6 +355,7 @@
     [id="letterTitleBio"] {
         margin: 0%;
         margin-bottom: 1%;
+        color: rgba(149, 116, 34, 0.884);
     }
     
     [id=descSkillBio] {

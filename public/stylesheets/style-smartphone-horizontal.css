@@ -1,7 +1,4 @@
-body {
-    background-color: #ff0000;
-    background-image: none;
-}
+body {}
 
 [id=barrasopra] {
     margin-top: -30px;
@@ -98,7 +95,6 @@ body {
 
 [id=rowDescBio] {
     margin-top: 10%;
-    ;
     margin-bottom: auto;
 }
 
