@@ -76,16 +76,6 @@
     #myBtn:hover {
         background-color: rgba(169, 141, 70, 0.809);
     }
-    
-    .thumbnail .description {
-        color: rgba(51, 29, 29, 0.918);
-        margin-top: 0px;
-        margin-bottom: 30px;
-    }
-    
-    .thumbnail {
-        background-color: rgba(255, 255, 255, 0.775);
-    }
     /*PROFILO UTENTE*/
     
     [id=myChampions] {
@@ -321,6 +311,7 @@
     [id=bio] {
         color: rgba(169, 141, 70, 0.809);
         background-color: #29292bce;
+        padding: 20px;
     }
     
     [id="iconRoleBio"] {
@@ -336,7 +327,7 @@
         font-size: 60px;
     }
     
-    [id="titleBio"] {
+    [id=titleBio] {
         margin: auto;
         font-size: 40px;
     }
@@ -347,8 +338,7 @@
     }*/
     
     [id="abilità"] {
-        margin: 15px;
-        margin-left: 5%;
+        font-size: 0%;
     }
     
     [id="imageSkillBio"] {
@@ -364,7 +354,7 @@
         margin: auto;
     }
     
-    [name="rowSkill"] {
+    [name=rowSkill] {
         min-height: 150px;
         align-content: center;
     }
@@ -372,18 +362,14 @@
     [id="letterTitleBio"] {
         margin: 0%;
         margin-bottom: 1%;
-        width: 100%;
     }
     
     [id=descSkillBio] {
-        margin: 0%;
+        margin: auto;
         margin-bottom: 1%;
-        width: 100%;
     }
     
     [id="imageBio"] {
-        margin-right: auto;
-        margin-left: auto;
         margin-top: 40px;
         margin-bottom: 40px;
         border-style: double;

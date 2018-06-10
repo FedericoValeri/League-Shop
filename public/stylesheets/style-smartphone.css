@@ -70,6 +70,26 @@ body {
     color: rgba(169, 141, 70, 0.809);
 }
 
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(102, 79, 6);
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: rgba(169, 141, 70, 0.809);
+}
+
 
 /*PROFILO UTENTE*/
 
@@ -134,6 +154,20 @@ body {
 [id=bio] {
     color: rgba(169, 141, 70, 0.809);
     background-color: #29292b0e;
+    width: 100%;
+    margin: auto;
+    padding: 0px;
+    padding-top: 0%;
+}
+
+[id=colonnaRitrattoBio] {
+    margin: auto;
+}
+
+[id=colonnaDescBio] {
+    align-content: center;
+    margin: auto;
+    width: 300px;
 }
 
 [id=iconRoleBio] {
@@ -154,15 +188,20 @@ body {
 }
 
 [id=imageBio] {
-    width: 100%;
-    height: 81%;
+    width: 300px;
+    height: 300px;
 }
 
 [id=rowDescBio] {
-    width: 98%;
+    align-content: center;
+    width: 100%;
     margin: auto;
     margin-top: -5px;
     margin-bottom: 60px;
+}
+
+[id=descriptionBio] {
+    text-align: justify;
 }
 
 [id=nameBio] {
@@ -180,16 +219,28 @@ body {
 }
 
 [name=rowSkill] {
-    padding-right: 8%;
-    padding-left: 8%;
+    padding: 0%;
+    padding-left: 10px;
 }
 
-[id=imageSkillBioSmart] {
-    width: 100px;
-    height: 100px;
+[id=letterTitleBio] {
+    display: inline;
+    margin: auto;
 }
 
-[id=bio] {}
+[id=descSkillBio] {
+    margin: auto;
+}
+
+[id=rowAbilità] {
+    margin-top: 30px;
+}
+
+[id=abilità] {
+    display: inline;
+    margin: auto;
+    font-size: 30px;
+}
 
 
 /*search bar home page*/
