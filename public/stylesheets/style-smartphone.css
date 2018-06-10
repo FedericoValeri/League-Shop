@@ -92,6 +92,10 @@ body {
     background-color: rgba(169, 141, 70, 0.809);
 }
 
+[id=vuotoBarrasopra] {
+    width: 8.33%;
+}
+
 
 /*PROFILO UTENTE*/
 
@@ -313,6 +317,7 @@ body {
 /*search bar home page*/
 
 .container-4 {
+    margin: 0%;
     overflow: hidden;
     width: 100%;
     vertical-align: middle;

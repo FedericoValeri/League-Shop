@@ -40,13 +40,9 @@
         color: rgba(255, 255, 255, 0.809);
     }
     
-    [id=colonnaSearch] {}
-    
     [id=ordina] {
         color: rgba(255, 255, 255, 0.809);
     }
-    
-    [id=navbarprincipale] {}
     
     [id=dropOrdina] {
         background: #29292b;
@@ -235,7 +231,6 @@
         padding-right: 7px;
         padding-left: 7px;
         width: 20%;
-        /*margin: auto;*/
     }
     
     [class=card-body] {

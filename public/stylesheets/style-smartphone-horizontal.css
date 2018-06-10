@@ -1,4 +1,11 @@
-body {}
+body {
+    background-color: rgb(0, 0, 0);
+    background-image: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top;
+    background-size: contain;
+}
 
 [id=barrasopra] {
     margin-top: -30px;
@@ -63,6 +70,39 @@ body {}
 
 /*CHAMP BIO*/
 
+[id=descriptionBio] {
+    width: 92%;
+    margin-top: 10px;
+}
+
+[id=colonnaRitrattoBio] {
+    background-color: #29292bce;
+}
+
+[id=colonnaDescBio] {
+    background-color: #29292bce;
+}
+
+[id=bio] {
+    background: none;
+}
+
+[id=inBio] {
+    background-color: #29292bce;
+    padding: 20px;
+}
+
+[id=rowAbilità] {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+[id=abilità] {
+    display: inline;
+    margin: auto;
+    font-size: 30px;
+}
+
 [id=titleBio] {
     font-size: 35px;
 }
@@ -90,7 +130,7 @@ body {}
 
 [id=imageBio] {
     width: 100%;
-    height: 81%;
+    height: auto;
 }
 
 [id=rowDescBio] {
@@ -109,10 +149,6 @@ body {}
 
 [name=rowSkill] {
     padding-right: 8%;
-}
-
-[id=bio] {
-    background-color: rgb(255, 238, 226);
 }
 
 
@@ -166,6 +202,40 @@ body {}
     margin-left: 5px;
 }
 
+[id=beforeSkills] {
+    height: 20px;
+    margin-top: -25px;
+    margin-bottom: -10px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+[id=afterTitle] {
+    border-width: 0%;
+}
+
+[id=betweenSkills] {
+    height: 20px;
+    margin-bottom: -10px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 1px 0 0 0;
+    border-radius: 20px;
+}
+
+[id=betweenSkills]:before {
+    display: block;
+    content: "";
+    height: 20px;
+    margin-top: -31px;
+    border-style: solid;
+    border-color: rgba(169, 141, 70, 0.809);
+    border-width: 0 0 1px 0;
+    border-radius: 20px;
+}
+
 
 /*fine*/
 
@@ -174,14 +244,15 @@ body {}
 
 .container-4 {
     overflow: hidden;
-    width: 400px;
+    width: 315px;
     vertical-align: middle;
     white-space: nowrap;
+    float: right;
 }
 
 .container-4 input#search {
     margin-top: 45px;
-    width: 400px;
+    width: 300px;
     height: 40px;
     background: #29292b;
     background-image: url(https://i.imgur.com/ETnqJ53.png);
@@ -193,13 +264,38 @@ body {}
     opacity: 70%;
     border: none;
     font-size: 23px;
-    float: left;
+    float: right;
     padding-left: 15px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
     padding: 6px 45px;
     margin-bottom: 15px;
+}
+
+[id=boxCerca] {
+    float: right;
+    padding: 0%;
+}
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    z-index: 99;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    background-color: rgb(102, 79, 6);
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+#myBtn:hover {
+    background-color: rgba(169, 141, 70, 0.809);
 }
 
 .container-4 input#search::-webkit-input-placeholder {
