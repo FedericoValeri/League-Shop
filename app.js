@@ -10,6 +10,9 @@ var passport = require('passport');
 var flash = require('connect-flash');
 var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
+var config = require('config.json')('./config.json');
+
+
 
 var User = require('./models/user');
 
@@ -37,7 +40,7 @@ var champRoutes = require('./routes/champion');
 var app = express();
 
 //connect to database
-mongoose.connect('mongodb://localhost:27017/league-shop');
+mongoose.connect(config.mongodb.db_url);
 require('./config/passport');
 
 
