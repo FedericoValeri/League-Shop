@@ -18,7 +18,7 @@ router.post('/checkout/:id', isLoggedIn, CartController.buy_now);
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
+    if (req.user && req.user.isAdmin === false) {
         return next();
     }
     req.session.oldUrl = req.url;

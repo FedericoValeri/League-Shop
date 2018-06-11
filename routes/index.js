@@ -16,19 +16,3 @@ router.get('/add-to-cart/:id', IndexController.add_to_cart);
 router.get('/sort/:type/:order', IndexController.sort_by);
 
 module.exports = router;
-
-function isLoggedIn(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    req.session.oldUrl = req.url;
-    res.redirect('/user/signin');
-}
-
-function isLogged(req, res, next) {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    req.session.oldUrl = req.url;
-    res.redirect('/');
-}

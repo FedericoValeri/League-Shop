@@ -1,21 +1,4 @@
 <br>
-<div class="row">
-    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
-
-    </div>
-    <div class="col-12 col-sm-12 col-md-6 col-md-offset-4 col-sm-offset-3">
-        <div style="align-content:center" id="error" class="alert alert-danger" {{#if noMessages}}hidden{{/if}}>
-            <strong style="display:inline-block">{{errorMsg}}</strong>
-            <a href="/user/signin">Login
-                <i class="fas fa-external-link-alt"></i>
-            </a>
-        </div>
-    </div>
-    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
-
-    </div>
-</div>
-
 <!--Filters and Search bar-->
 <div class="row" id="barrasopra">
     <!--Search bar column-->
@@ -107,6 +90,27 @@
         {{/if}}
     </div>
     <div class="col-sm-6 col-md-3">
+
+    </div>
+</div>
+<!--div per messaggio "devi essere autenticato"-->
+<div class="row">
+    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-md-offset-4 col-sm-offset-3">
+        <div style="align-content:center" id="error" class="alert alert-danger" {{#if noMessages}}hidden{{/if}}>
+            <h5 style="display:inline-block">
+                {{errorMsg}}
+                <a style="color:brown" href="/user/signin">Login
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </h5>
+
+
+        </div>
+    </div>
+    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
 
     </div>
 </div>

@@ -5,7 +5,12 @@ var Champion = require('../models/champion');
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_home = function(req, res, next) {
-    res.render('admin/admin-page', {});
+    User.find(function(err, docs) {
+        var users = docs;
+        res.render('admin/admin-page', {
+            users: users
+        });
+    });
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
@@ -23,17 +28,6 @@ exports.admin_get_signin = function(req, res, next) {
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
-    });
-}
-
-//--------------------------------------------------------------------------------------------------------------------//
-
-exports.get_usersList = function(req, res, next) {
-    User.find(function(err, docs) {
-        var users = docs;
-        res.render('admin/users-list', {
-            users: users
-        });
     });
 }
 

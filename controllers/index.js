@@ -56,6 +56,8 @@ exports.get_home_page = function(req, res, next) {
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.add_to_cart = function(req, res, next) {
+    var errorMsg = req.flash('error')[0];
+
     function isUser() {
         if (req.user && req.user.isAdmin === false) {
             return true;
@@ -85,7 +87,9 @@ exports.add_to_cart = function(req, res, next) {
                         champions: campioni,
                         sort: sort,
                         role: role,
-                        champInCart: champInCart
+                        champInCart: champInCart,
+                        errorMsg: errorMsg,
+                        noMessages: !errorMsg
                     });
                 }).sort({
                     price: 'desc',
@@ -150,6 +154,8 @@ exports.role_selection = function(req, res, next) {
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.sort_by = function(req, res, next) {
+    var errorMsg = req.flash('error')[0];
+
     function isUser() {
         if (req.user && req.user.isAdmin === false) {
             return true;
@@ -182,7 +188,9 @@ exports.sort_by = function(req, res, next) {
                 title: 'League Shop',
                 champions: campioni,
                 role: 'Tutti',
-                sort: 'price' + order
+                sort: 'price' + order,
+                errorMsg: errorMsg,
+                noMessages: !errorMsg
             });
         }).sort({
             price: order,
@@ -214,7 +222,9 @@ exports.sort_by = function(req, res, next) {
                 title: 'League Shop',
                 champions: campioni,
                 role: 'Tutti',
-                sort: 'name' + order
+                sort: 'name' + order,
+                errorMsg: errorMsg,
+                noMessages: !errorMsg
             });
         }).sort({
             name: order

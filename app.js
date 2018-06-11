@@ -14,8 +14,6 @@ var config = require('config.json')('./config.json');
 
 
 
-var User = require('./models/user');
-
 //hbs helpers
 var Handlebars = require('handlebars');
 

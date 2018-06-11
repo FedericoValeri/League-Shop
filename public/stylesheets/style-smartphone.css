@@ -4,6 +4,7 @@ body {
     background-attachment: fixed;
     background-position: top;
     background-size: contain;
+    min-height: 750px;
 }
 
 .carte {

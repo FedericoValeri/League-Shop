@@ -47,9 +47,6 @@ router.post('/signin', passport.authenticate('local.admin.signin', {
     }
 });
 
-//get users list
-router.get('/usersList', isAdmin, AdminController.get_usersList);
-
 //get champions list
 router.get('/championsList', isAdmin, AdminController.get_championsList);
 
