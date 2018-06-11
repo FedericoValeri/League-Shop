@@ -1,5 +1,20 @@
 <br>
+<div class="row">
+    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
 
+    </div>
+    <div class="col-12 col-sm-12 col-md-6 col-md-offset-4 col-sm-offset-3">
+        <div style="align-content:center" id="error" class="alert alert-danger" {{#if noMessages}}hidden{{/if}}>
+            <strong style="display:inline-block">{{errorMsg}}</strong>
+            <a href="/user/signin">Login
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+    </div>
+    <div class="col-0 col-sm-0 col-md-3 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+</div>
 
 <!--Filters and Search bar-->
 <div class="row" id="barrasopra">
@@ -15,36 +30,36 @@
         </div>
     </div>
     <div class="col-0 col-sm-0 col-md-0" id="vuotoBarrasopra"></div>
-        <!--Sort by...column-->
-        <div class="col-5 col-sm-2 col-md-3" style="margin:auto">
-            <div style="text-align: center">
-                {{#if_eq role 'Tutti'}}
-                <strong id="ordina" style="font-size: 21px">Ordina: </strong>
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                    {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Nome
-                    ↑{{/if_eq}} {{#if_eq sort 'nameasc'}}Nome ↓{{/if_eq}}
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    {{#if_eq sort 'pricedesc'}}
-                    <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
-                    <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
-                    {{/if_eq}} {{#if_eq sort 'priceasc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
-                    <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
-                    {{/if_eq}} {{#if_eq sort 'nameasc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
-                    {{/if_eq}}{{#if_eq sort 'namedesc'}}
-                    <a class="dropdown-item" href="/">Prezzo ↓</a>
-                    <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
-                    <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
-                    {{/if_eq}}
-                </div>
+    <!--Sort by...column-->
+    <div class="col-5 col-sm-2 col-md-3" style="margin:auto">
+        <div style="text-align: center">
+            {{#if_eq role 'Tutti'}}
+            <strong id="ordina" style="font-size: 21px">Ordina: </strong>
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropOrdina" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                {{#if_eq sort 'pricedesc'}}Prezzo ↓{{/if_eq}} {{#if_eq sort 'priceasc'}}Prezzo ↑{{/if_eq}} {{#if_eq sort 'namedesc'}}Nome
+                ↑{{/if_eq}} {{#if_eq sort 'nameasc'}}Nome ↓{{/if_eq}}
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                {{#if_eq sort 'pricedesc'}}
+                <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+                <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
+                <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
+                {{/if_eq}} {{#if_eq sort 'priceasc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
+                <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
+                {{/if_eq}} {{#if_eq sort 'nameasc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+                <a class="dropdown-item" href="/sort/name/desc">Nome ↑</a>
+                {{/if_eq}}{{#if_eq sort 'namedesc'}}
+                <a class="dropdown-item" href="/">Prezzo ↓</a>
+                <a class="dropdown-item" href="/sort/price/asc">Prezzo ↑</a>
+                <a class="dropdown-item" href="/sort/name/asc">Nome ↓</a>
                 {{/if_eq}}
+            </div>
+            {{/if_eq}}
         </div>
     </div>
     <!--filter by role column-->
@@ -98,6 +113,7 @@
 
 <div class="row carte" id="myDIV">
     {{#each champions}}
+
     <section class="colonna-carta" id="colonnaCarta">
         <div>
             <div class="card" style="width: 100%;" id="champ">

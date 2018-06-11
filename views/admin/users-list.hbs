@@ -1,14 +1,11 @@
 <div class="row">
     {{#each users}}
-    <div class="row">
-        {{#each this}}
         {{#unless isAdmin}}
         <div class="col-sm-6 col-md-4" id="colonnaCarta">
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-text">Username: {{username}}</h5>
                     <h6 class="card-text">Email: {{email}}</h6>
-                    <h6 class="card-text">Passowrd: {{password}}</h6>
                     <p class="card-text">id: {{_id}}</p>
                     <div class="row">
                         <div class="col-md-12">
@@ -23,7 +20,5 @@
             </div>
         </div>
         {{/unless}}
-        {{/each}}
-    </div>
     {{/each}}
 </div>

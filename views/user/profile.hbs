@@ -1,4 +1,5 @@
 <br>
+<div id="containerProfile">
 <div class="row">
     <div id="prova" class="col-md-8">
         <h1>Benvenuto {{user.username}}</h1>
@@ -12,7 +13,7 @@
     </div>
 </div>
 
-<hr noshade>
+<hr style="height:4px;border-width:0;background-color:rgb(167, 161, 135)">
 
 <div class="row">
     <div class="col-sm-11 col-md-12">
@@ -45,7 +46,7 @@
         </div>
     </div>
     <br>
-    <hr noshade>
+    <hr style="height:4px;border-width:0;background-color:rgb(167, 161, 135)">
     <br>
 
     <div class="row">
@@ -74,27 +75,10 @@
                 <div class="panel-footer">
                     <strong id="totaleTransazione">Totale pagato: {{this.cart.totalPrice}} EB</strong>
                 </div>
-                <hr>
+                <hr style="height:1px;border-width:0;background-color:rgb(167, 161, 135)">
             </div>
         </li>
     </ul>
     {{/each}}
 
-    <script>
-        function myFunction() {
-            var input, filter, ul, li, a, i;
-            input = document.getElementById("myInput");
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("myChampions");
-            li = ul.getElementsByTagName("li");
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("h3")[0];
-                if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-
-                }
-            }
-        }
-    </script>
+    </div>

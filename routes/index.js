@@ -7,7 +7,7 @@ const IndexController = require('../controllers/index');
 router.get('/', IndexController.get_home_page);
 
 //aggiungi al carrello
-router.get('/add-to-cart/:id', isLoggedIn, IndexController.add_to_cart);
+router.get('/add-to-cart/:id', IndexController.add_to_cart);
 
 //role selection(deprecated)
 //router.get('/role/:role', IndexController.role_selection);
@@ -23,4 +23,12 @@ function isLoggedIn(req, res, next) {
     }
     req.session.oldUrl = req.url;
     res.redirect('/user/signin');
+}
+
+function isLogged(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    req.session.oldUrl = req.url;
+    res.redirect('/');
 }

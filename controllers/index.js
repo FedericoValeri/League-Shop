@@ -5,6 +5,8 @@ var Champion = require('../models/champion');
 
 exports.get_home_page = function(req, res, next) {
 
+    var errorMsg = req.flash('error')[0];
+
     function isUser() {
         if (req.user && req.user.isAdmin === false) {
             return true;
@@ -33,6 +35,7 @@ exports.get_home_page = function(req, res, next) {
             }
         } else {
             campioni = docs;
+
         }
 
         res.render('shop/index', {
@@ -40,7 +43,9 @@ exports.get_home_page = function(req, res, next) {
             champions: campioni,
             sort: sort,
             role: role,
-            champInCart: champInCart
+            champInCart: champInCart,
+            errorMsg: errorMsg,
+            noMessages: !errorMsg
         });
     }).sort({
         price: 'desc',
@@ -51,38 +56,50 @@ exports.get_home_page = function(req, res, next) {
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.add_to_cart = function(req, res, next) {
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
+    }
     var championId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
+    if (isUser()) {
+        Champion.findById(championId, function(err, champion) {
+            if (err) {
+                return res.redirect('/');
+            }
+            if (!cart.isInCart(champion, champion.id)) {
+                cart.add(champion, champion.id);
+                req.session.cart = cart;
+                res.redirect('/');
+            } else {
+                Champion.find(function(err, docs) {
+                    var campioni = docs;
+                    var sort = 'pricedesc';
+                    var role = 'Tutti';
+                    var champInCart = true;
 
-    Champion.findById(championId, function(err, champion) {
-        if (err) {
-            return res.redirect('/');
-        }
-        if (!cart.isInCart(champion, champion.id)) {
-            cart.add(champion, champion.id);
-            req.session.cart = cart;
-            res.redirect('/');
-        } else {
-            Champion.find(function(err, docs) {
-                var campioni = docs;
-                var sort = 'pricedesc';
-                var role = 'Tutti';
-                var champInCart = true;
 
-                res.render('shop/index', {
-                    title: 'League Shop',
-                    champions: campioni,
-                    sort: sort,
-                    role: role,
-                    champInCart: champInCart
+                    res.render('shop/index', {
+                        title: 'League Shop',
+                        champions: campioni,
+                        sort: sort,
+                        role: role,
+                        champInCart: champInCart
+                    });
+                }).sort({
+                    price: 'desc',
+                    name: 'asc'
                 });
-            }).sort({
-                price: 'desc',
-                name: 'asc'
-            });
-        }
+            }
 
-    });
+        });
+    } else {
+        req.flash('error', 'Per aggiungere campioni al carrello devi essere autenticato!');
+        return res.redirect('/');
+
+    }
+
 }
 
 //--------------------------------------------------------------------------------------------------------------------//

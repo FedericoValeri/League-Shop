@@ -30,10 +30,7 @@ exports.admin_get_signin = function(req, res, next) {
 
 exports.get_usersList = function(req, res, next) {
     User.find(function(err, docs) {
-        var users = [];
-
-        users.push(docs);
-
+        var users = docs;
         res.render('admin/users-list', {
             users: users
         });

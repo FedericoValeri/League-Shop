@@ -6,7 +6,7 @@
     {{#if loggedAsUser}}
     <div class="navbar-header">
         <strong style="color:rgb(195, 193, 188); font-size: 130%; text-transform: uppercase;">&nbsp;{{user.username}}&ensp;</strong>
-        <strong style="color:rgb(0, 128, 208); font-size: 130%"> {{user.blueEssence}} EB</strong>
+        <strong id="blueEssenceHeader" style="color:rgb(0, 128, 208);"> {{user.blueEssence}} EB</strong>
     </div>
     {{/if}}
     <div class="navbar-header">
@@ -18,14 +18,14 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-            {{#unless loggedAsAdmin}}
+            {{#if loggedAsUser}}
             <li class="nav-item">
                 <a class="nav-link" href="/cart/">
                     <i class="fas fa-shopping-cart"></i> Carrello
                     <span class="badge">{{session.cart.totalQty}}</span>
                 </a>
             </li>
-            {{/unless}}
+            {{/if}} 
             <li class="nav-item dropdown">
                 {{#if loggedAsUser}}
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
@@ -65,7 +65,7 @@
                     <a class="dropdown-item" href="/admin/logout">Logout</a>
                     {{else}}
                     <a class="dropdown-item" href="/admin/signin">
-                    <i class="fas fa-lock"></i>
+                        <i class="fas fa-lock"></i>
                         Login (Admin)
                     </a>
                     {{/if}}

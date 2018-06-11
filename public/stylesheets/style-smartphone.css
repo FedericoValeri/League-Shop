@@ -60,6 +60,10 @@ body {
     margin-bottom: 1%;
 }
 
+[id=blueEssenceHeader] {
+    font-size: 0px;
+}
+
 [id=filtra] {
     color: rgba(169, 141, 70, 0.809);
 }
