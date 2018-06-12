@@ -1,4 +1,22 @@
 <br>
+
+<!--div per messaggio "utente cancellato"-->
+<div class="row">
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div style="align-content:center" id="error" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            <h5 style="display:inline-block">
+                {{successMsg}}
+            </h5>
+        </div>
+    </div>
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+</div>
+
 <div id="container-admin-page">
     <div class="row">
         <div class="col-md-6">
@@ -21,7 +39,7 @@
                 <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                     <i class="fas fa-arrow-down"></i> Lista utenti
                 </a>
-            </p>
+            </p> 
             <div class="collapse" id="collapseExample">
                 <ul class="list-group">
                     {{#each users}} {{#unless isAdmin}}
@@ -41,11 +59,10 @@
                         <br>
                         <div class="row">
                             <div class="col-md-12">
-                                <form "/admin/{{_id}}" method="post">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-danger">
-                                            <i class="fas fa-exclamation-triangle"></i> Delete Account</button>
-                                    </div>
+                                <form action="/admin/{{_id}}" method="post" id="delete-form">
+                                    <button type="submit" class="btn btn-danger" >
+                                        <i class="fas fa-exclamation-triangle"></i> Delete Account
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -64,6 +81,5 @@
         </div>
 
     </div>
-
 </div>
 <br>

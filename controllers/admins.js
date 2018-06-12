@@ -5,10 +5,13 @@ var Champion = require('../models/champion');
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_home = function(req, res, next) {
+    var successMsg = req.flash('success')[0];
     User.find(function(err, docs) {
         var users = docs;
         res.render('admin/admin-page', {
-            users: users
+            users: users,
+            successMsg: successMsg,
+            noMessages: !successMsg
         });
     });
 }
@@ -34,13 +37,16 @@ exports.admin_get_signin = function(req, res, next) {
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_championsList = function(req, res, next) {
+    var successMsg = req.flash('success')[0];
     Champion.find(function(err, docs) {
         var campioni = docs;
         var numeroCampioni = docs.length;
 
         res.render('admin/champions-list', {
             champions: campioni,
-            numeroCampioni: numeroCampioni
+            numeroCampioni: numeroCampioni,
+            successMsg: successMsg,
+            noMessages: !successMsg
         });
     }).sort({
         name: 'asc'
@@ -62,12 +68,10 @@ exports.delete_user = (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-
             return res.redirect("/admin/");
         }
-
         req.flash("success", "The account has been deleted.");
-        return res.redirect("/admin/usersList");
+        return res.redirect("/admin/");
     });
 }
 
@@ -131,11 +135,10 @@ exports.delete_champion = (req, res, next) => {
     }, (err) => {
         if (err) {
             req.flash("error", err);
-
             return res.redirect("/admin/");
         }
 
-        req.flash("success", "The account has been deleted.");
+        req.flash("success", "Il campione è stato rimosso");
         return res.redirect("/admin/championsList");
     });
 }

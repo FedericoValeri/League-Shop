@@ -1,5 +1,23 @@
 <br>
 
+
+<!--div per messaggio "champ cancellato"-->
+<div class="row">
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+    <div class="col-12 col-sm-12 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div style="align-content:center" id="error" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            <h5 style="display:inline-block">
+                {{successMsg}}
+            </h5>
+        </div>
+    </div>
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
+    </div>
+</div>
+
 <div class="row">
     <h2>Campioni presenti: {{numeroCampioni}}</h2>
 </div>
@@ -50,7 +68,7 @@
                             <a href="/champions/{{this.name}}" id="btnsmall" class="btn btn-info float-left">
                                 <span>Informazioni</span>
                             </a>
-                            <form action="<!--/admin/delete/{{this._id}}-->" method="post">
+                            <form action="/admin/delete/{{this._id}}" method="post">
                                 <button type="submit" class="btn btn-danger float-right" id="btnsmall" role="button">Elimina campione</button>
                             </form>
 

@@ -31,8 +31,6 @@ var indexRouter = require('./routes/index');
 var userRoutes = require('./routes/user');
 var cartRoutes = require('./routes/cart');
 var adminRoutes = require('./routes/admin');
-
-//CODE BY FEDE
 var champRoutes = require('./routes/champion');
 
 var app = express();
@@ -99,14 +97,11 @@ app.use(function(req, res, next) {
     next();
 });
 
-//CODE BY FEDE
 app.use('/', indexRouter);
 app.use('/user', userRoutes);
 app.use('/admin', adminRoutes);
 app.use('/champions', champRoutes);
 app.use('/cart', cartRoutes);
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

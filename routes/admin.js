@@ -11,7 +11,7 @@ var Champion = require('../models/champion');
 var AdminController = require('../controllers/admins');
 
 //get admin page
-router.get('/home', isAdmin, AdminController.get_home);
+router.get('/', isAdmin, AdminController.get_home);
 
 //logout admin
 router.get('/logout', isAdmin, AdminController.admin_logout);
@@ -26,7 +26,7 @@ router.post('/signup', passport.authenticate('local.admin.signup', {
         req.session.oldUrl = null;
         res.redirect(oldUrl);
     } else {
-        res.redirect('/admin/home');
+        res.redirect('/admin/');
     }
 });
 
@@ -43,7 +43,7 @@ router.post('/signin', passport.authenticate('local.admin.signin', {
         req.session.oldUrl = null;
         res.redirect(oldUrl);
     } else {
-        res.redirect('/admin/home');
+        res.redirect('/admin/');
     }
 });
 

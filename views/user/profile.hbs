@@ -1,32 +1,49 @@
 <br>
-<div id="containerProfile">
+
+<!--div per messaggio "utente cancellato"-->
 <div class="row">
-    <div id="prova" class="col-md-8">
-        <h1>Benvenuto {{user.username}}</h1>
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
     </div>
-    <div id="prova" class="col-md-4">
-        <div class="float-right">
-            <strong style="font-size: 40px; color:rgb(9, 147, 211)">{{user.blueEssence}}
-                <img align="middle" id="ebprofile" width="45" height="60" src="https://i.imgur.com/qeZVwiU.png">
-            </strong>
+    <div class="col-12 col-sm-12 col-md-4 col-md-offset-4 col-sm-offset-3">
+        <div style="align-content:center" id="error" class="alert alert-success" {{#if noMessages}}hidden{{/if}}>
+            <h5 style="display:inline-block">
+                {{buySuccess}}
+            </h5>
         </div>
+    </div>
+    <div class="col-0 col-sm-0 col-md-4 col-md-offset-4 col-sm-offset-3">
+
     </div>
 </div>
 
-<hr style="height:4px;border-width:0;background-color:rgb(167, 161, 135)">
+<div id="containerProfile">
+    <div class="row">
+        <div id="prova" class="col-md-8">
+            <h1>Benvenuto {{user.username}}</h1>
+        </div>
+        <div id="prova" class="col-md-4">
+            <div class="float-right">
+                <strong style="font-size: 40px; color:rgb(9, 147, 211)">{{user.blueEssence}}
+                    <img align="middle" id="ebprofile" width="45" height="60" src="https://i.imgur.com/qeZVwiU.png">
+                </strong>
+            </div>
+        </div>
+    </div>
 
-<div class="row">
-    <div class="col-sm-11 col-md-12">
-        <h2>I miei campioni</h2>
-        <br>
-        <!--        
+    <hr style="height:4px;border-width:0;background-color:rgb(167, 161, 135)">
+
+    <div class="row">
+        <div class="col-sm-11 col-md-12">
+            <h2>I miei campioni</h2>
+            <br>
+            <!--        
         <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Cerca campione..." title="Type in a name">
         <br> -->
 
-        <div class="panel panel-default">
             <div class="panel-body">
                 <ul class="columns" id="myChampions">
-                    {{#each users}} {{#each champions }}
+                    {{#if champions}} {{#each champions}}
                     <li class="list-group-item" id="cellaChampProfilo">
                         <div class="row">
                             <div class="col-5 col-sm-5 col-md-4">
@@ -38,47 +55,49 @@
                                 <h5 id="roleChampProfile">{{this.role}}</h5>
                                 <a href="/champions/{{this.name}}" class="btn btn-warning" id="buttonInfoProfile" role="button">Informazioni</a>
                             </div>
+                        </div>
                     </li>
-                    {{/each}} {{/each}}
+                    {{/each}} {{else}}
+                    <h4 style="color:rgb(178, 184, 189)">Non possiedi nessun campione.</h4>
+                    {{/if}}
                 </ul>
-                </div>
             </div>
         </div>
     </div>
-    <br>
+
+    <br> {{#if orders}}
     <hr style="height:4px;border-width:0;background-color:rgb(167, 161, 135)">
     <br>
-
     <div class="row">
         <div class="col-md-12">
             <h2>I miei acquisti</h2>
+
+            <br> {{#each orders }}
+            <ul id="listaTransazioni">
+                <li>
+                    <h5 id="dataTransizione">In data: {{date}}</h5>
+                    <div class="panel panel-default" id="pannelloTransazioni">
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                {{#each this.items }}
+                                <li class="list-group-item">
+                                    <h4 id="nameChampTransazione">{{this.item.name}} - {{this.item.title}}</h4>
+                                    <span id="prezzoChampTransazione" class="float-right">{{ this.price }} EB</span>
+
+                                </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                        <br>
+                        <div class="panel-footer">
+                            <strong id="totaleTransazione">Totale pagato: {{this.cart.totalPrice}} EB</strong>
+                        </div>
+                        <hr style="height:1px;border-width:0;background-color:rgb(167, 161, 135)">
+                    </div>
+                </li>
+            </ul>
+            {{/each}}
         </div>
     </div>
-
-    <br> {{#each orders }}
-    <ul id="listaTransazioni">
-        <li>
-            <h5 id="dataTransizione">In data: {{date}}</h5>
-            <div class="panel panel-default" id="pannelloTransazioni">
-                <div class="panel-body">
-                    <ul class="list-group">
-                        {{#each this.items }}
-                        <li class="list-group-item">
-                            <h4 id="nameChampTransazione">{{this.item.name}} - {{this.item.title}}</h4>
-                            <span id="prezzoChampTransazione" class="float-right">{{ this.price }} EB</span>
-
-                        </li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <br>
-                <div class="panel-footer">
-                    <strong id="totaleTransazione">Totale pagato: {{this.cart.totalPrice}} EB</strong>
-                </div>
-                <hr style="height:1px;border-width:0;background-color:rgb(167, 161, 135)">
-            </div>
-        </li>
-    </ul>
-    {{/each}}
-
-    </div>
+    {{/if}}
+</div>

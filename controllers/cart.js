@@ -102,7 +102,7 @@ exports.buy_now = function(req, res, next) {
     }
 
     order.save(function(err, result) {
-        req.flash('success', 'Successfully bought product!');
+        req.flash('success', 'Campione acquistato!');
 
         User.update({
             _id: id

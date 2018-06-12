@@ -4,7 +4,7 @@ var Cart = require('../models/cart');
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.user_profile = function(req, res, next) {
-
+    var buySuccess = req.flash('success')[0];
     Order.find({
         user: req.user
     }, function(err, orders) {
@@ -20,7 +20,9 @@ exports.user_profile = function(req, res, next) {
 
         res.render('user/profile', {
             orders: orders,
-            users: req.user
+            champions: req.user.champions,
+            buySuccess: buySuccess,
+            noMessages: !buySuccess
         });
     });
 }
