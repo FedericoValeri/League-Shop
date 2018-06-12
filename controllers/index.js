@@ -35,9 +35,7 @@ exports.get_home_page = function(req, res, next) {
             }
         } else {
             campioni = docs;
-
         }
-
         res.render('shop/index', {
             title: 'League Shop',
             champions: campioni,
@@ -63,8 +61,6 @@ exports.add_to_cart = function(req, res, next) {
             return true;
         } else return false;
     }
-    var acquistato = false;
-    var campioniPosseduti = req.user.champions;
     var championId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     if (isUser()) {
@@ -72,6 +68,8 @@ exports.add_to_cart = function(req, res, next) {
             if (err) {
                 return res.redirect('/');
             }
+            var acquistato = false;
+            var campioniPosseduti = req.user.champions;
             for (var champ of campioniPosseduti) {
                 if (champion.name === champ.name) {
                     acquistato = true;
@@ -80,7 +78,8 @@ exports.add_to_cart = function(req, res, next) {
             }
             if (!cart.isInCart(champion, champion.id)) {
                 if (acquistato) {
-                    //SPIPPATICI PURE CARO MIO IO FACCIO LO STAGE CIAOFIOCCO
+                    req.flash('error', 'Possiedi già questo campione!');
+                    res.redirect('/');
                 } else {
                     cart.add(champion, champion.id);
                     req.session.cart = cart;

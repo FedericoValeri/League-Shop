@@ -4,6 +4,8 @@ var Order = require('../models/order');
 var User = require('../models/user');
 
 
+
+
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.get_cart = function(req, res, next) {
@@ -51,19 +53,29 @@ exports.get_checkout_page = function(req, res, next) {
             return saldo;
     }
 
-    if (!req.session.cart) {
-        return res.redirect('/cart', {
-            champions: null
-        });
+    function isUser() {
+        if (req.user && req.user.isAdmin === false) {
+            return true;
+        } else return false;
     }
+    if (isUser()) {
+        if (!req.session.cart) {
+            return res.redirect('/cart');
+        }
 
-    var cart = new Cart(req.session.cart);
-    res.render('shop/checkout', {
-        total: cart.totalPrice,
-        champions: cart.generateArray(),
-        nuovoBilancio: nuovoBilancio()
-    });
+        var cart = new Cart(req.session.cart);
+        res.render('shop/checkout', {
+            total: cart.totalPrice,
+            champions: cart.generateArray(),
+            nuovoBilancio: nuovoBilancio()
+        });
+    } else {
+        req.flash('error', 'Devi essere autenticato per accedere al checkout.');
+        res.redirect('/');
+    }
 }
+
+
 
 //--------------------------------------------------------------------------------------------------------------------//
 
