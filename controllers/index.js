@@ -63,6 +63,8 @@ exports.add_to_cart = function(req, res, next) {
             return true;
         } else return false;
     }
+    var acquistato = false;
+    var campioniPosseduti = req.user.champions;
     var championId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     if (isUser()) {
@@ -70,17 +72,26 @@ exports.add_to_cart = function(req, res, next) {
             if (err) {
                 return res.redirect('/');
             }
+            for (var champ of campioniPosseduti) {
+                if (champion.name === champ.name) {
+                    acquistato = true;
+                    break;
+                }
+            }
             if (!cart.isInCart(champion, champion.id)) {
-                cart.add(champion, champion.id);
-                req.session.cart = cart;
-                res.redirect('/');
+                if (acquistato) {
+                    //SPIPPATICI PURE CARO MIO IO FACCIO LO STAGE CIAOFIOCCO
+                } else {
+                    cart.add(champion, champion.id);
+                    req.session.cart = cart;
+                    res.redirect('/');
+                }
             } else {
                 Champion.find(function(err, docs) {
                     var campioni = docs;
                     var sort = 'pricedesc';
                     var role = 'Tutti';
                     var champInCart = true;
-
 
                     res.render('shop/index', {
                         title: 'League Shop',
