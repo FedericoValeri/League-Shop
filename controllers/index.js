@@ -109,7 +109,7 @@ exports.add_to_cart = function(req, res, next) {
 
         });
     } else {
-        req.flash('error', 'Per aggiungere campioni al carrello devi essere autenticato!');
+        req.flash('error', 'Sei loggato come admin! Non puoi aggiungere al carrello.');
         return res.redirect('/');
 
     }

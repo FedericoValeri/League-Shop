@@ -4,7 +4,7 @@
        background-repeat: no-repeat;
        background-attachment: fixed;
        background-position: center center;
-       background-size: cover;
+       background-size: cover
    }
    /*navbar icon*/
    
@@ -14,6 +14,10 @@
    
    [id=blueEssenceHeader] {
        font-size: 130%;
+   }
+   
+   [id=navbarprincipale] {
+       background: #29292b;
    }
    
    [id=plus] {
@@ -524,4 +528,20 @@
    
    [name="login"] {
        background-color: #000000;
+   }
+   
+   .footer {
+       position: relative;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       background-color: black;
+       color: white;
+   }
+   
+   [id=footer] {
+       padding-left: 3rem;
+       padding-right: 3rem;
+       padding-bottom: 3rem;
+       padding-top: 3rem;
    }

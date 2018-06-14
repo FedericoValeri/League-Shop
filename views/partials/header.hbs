@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark" id="navbarprincipale">
+<nav class="navbar navbar-expand-lg navbar " id="navbarprincipale">
     <a class="navbar-brand" href="/">
         <img src="https://orig00.deviantart.net/6f51/f/2017/006/5/f/new_league_of_legends_icon_token_style_light__dark_by_flexo013-dauff79.png"
             width="35" height="35" alt="">
@@ -18,23 +18,28 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a style="color:snow" class="nav-link" href="https://github.com/FedericoValeri/League-Shop" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
             {{#if loggedAsUser}}
             <li class="nav-item">
-                <a class="nav-link" href="/cart/">
+                <a class="nav-link" style="color:snow" href="/cart/">
                     <i class="fas fa-shopping-cart"></i> Carrello
                     <span class="badge">{{session.cart.totalQty}}</span>
                 </a>
             </li>
-            {{/if}} 
+            {{/if}}
             <li class="nav-item dropdown">
                 {{#if loggedAsUser}}
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                <a style="color:snow"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <i class="fas fa-user"></i> Ciao {{user.username}}
                     <span class="caret"></span>
                 </a>
                 {{else}} {{#unless loggedAsAdmin}}
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                <a style="color:snow"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <i class="fas fa-user"></i> Account
                     <span class="caret"></span>
@@ -42,29 +47,29 @@
                 {{/unless}} {{/if}}
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {{#if loggedAsUser}}
-                    <a class="dropdown-item" href="/user/profile">Profilo</a>
+                    <a style="color:snow" class="dropdown-item" href="/user/profile">Profilo</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/user/logout">Logout</a>
+                    <a style="color:snow" class="dropdown-item" href="/user/logout">Logout</a>
                     {{else}}
-                    <a class="dropdown-item" href="/user/signup">Sign up</a>
-                    <a class="dropdown-item" href="/user/signin">Login</a>
+                    <a style="color:snow" class="dropdown-item" href="/user/signup">Sign up</a>
+                    <a style="color:snow" class="dropdown-item" href="/user/signin">Login</a>
                     {{/if}}
                 </div>
             </li>
             {{#unless loggedAsUser}}
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                <a style="color:snow"  class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     <i class="fas fa-user-lock"></i> Area protetta
                     <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {{#if loggedAsAdmin}}
-                    <a class="dropdown-item" href="/admin/">Profilo</a>
+                    <a style="color:snow"  class="dropdown-item" href="/admin/">Profilo</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/admin/logout">Logout</a>
+                    <a style="color:snow" class="dropdown-item" href="/admin/logout">Logout</a>
                     {{else}}
-                    <a class="dropdown-item" href="/admin/signin">
+                    <a style="color:snow" class="dropdown-item" href="/admin/signin">
                         <i class="fas fa-lock"></i>
                         Login (Admin)
                     </a>
