@@ -15,16 +15,18 @@
   <link rel='stylesheet' media="screen and (max-width: 576px)" href='/stylesheets/style-smartphone.css' />
   <link rel='stylesheet' media="screen and (min-width: 577px) and (max-width: 767px) " href='/stylesheets/style-smartphone-horizontal.css'
   />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
 
 </head>
 
 <body>
 
+  <div>
+    {{> header}}
+  </div>
 
-  {{> header}}
-
-
-  <div name="main-container" class="container-fluid">
+  <div name="main-container" class="container-fluid content">
     <div class="row">
       <div class="col-0 col-md-1"></div>
       <div class="col-12 col-md-10">
@@ -36,18 +38,16 @@
 
   <br>
 
-
-
-
+  <!--button up-->
   <button onclick="topFunction()" id="myBtn" title="Go to top">
     Up
     <i class="fas fa-angle-double-up"></i>
   </button>
 
 
-  <footer class="footer" id="footer">
+  <footer class="footer">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-5">
         <div class="row">
           <div class="col-md-3">
             <img style=" opacity: 0.5" src="http://www.pngmart.com/files/3/League-of-Legends-Logo-PNG-Image.png" width="150" height="50"
@@ -67,46 +67,68 @@
       </div>
       <div class="col-md-2">
         <h6 style="opacity: 0.5">PROJECT</h6>
-        <ul>
+        <ul class="footer-ul">
           <li>
             <a style="color:snow" href="https://github.com/FedericoValeri/League-Shop" target="_blank">
               <i class="fab fa-github"></i> GitHub Project</a>
           </li>
-
         </ul>
       </div>
       <div class="col-md-2">
         <h6 style="opacity: 0.5">CONTACT</h6>
-        <ul>
+        <ul class="footer-ul">
           <li>
-            <p style="color:snow; font-size: 12px">
-              <i class="fas fa-envelope"></i> federico.valeri@studenti.unicam.it</p>
-            <p style="color:snow; font-size: 12px">
-              <i class="fas fa-envelope"></i> francesco01.casoni@studenti.unicam.it</p>
-            <p style="color:snow; font-size: 12px">
-              <i class="fas fa-envelope"></i> melania.fattorini@studenti.unicam.it</p>
+            <a style="color:snow; font-size:14px;" href="mailto:federico.valeri@studenti.unicam.it?subject=Hi developer!">
+              <i class="fas fa-envelope"></i> federico.valeri@studenti.unicam.it</a>
+          </li>
+          <li>
+            <a style="color:snow; font-size:14px;" href="mailto:francesco01.casoni@studenti.unicam.it?subject=Hi developer!">
+              <i class="fas fa-envelope"></i> francesco01.casoni@studenti.unicam.it</a>
+          </li>
+          <li>
+            <a style="color:snow; font-size:14px;" href="mailto:melania:fattorini@studenti.unicam.it?subject=Hi developer!">
+              <i class="fas fa-envelope"></i> melania.fattorini@studenti.unicam.it</a>
           </li>
         </ul>
       </div>
       <div class="col-md-2">
         <h6 style="opacity: 0.5">COMPANY</h6>
-        <ul>
+        <ul class="footer-ul">
           <li>
             <a style="color:snow" href="http://www.unicam.it/" target="_blank">
-              <img width="20" height="20" src="http://nutrition.unicam.it/usefullinks/useful_docs/logoUnicamBN.png" alt=""> Unicam</a>
+              <i class="fas fa-university"></i> Unicam</a>
           </li>
+
+          <li>
+            <a style="color:snow" href="https://www.facebook.com/universitacamerino/" target="_blank">
+              <i class="fab fa-facebook-square"></i> Facebook page</a>
+          </li>
+
         </ul>
       </div>
 
+      <div class="col-md-1">
+        <div class="menu-button">
+          <i class="zmdi zmdi-share"></i>
+          <a href="https://www.facebook.com/universitacamerino/" target="_blank">
+            <i class="zmdi zmdi-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="zmdi zmdi-google-plus"></i>
+          </a>
+          <a href="https://github.com/FedericoValeri/League-Shop" target="_blank">
+            <i class="zmdi zmdi-github"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </footer>
 
-
-
-
   <script>
     // When the user scrolls down 200px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
+    window.onscroll = function () {
+      scrollFunction()
+    };
 
     function scrollFunction() {
       if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -120,8 +142,7 @@
     function topFunction() {
       document.body.scrollTop = 0; // For Safari
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    }
-  </script>
+    }</script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
