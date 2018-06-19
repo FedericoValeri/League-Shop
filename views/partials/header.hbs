@@ -6,7 +6,7 @@
 
     {{#if loggedAsUser}}
     <div class="navbar-header">
-        <strong style="color:rgb(195, 193, 188); font-size: 130%; text-transform: uppercase;">&nbsp;{{user.username}}&ensp;</strong>
+        <strong style="color:rgb(195, 193, 188); font-size: 130%; text-transform: uppercase;">&nbsp;<a class="user-name-header" href="/user/profile/">{{user.username}}</a>&ensp;</strong>
         <strong id="blueEssenceHeader" style="color:rgb(0, 128, 208);"> {{user.blueEssence}} EB</strong>
     </div>
     {{/if}}
@@ -16,7 +16,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto" id="navbar-ul" >
             {{#if loggedAsUser}}
             <li class="nav-item">
                 <a class="nav-link" href="/cart/">

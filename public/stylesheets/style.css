@@ -74,6 +74,10 @@ body {
     color: rgba(169, 141, 70, 0.809);
 }
 
+[id=navbar-ul] {
+    margin-right: 10px;
+}
+
 
 /*button go to top*/
 
@@ -135,6 +139,14 @@ body {
     margin-bottom: 10px;
     color: black;
     page-break-inside: avoid;
+}
+
+.user-name-header {
+    color: rgba(169, 141, 70, 0.809);
+}
+
+.user-name-header:hover {
+    color: rgba(235, 195, 96, 0.809);
 }
 
 
