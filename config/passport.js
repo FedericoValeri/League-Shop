@@ -2,12 +2,13 @@ var passport = require('passport');
 var User = require('../models/user');
 var LocalStrategy = require('passport-local').Strategy;
 
-
-
+//Store the user in the session
 passport.serializeUser(function(user, done) {
+    //when you store a user in the session, serialize him by id
     done(null, user.id);
 });
 
+//Retrieve the user from the session (by id)
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
         done(err, user);

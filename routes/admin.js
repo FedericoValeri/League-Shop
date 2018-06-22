@@ -3,7 +3,7 @@ var router = express.Router();
 var csrf = require('csurf');
 var passport = require('passport');
 
-//var csrfProtection = csrf();
+var csrfProtection = csrf();
 //router.use(csrfProtection);
 
 var Champion = require('../models/champion');
@@ -31,7 +31,7 @@ router.post('/signup', passport.authenticate('local.admin.signup', {
 });
 
 //get admin signin page
-router.get('/signin', csrf(), AdminController.admin_get_signin);
+router.get('/signin', csrfProtection, AdminController.admin_get_signin);
 
 //admin signin
 router.post('/signin', passport.authenticate('local.admin.signin', {

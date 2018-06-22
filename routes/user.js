@@ -5,7 +5,7 @@ var passport = require('passport');
 
 const UserController = require('../controllers/users');
 
-//var csrfProtection = csrf();
+var csrfProtection = csrf();
 //router.use(csrfProtection);
 
 //get user profile
@@ -19,7 +19,7 @@ router.use('/', notLoggedIn, function(req, res, next) {
 });
 
 //get signup page
-router.get('/signup', csrf(), UserController.user_get_signup);
+router.get('/signup', csrfProtection, UserController.user_get_signup);
 
 //user signup
 router.post('/signup', passport.authenticate('local.signup', {
@@ -37,7 +37,7 @@ router.post('/signup', passport.authenticate('local.signup', {
     });
 
 //get signin page
-router.get('/signin', csrf(), UserController.user_get_signin);
+router.get('/signin', csrfProtection, UserController.user_get_signin);
 
 //user signin
 router.post('/signin', passport.authenticate('local.signin', {

@@ -60,7 +60,9 @@ app.use(session({
     secret: 'mysupersecret',
     resave: false,
     saveUninitialized: false,
+    //per non salvare la session in memoria, ma usando uno store
     store: new MongoStore({
+        //fa si che non si riapra una nuova connessione ma si usi la stessa
         mongooseConnection: mongoose.connection,
     }),
     cookie: {
