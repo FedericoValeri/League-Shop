@@ -4,7 +4,6 @@ mongoose.connect('mongodb://localhost:27017/league-shop');
 
 //richiedo lo schema per l'oggetto Champion
 var Champion = require('../models/champion');
-var User = require('../models/user');
 //richiedo lo schema per l'oggetto Skill
 var Skill = require('../models/skill');
 
@@ -1340,7 +1339,9 @@ for (var i = 0; i < champions.length; i++) {
         }
     });
 }
-*/
+
 function exit() {
     mongoose.disconnect();
 }
+
+*/

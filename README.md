@@ -14,10 +14,17 @@ Il progetto è stato realizzato utilizzando Nodejs, Express, MongoDB e Bootstrap
 
 * Nella cartella “views”, vengono definite le pagine html, utilizzando il view engine Handlebars (https://handlebarsjs.com/). 
 
-* Infine nella cartella “controllers” vengono definite le function delle routes che poi vengo esportate all’interno delle routes stesse (che sono definite nella cartella “routes”).
+* Infine nella cartella “controllers” vengono definite le function delle routes che poi vengo esportate all’interno delle routes stesse (definite nella cartella “routes”).
 
-Per quanto riguarda l’autenticazione degli utenti, il tutto viene gestito con Passport (http://www.passportjs.org/) utilizzando passport-local (https://github.com/jaredhanson/passport-local) come authentication strategy. Al momento della registrazione, le password vengono criptate grazie al package bcrypt-nodejs (https://www.npmjs.com/package/bcrypt-nodejs) e poi salvate nel database. Per quanto riguarda la validazione, viene usato il package express-validator (https://github.com/express-validator/express-validator). Per creare la sessione viene utilizzato express-session(https://github.com/expressjs/session) e per creare uno storage dove salvare la sessione, connect-mongo (https://www.npmjs.com/package/connect-mongo).
+Per quanto riguarda l’autenticazione degli utenti, il tutto viene gestito con Passport (http://www.passportjs.org/) utilizzando passport-local (https://github.com/jaredhanson/passport-local) come authentication strategy. Al momento della registrazione, le password vengono criptate grazie al package bcrypt-nodejs (https://www.npmjs.com/package/bcrypt-nodejs) e poi salvate nel database. Per quanto riguarda la validazione, viene usato il package express-validator (https://github.com/express-validator/express-validator). Per creare la sessione viene utilizzato express-session (https://github.com/expressjs/session) e per creare uno storage dove salvare la sessione, connect-mongo (https://www.npmjs.com/package/connect-mongo).
 
+### Authors
+
+* Federico Valeri  
+
+* Francesco Casoni
+
+* Melania Fattorini
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------
 
