@@ -10,7 +10,7 @@ Il sito comprende anche un’area riservata all’admin, dove è possibile visua
 
 Il progetto è stato realizzato utilizzando Nodejs, Express, MongoDB e Bootstrap come libreria iniziale per il front-end. La struttura del progetto è basata sul pattern MVC:
 
-* Utilizzando Mongoose ( http://mongoosejs.com/ ), all’interno della cartella “models” vengono creati i modelli degli oggetti che interagiscono nel programma attraverso la definizione di “Schemas”, così facendo i documenti all’interno del database non relazionale vengono rappresentati come oggetti Javascript.
+* Utilizzando Mongoose (http://mongoosejs.com/), all’interno della cartella “models” vengono creati i modelli degli oggetti che interagiscono nel programma attraverso la definizione di “Schemas”, così facendo i documenti all’interno del database non relazionale vengono rappresentati come oggetti Javascript.
 
 * Nella cartella “views”, vengono definite le pagine html, utilizzando il view engine Handlebars ( https://handlebarsjs.com/ ). 
 
