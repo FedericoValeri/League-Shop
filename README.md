@@ -1,12 +1,12 @@
 # League-Shop
 ## Esame Progettazione Applicazioni Web e Mobili
 
-###Descrizione del progetto
+### Descrizione del progetto
 
 E-Commerce ispirato al videogioco League of Legends. All’interno del sito è possibile registrarsi ed effettuare il login come utente. Una volta completata la registrazione è possibile procedere all’acquisto di “campioni”, aventi ognuno le proprie caratteristiche ed il proprio prezzo, espresso in “essenze blu”, la valuta utilizzata nel videogioco. È importante precisare che al momento della registrazione, al nuovo utente saranno assegnate automaticamente 50.000 essenze blu per permettere l’acquisto di campioni. Inoltre, ogni utente può acquistare un determinato campione una ed una sola volta. L’idea di fondo è che una volta acquistato un campione, esso diventa disponibile per il giocatore che lo ha acquistato che quindi potrà utilizzarlo nelle sue partite. Al momento dell’acquisto quindi, il campione acquistato viene aggiunto all’elenco dei campioni posseduti dall’utente, e rimosso dalla lista globale nella home page del sito. L’utente potrà verificare i campioni che ha acquistato accedendo al proprio profilo, dove verranno mostrati la data di acquisto, il totale pagato e ovviamente le rimanenti essenze blu.
 Il sito comprende anche un’area riservata all’admin, dove è possibile visualizzare la lista degli utenti attualmente registrati e la lista di tutti i campioni a disposizione. L’admin ha la facoltà di aggiungere campioni al negozio tramite form ed eventualmente cancellarli.
 
-###Tecnologie utilizzate
+### Tecnologie utilizzate
 
 Il progetto è stato realizzato utilizzando Nodejs, Express, MongoDB e Bootstrap come libreria iniziale per il front-end. La struttura del progetto è basata sul pattern MVC:
 
