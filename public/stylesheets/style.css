@@ -1,5 +1,7 @@
-html {
-    height: 100%;
+@media screen and (min-width: 768px) {
+    html {
+        height: 100%;
+    }
 }
 
 .content {
@@ -18,7 +20,6 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    /* Avoid the IE 10-11 `min-height` bug. */
 }
 
 
@@ -590,14 +591,4 @@ body {
 ul.footer-ul {
     padding-left: 0px;
     list-style: none;
-}
-
-
-/*---FOR MOBILE VIEW---*/
-
-@media screen and (max-width: 400px) {
-    h1 {
-        padding: 15px;
-        font-size: 25px;
-    }
 }
