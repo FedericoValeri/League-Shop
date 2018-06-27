@@ -39,8 +39,11 @@ var app = express();
 //connect to database
 //mongoose.connect(config.mongodb.db_url);
 
-var url = "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop";
-mongoose.connect(url, function(error) {
+//var url = "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop";
+var dotenv = require('dotenv');
+dotenv.config();
+console.log(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGOLAB_URI, function(error) {
     if (error) console.error(error);
     else console.log('mongo connected');
 });
