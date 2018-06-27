@@ -61,6 +61,12 @@ exports.add_to_cart = function(req, res, next) {
             return true;
         } else return false;
     }
+
+    function isAdmin() {
+        if (req.user && req.user.isAdmin === true) {
+            return true;
+        } else return false;
+    }
     var championId = req.params.id;
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     if (isUser()) {
@@ -108,10 +114,13 @@ exports.add_to_cart = function(req, res, next) {
             }
 
         });
-    } else {
+    }
+    if (isAdmin()) {
         req.flash('error', 'Sei loggato come admin! Non puoi aggiungere al carrello.');
         return res.redirect('/');
-
+    } else {
+        req.flash('error', 'Non sei loggato');
+        return res.redirect('/');
     }
 
 }
