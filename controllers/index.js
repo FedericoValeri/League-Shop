@@ -118,7 +118,8 @@ exports.add_to_cart = function(req, res, next) {
     if (isAdmin()) {
         req.flash('error', 'Sei loggato come admin! Non puoi aggiungere al carrello.');
         return res.redirect('/');
-    } else {
+    }
+    if (!isUser() && !isAdmin()) {
         req.flash('error', 'Non sei loggato');
         return res.redirect('/');
     }
