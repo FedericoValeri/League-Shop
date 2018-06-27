@@ -39,15 +39,23 @@ var app = express();
 //connect to database
 //mongoose.connect(config.mongodb.db_url);
 
-//var url = "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop";
+var db = "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop";
 var dotenv = require('dotenv');
 dotenv.config();
-console.log(process.env.MONGOLAB_URI);
-mongoose.connect(process.env.MONGOLAB_URI, function(error) {
-    if (error) console.error(error);
-    else console.log('mongo connected');
-});
+console.log(process.env.MONGODB_URI);
+if (process.env.MONGODB_URI) {
+    mongoose.connect(process.env.MONGODB_URI);
 
+} else {
+
+    mongoose.connect(db, function(err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('mongoose connection is successful on: ' + db);
+        }
+    });
+}
 
 
 require('./config/passport');
