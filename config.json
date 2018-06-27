@@ -1,5 +1,10 @@
 {
-    "mongodb": {
+    "local": {
         "db_url": "mongodb://localhost:27017/league-shop"
+    },
+    "cloud": {
+        "db_url": "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop"
     }
+
+
 }

@@ -37,26 +37,10 @@ var champRoutes = require('./routes/champion');
 var app = express();
 
 //connect to database
-//mongoose.connect(config.mongodb.db_url);
+//mongoose.connect(config.local.db_url);
 
-var db = "mongodb://fede:password123@ds119651.mlab.com:19651/league-shop";
-var dotenv = require('dotenv');
-dotenv.config();
-console.log(process.env.MONGODB_URI);
-if (process.env.MONGODB_URI) {
-    mongoose.connect(process.env.MONGODB_URI);
 
-} else {
-
-    mongoose.connect(db, function(err) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log('mongoose connection is successful on: ' + db);
-        }
-    });
-}
-
+mongoose.connect(config.cloud.db_url);
 
 require('./config/passport');
 
