@@ -120,7 +120,7 @@ exports.add_to_cart = function(req, res, next) {
         return res.redirect('/');
     }
     if (!isUser() && !isAdmin()) {
-        req.flash('error', 'Non sei loggato');
+        req.flash('error', 'Non sei loggato! Vai su Accedi/Registrati');
         return res.redirect('/');
     }
 
