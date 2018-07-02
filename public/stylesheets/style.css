@@ -29,6 +29,10 @@ body {
     padding: 0px;
 }
 
+[id="homeIcon"]:hover {
+    filter: brightness(10);
+}
+
 [id=navbar-header] {
     background-color: #000000;
 }
@@ -56,11 +60,13 @@ body {
 }
 
 [id=filtra] {
-    color: rgba(255, 255, 255, 0.809);
+    color: rgba(0, 0, 0, 0.809);
+    font-size: 21px;
 }
 
 [id=ordina] {
-    color: rgba(255, 255, 255, 0.809);
+    color: rgba(0, 0, 0, 0.809);
+    font-size: 21px;
 }
 
 [id=dropOrdina] {
@@ -108,7 +114,8 @@ body {
 [id=containerProfile] {
     color: rgba(169, 141, 70, 0.809);
     background-color: #29292bce;
-    padding: 0px;
+    padding: 50px;
+    border-style: double;
 }
 
 [id=container-admin-page] {
@@ -122,8 +129,17 @@ body {
     column-gap: 12px;
 }
 
+[id=titleChampProfile] {
+    font-size: 0;
+}
+
 [id=prezzoChampTransazione] {
     font-size: 25px;
+    color: #000000;
+}
+
+[id=nameChampTransazione] {
+    color: #000000;
 }
 
 [id=ebprofile] {
@@ -351,12 +367,28 @@ body {
 }
 
 
+/*CARRELLO*/
+
+[id=rimuoviChamp] {
+    float: right;
+}
+
+
 /*champ bio*/
 
 [id=bio] {
     color: rgba(169, 141, 70, 0.809);
     background-color: #29292bce;
     padding: 20px;
+    border-style: double;
+}
+
+[id=rowDescBio] {
+    padding-right: 50px;
+}
+
+[id=inBio] {
+    padding-top: 40px;
 }
 
 [id="iconRoleBio"] {

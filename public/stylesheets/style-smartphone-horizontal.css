@@ -7,6 +7,26 @@ body {
     background-size: contain;
 }
 
+[id=footer] {
+    text-align: center;
+}
+
+[id=filtra] {
+    font-size: 0px;
+}
+
+[id=ordina] {
+    font-size: 0%;
+}
+
+[id=dropOrdina] {
+    margin-top: 8px;
+}
+
+[id=dropFiltra] {
+    margin-top: 30px;
+}
+
 [id=barrasopra] {
     margin-top: -30px;
     margin-bottom: -30px;
@@ -85,11 +105,19 @@ body {
 
 [id=bio] {
     background: none;
+    border-style: hidden;
 }
 
 [id=inBio] {
     background-color: #29292bce;
     padding: 20px;
+    border-style: double;
+    border-bottom-style: hidden;
+}
+
+[id=ritrattoDesc] {
+    border-style: double;
+    border-top-style: hidden;
 }
 
 [id=rowAbilità] {
@@ -136,6 +164,7 @@ body {
 [id=rowDescBio] {
     margin-top: 10%;
     margin-bottom: auto;
+    padding: 0%;
 }
 
 [id=nameBio] {
@@ -152,10 +181,36 @@ body {
 }
 
 
+/*CARRELLO*/
+
+[id=carrello] {
+    color: snow;
+}
+
+[id=contenitoreCheck] {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
 /*PROFILO UTENTE*/
+
+[id=containerProfile] {
+    color: rgba(169, 141, 70, 0.809);
+    background-color: #29292bce;
+    padding: 20px;
+}
 
 [id=myChampions] {
     columns: 2;
+}
+
+[id=prezzoChamp] {
+    float: right;
+}
+
+[id=rimuoviChamp] {
+    float: left;
 }
 
 [id=prezzoChampTransazione] {

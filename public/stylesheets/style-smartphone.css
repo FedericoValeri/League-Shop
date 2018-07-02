@@ -68,6 +68,7 @@ body {
 
 [id=filtra] {
     color: rgba(169, 141, 70, 0.809);
+    font-size: 0%;
 }
 
 [id=barrasopra] {
@@ -76,6 +77,17 @@ body {
 
 [id=ordina] {
     color: rgba(169, 141, 70, 0.809);
+    font-size: 0%;
+}
+
+[id=dropOrdina] {
+    margin-top: 5px;
+    margin-bottom: -5px;
+}
+
+[id=dropFiltra] {
+    margin-top: 5px;
+    margin-bottom: -5px;
 }
 
 #myBtn {
@@ -102,8 +114,19 @@ body {
     width: 8.33%;
 }
 
+[id=footer] {
+    text-align: center;
+}
+
 
 /*PROFILO UTENTE*/
+
+[id=containerProfile] {
+    color: rgba(169, 141, 70, 0.809);
+    background-color: #29292b00;
+    padding: 0px;
+    border-style: hidden;
+}
 
 [id=myChampions] {
     columns: 1;
@@ -161,6 +184,17 @@ body {
 }
 
 
+/*CARRELLO*/
+
+[id=carrello] {
+    color: snow;
+}
+
+[id=rimuoviChamp] {
+    float: right;
+}
+
+
 /*CHAMP BIO*/
 
 [id=bio] {
@@ -170,6 +204,7 @@ body {
     margin: auto;
     padding: 0px;
     padding-top: 0%;
+    border-style: hidden;
 }
 
 [id=colonnaRitrattoBio] {
@@ -213,6 +248,7 @@ body {
     margin: auto;
     margin-top: -5px;
     margin-bottom: 60px;
+    padding: 0%;
 }
 
 [id=descriptionBio] {
@@ -247,6 +283,7 @@ body {
 
 [id=inBio] {
     padding: 0%;
+    border-style: hidden;
 }
 
 [id=afterTitle] {

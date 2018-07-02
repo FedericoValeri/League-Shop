@@ -4,7 +4,7 @@
 
     </div>
     <div class="col-sm-8 col-md-6  col-md-offset-3 col-sm-offset-3">
-        <h1>Carrello</h1>
+        <h1 id="carrello">Carrello</h1>
         <br>
         <ul class="list-group">
             {{#each champions}}
@@ -16,10 +16,10 @@
                         </a>
                     </div>
                     <div class="col-sm-6 col-md-2  col-md-offset-3 col-sm-offset-3">
-                        <span style="color:rgb(26, 198, 250);font-weight:bold">{{this.price}} EB</span>
+                        <span id="prezzoChamp" style="color:rgb(26, 198, 250);font-weight:bold">{{this.price}} EB</span>
                     </div>
                     <div class="col-sm-6 col-md-2  col-md-offset-3 col-sm-offset-3">
-                        <a href="/cart/remove/{{this.item._id}}" role="button" class="float-right">
+                        <a id="rimuoviChamp" href="/cart/remove/{{this.item._id}}" role="button" >
                             Rimuovi
                             <i class="fas fa-trash"></i>
                         </a>
@@ -36,16 +36,16 @@
 
 <br>
 <div class="row">
-    <div class="col-sm-6 col-md-3  col-md-offset-3 col-sm-offset-3">
+    <div class="col-sm-2 col-md-3  col-md-offset-3 col-sm-offset-3">
 
     </div>
-    <div class="col-sm-6 col-md-6  col-md-offset-3 col-sm-offset-3">
+    <div class="col-sm-8 col-md-6  col-md-offset-3 col-sm-offset-3">
         <strong>
-            <span style="color: rgb(19, 16, 16)">Total: {{totalPrice}} EB</span>
+            <span style="color: rgb(255, 255, 255)">Totale: {{totalPrice}} EB</span>
         </strong>
         <strong class="float-right">
             {{#if nuovoBilancio}}
-            <span style="color: rgb(19, 16, 16)">Nuovo bilancio: {{nuovoBilancio}} EB</span>
+            <span style="color: rgb(255, 255, 255)">Nuovo bilancio: {{nuovoBilancio}} EB</span>
             {{else}}
             <span style="color: rgb(228, 13, 13)">EB non sufficienti</span>
             {{/if}}
@@ -57,11 +57,11 @@
 </div>
 <hr>
 <div class="row">
-    <div class="col-sm-6 col-md-3  col-md-offset-3 col-sm-offset-3">
+    <div class="col-sm-2 col-md-3  col-md-offset-3 col-sm-offset-3">
 
     </div>
     {{#if nuovoBilancio}}
-    <div class="col-sm-6 col-md-6  col-md-offset-3 col-sm-offset-3">
+    <div class="col-sm-8 col-md-6  col-md-offset-3 col-sm-offset-3">
          <a  href="/" class="btn btn-light">Indietro</a>
         <a style="float: right" href="/cart/checkout" type="button" class="btn btn-success">Checkout <i class="fas fa-angle-double-right"></i></a>
        
