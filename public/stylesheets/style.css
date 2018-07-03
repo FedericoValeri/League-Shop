@@ -53,10 +53,14 @@ body {
 }
 
 [id="btnsmall"] {
-    margin: 2px;
+    margin: 10px;
     margin-top: 10px;
-    font-size: 13.4px;
+    margin-bottom: 5px;
+    font-size: 17px;
     height: 30px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 [id=filtra] {
@@ -165,6 +169,10 @@ body {
 .user-name-header:hover {
     color: rgba(235, 195, 96, 0.809);
 }
+
+[id=info] {}
+
+[id=rmazioni] {}
 
 
 /*fine*/

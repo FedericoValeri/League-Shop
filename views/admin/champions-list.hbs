@@ -66,11 +66,11 @@
 
                     <div class="row" id="rowbottoni">
                         <div class="col-12 col-md-12" id="yo">
-                            <a href="/champions/{{this.name}}" id="btnsmall" class="btn btn-info float-left">
-                                <span>Informazioni</span>
+                            <a href="/champions/{{this.name}}" name="smallInfo" id="btnsmall" class="btn btn-info float-left">
+                                <span>Info</span><span id="rmazioni">rmazioni</span>
                             </a>
                             <form action="/admin/delete/{{this._id}}" method="post">
-                                <button type="submit" class="btn btn-danger float-right" id="btnsmall" role="button">Elimina campione</button>
+                                <button type="submit" class="btn btn-danger float-right" id="btnsmall" role="button">Rimuovi</button>
                             </form>
 
                         </div>
