@@ -160,6 +160,7 @@ body {
     padding: 0px;
     margin-top: 5px;
     height: 22px;
+    padding-top: 2px;
 }
 
 [name=smallInfo] {
@@ -168,10 +169,16 @@ body {
     font-size: 11px;
     padding: 1px;
     margin-top: 5px;
+    padding-top: 3px;
 }
 
 [id=pluscard] {
     height: 73px;
+}
+
+[id=plustesto] {
+    font-size: 18px;
+    text-align: center;
 }
 
 
