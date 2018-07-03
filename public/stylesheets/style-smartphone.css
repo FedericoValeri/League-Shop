@@ -119,6 +119,46 @@ body {
 }
 
 
+/*LISTA CAMPIONI*/
+
+[id=campPres] {
+    margin-left: 10px;
+    font-size: 30px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+[id=contenitoreCarte] {
+    width: 100%;
+    margin: auto;
+}
+
+[id=nomeCard] {
+    font-size: 19px;
+}
+
+[id=priceCard] {
+    font-size: 19px;
+}
+
+[id=eb] {
+    height: 19px;
+    width: 15px;
+}
+
+[id=btnsmall] {
+    width: 97%;
+    font-size: 13px;
+    padding: 4px;
+    margin-top: 5px;
+}
+
+[id=pluscard] {
+    height: 127px;
+}
+
+
 /*PROFILO UTENTE*/
 
 [id=containerProfile] {
