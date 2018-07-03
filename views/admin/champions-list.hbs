@@ -28,14 +28,14 @@
 <div class="row">
 
     <div id="contenitoreCarte" class="row">
-        <div class="col-4 col-sm-4 col-md-2" id="colonnaCarta">
+        <div class="col-4 col-sm-2 col-md-2" id="colonnaCarta">
             <a style="text-decoration:none;" href="/admin/insertNewChamp" class="new-champ-button hvr-float-shadow">
                 <div class="card" style="width: 100%;" id="plus">
                     <img class="card-img-top" name="plusImage" src="https://i.imgur.com/DGErFFv.png">
                     <div class="card-body" id="pluscard">
                         <div class="col-md-12" id="colonnaaggiugi">
                             <div class="row" id="rowplus">
-                                <div class="col-sm-6 col-md-12">
+                                <div class="col-sm-12 col-md-12">
                                     <h5 id="plustesto">Aggiungi campione</h5>
                                 </div>
                             </div>
@@ -46,15 +46,15 @@
         </div>
 
         {{#each champions}}
-        <div class="col-4 col-sm-4 col-md-2" id="colonnaCarta">
+        <div class="col-4 col-sm-2 col-md-2" id="colonnaCarta">
             <div class="card" style="width: 100%;" id="champ">
                 <img class="card-img-top" name="champImage" src="{{this.imagePath}}">
                 <div class="card-body">
                     <div class="row" name="rigaTitoloPrezzo">
-                        <div class="col-12 col-md-8" name="champName">
+                        <div class="col-12 col-sm-12 col-md-8" name="champName">
                             <h4 id="nomeCard" class="card-title"> {{this.name}}</h4>
                         </div>
-                        <div class="col-12 col-md-4" align="right" name="prezzo">
+                        <div class="col-12 col-sm-12 col-md-4" align="right" name="prezzo">
                             <div class="row" id="rowprezzo">
                                 <div class="col-md-12" id="yo2">
                                     <img id="eb" name="EB" width="15" height="23" src="https://i.imgur.com/YsdvMMg.png">

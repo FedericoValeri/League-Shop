@@ -193,6 +193,69 @@ body {
 }
 
 
+/*LISTA CAMPIONI*/
+
+[id=campPres] {
+    margin-left: 10px;
+    font-size: 30px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+[id=rmazioni] {
+    font-size: 0%;
+}
+
+[id=contenitoreCarte] {
+    width: 98%;
+    margin: auto;
+}
+
+[id=nomeCard] {
+    font-size: 15px;
+}
+
+[id=priceCard] {
+    font-size: 13.5px;
+}
+
+[id=eb] {
+    margin-left: 1px;
+    margin-top: 0.5px;
+    height: 14px;
+    width: 10px;
+}
+
+[id=btnsmall] {
+    margin: 0%;
+    width: 57%;
+    font-size: 11px;
+    padding: 0px;
+    margin-top: 5px;
+    height: 22px;
+    padding-top: 2px;
+}
+
+[name=smallInfo] {
+    margin: 0%;
+    width: 37%;
+    font-size: 11px;
+    padding: 1px;
+    margin-top: 5px;
+    padding-top: 3px;
+}
+
+[id=pluscard] {
+    height: 69px;
+}
+
+[id=plustesto] {
+    font-size: 18px;
+    text-align: center;
+}
+
+
 /*PROFILO UTENTE*/
 
 [id=containerProfile] {
