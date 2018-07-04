@@ -13,6 +13,14 @@ Il progetto è stato realizzato utilizzando Nodejs, Express, MongoDB e Bootstrap
 * Infine nella cartella “controllers” vengono definite le function delle routes che poi vengo esportate all’interno delle routes stesse (definite nella cartella “routes”).
 
 Per quanto riguarda l’autenticazione degli utenti, il tutto viene gestito con Passport (http://www.passportjs.org/) utilizzando passport-local (https://github.com/jaredhanson/passport-local) come authentication strategy. Al momento della registrazione, le password vengono criptate grazie al package bcrypt-nodejs (https://www.npmjs.com/package/bcrypt-nodejs) e poi salvate nel database. Per quanto riguarda la validazione, viene usato il package express-validator (https://github.com/express-validator/express-validator). Per creare la sessione viene utilizzato express-session (https://github.com/expressjs/session) e per creare uno storage dove salvare la sessione, connect-mongo (https://www.npmjs.com/package/connect-mongo).
+### Get Started
+Il progetto è stato deployato su Heroku ed è raggiungibile attraverso il seguente link https://league-shop.herokuapp.com/. 
+In alternativa può essere eseguito localmente eseguendo il seguente comando: 
+```
+npm start
+```
+e andando su http://localhost:3000/
+
 ### Authors
 * Federico Valeri  
 

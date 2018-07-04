@@ -37,9 +37,6 @@ var champRoutes = require('./routes/champion');
 var app = express();
 
 //connect to database
-//mongoose.connect(config.local.db_url);
-
-
 mongoose.connect(config.cloud.db_url);
 
 require('./config/passport');
