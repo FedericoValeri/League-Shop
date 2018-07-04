@@ -25,8 +25,8 @@ e andando su http://localhost:3000/.
 In entrambi i casi, il database è stato caricato su [mLab](https://mlab.com/) e quindi non è necessario eseguire alcun db locale.
 
 ### Autori
-* Federico Valeri  
+* Federico Valeri  (federico.valeri@studenti.unicam.it)
 
-* Francesco Casoni
+* Francesco Casoni (francesco01.casoni@studenti.unicam.it)
 
-* Melania Fattorini
+* Melania Fattorini (melania.fattorini@studenti.unicam.it)
