@@ -6,28 +6,27 @@ Il sito comprende anche un’area riservata all’admin, dove è possibile visua
 ### Tecnologie utilizzate
 Il progetto è stato realizzato utilizzando Nodejs, Express, MongoDB e Bootstrap come libreria iniziale per il front-end. La struttura del progetto è basata sul pattern MVC:
 
-* Utilizzando Mongoose (http://mongoosejs.com/), all’interno della cartella “models” vengono creati i modelli degli oggetti che interagiscono nel programma attraverso la definizione di “Schemas”, così facendo i documenti all’interno del database non relazionale vengono rappresentati come oggetti Javascript.
+* Utilizzando [Mongoose](http://mongoosejs.com/), all’interno della cartella “models” vengono creati i modelli degli oggetti che interagiscono nel programma attraverso la definizione di “Schemas”, così facendo i documenti all’interno del database non relazionale vengono rappresentati come oggetti Javascript.
 
-* Nella cartella “views”, vengono definite le pagine html, utilizzando il view engine Handlebars (https://handlebarsjs.com/). 
+* Nella cartella “views”, vengono definite le pagine html, utilizzando il view engine [Handlebars](https://handlebarsjs.com/). 
 
 * Infine nella cartella “controllers” vengono definite le function delle routes che poi vengo esportate all’interno delle routes stesse (definite nella cartella “routes”).
 
-Per quanto riguarda l’autenticazione degli utenti, il tutto viene gestito con Passport (http://www.passportjs.org/) utilizzando passport-local (https://github.com/jaredhanson/passport-local) come authentication strategy. Al momento della registrazione, le password vengono criptate grazie al package bcrypt-nodejs (https://www.npmjs.com/package/bcrypt-nodejs) e poi salvate nel database. Per quanto riguarda la validazione, viene usato il package express-validator (https://github.com/express-validator/express-validator). Per creare la sessione viene utilizzato express-session (https://github.com/expressjs/session) e per creare uno storage dove salvare la sessione, connect-mongo (https://www.npmjs.com/package/connect-mongo).
+Viene utilizzato [Nodemon](https://nodemon.io/) per ricaricare automaticamente l'applicazione Node. Per quanto riguarda l’autenticazione degli utenti, il tutto viene gestito con [Passport](http://www.passportjs.org/) utilizzando [passport-local](https://github.com/jaredhanson/passport-local) come authentication strategy. Al momento della registrazione, le password vengono criptate grazie al package [bcrypt-nodejs](https://www.npmjs.com/package/bcrypt-nodejs) e poi salvate nel database. Per quanto riguarda la validazione, viene usato il package [express-validator](https://github.com/express-validator/express-validator). Per creare la sessione viene utilizzato [express-session](https://github.com/expressjs/session) e per creare uno storage dove salvare la sessione, [connect-mongo](https://www.npmjs.com/package/connect-mongo).
 ### Get Started
-Il progetto è stato deployato su Heroku ed è raggiungibile attraverso il seguente link https://league-shop.herokuapp.com/. 
-In alternativa può essere eseguito localmente eseguendo il seguente comando: 
+Il progetto è stato deployato su Heroku ed è raggiungibile attraverso il seguente link: https://league-shop.herokuapp.com/.
+
+In alternativa può essere eseguito localmente con il seguente comando: 
 ```
 npm start
 ```
-e andando su http://localhost:3000/
+e andando su http://localhost:3000/.
 
-### Authors
+In entrambi i casi, il database è stato caricato su [mLab](https://mlab.com/) e quindi non è necessario eseguire alcun db locale.
+
+### Autori
 * Federico Valeri  
 
 * Francesco Casoni
 
 * Melania Fattorini
-
-------------------------------------------------------------------------------------------------------------------------------------------------------
-
-Guida per Git: http://rogerdudler.github.io/git-guide/index.it.html
