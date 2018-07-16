@@ -9,6 +9,7 @@ exports.get_home = function(req, res, next) {
     User.find(function(err, docs) {
         var users = docs;
         res.render('admin/admin-page', {
+            title: 'Admin page',
             users: users,
             successMsg: successMsg,
             noMessages: !successMsg
@@ -28,6 +29,7 @@ exports.admin_logout = function(req, res, next) {
 exports.admin_get_signin = function(req, res, next) {
     var messages = req.flash('error');
     res.render('admin/signin', {
+        title: 'Admin Login',
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
@@ -43,6 +45,7 @@ exports.get_championsList = function(req, res, next) {
         var numeroCampioni = docs.length;
 
         res.render('admin/champions-list', {
+            title: 'Lista campioni',
             champions: campioni,
             numeroCampioni: numeroCampioni,
             successMsg: successMsg,

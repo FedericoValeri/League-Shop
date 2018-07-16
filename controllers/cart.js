@@ -11,6 +11,7 @@ var User = require('../models/user');
 exports.get_cart = function(req, res, next) {
     if (!req.session.cart) {
         return res.render('shop/cart', {
+            title: 'Carrello',
             champions: null
         });
     }
@@ -24,6 +25,7 @@ exports.get_cart = function(req, res, next) {
     }
     var cart = new Cart(req.session.cart);
     res.render('shop/cart', {
+        title: 'Carrello',
         champions: cart.generateArray(),
         totalPrice: cart.totalPrice,
         nuovoBilancio: nuovoBilancio()
@@ -65,6 +67,7 @@ exports.get_checkout_page = function(req, res, next) {
 
         var cart = new Cart(req.session.cart);
         res.render('shop/checkout', {
+            title: 'Checkout',
             total: cart.totalPrice,
             champions: cart.generateArray(),
             nuovoBilancio: nuovoBilancio()

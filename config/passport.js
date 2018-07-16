@@ -21,8 +21,8 @@ passport.use('local.admin.signup', new LocalStrategy({
     passReqToCallback: true
 }, function(req, username, password, done) {
 
-    req.checkBody('username', 'Invalid username').notEmpty();
-    req.checkBody('password', 'Invalid password').notEmpty().isLength({
+    req.checkBody('username', 'Username errato').notEmpty();
+    req.checkBody('password', 'Password errata').notEmpty().isLength({
         min: 4
     });
     var errors = req.validationErrors();
@@ -41,7 +41,7 @@ passport.use('local.admin.signup', new LocalStrategy({
         }
         if (user) {
             return done(null, false, {
-                message: 'User already exists.'
+                message: "L'utente è già in uso"
             });
         }
         var newUser = new User({
@@ -68,8 +68,8 @@ passport.use('local.admin.signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, username, password, done) {
-    req.checkBody('username', 'Invalid username').notEmpty();
-    req.checkBody('password', 'Invalid password').notEmpty();
+    req.checkBody('username', 'Username errato').notEmpty();
+    req.checkBody('password', 'Password errata').notEmpty();
     var errors = req.validationErrors();
     if (errors) {
         var messages = [];
@@ -86,12 +86,12 @@ passport.use('local.admin.signin', new LocalStrategy({
         }
         if (!admin) {
             return done(null, false, {
-                message: 'You are not admin. Get out of here!'
+                message: 'Non sei un amministratore!'
             });
         }
         if (!admin.validPassword(password)) {
             return done(null, false, {
-                message: 'Wrong password.'
+                message: 'Password errata'
             });
         }
         return done(null, admin);
@@ -108,9 +108,9 @@ passport.use('local.signup', new LocalStrategy({
     passReqToCallback: true
 }, function(req, email, password, done) {
     var username = req.body.username;
-    req.checkBody('username', 'Invalid username').notEmpty();
-    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
-    req.checkBody('password', 'Invalid password').notEmpty().isLength({
+    req.checkBody('username', 'Username errato').notEmpty();
+    req.checkBody('email', 'Email errata').notEmpty().isEmail();
+    req.checkBody('password', 'Password errata').notEmpty().isLength({
         min: 4
     });
     var errors = req.validationErrors();
@@ -130,7 +130,7 @@ passport.use('local.signup', new LocalStrategy({
         }
         if (user) {
             return done(null, false, {
-                message: 'User already exists.'
+                message: "L'utente è già in uso"
             });
         }
         var newUser = new User({
@@ -154,8 +154,8 @@ passport.use('local.signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done) {
-    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
-    req.checkBody('password', 'Invalid password').notEmpty();
+    req.checkBody('email', 'Email errata').notEmpty().isEmail();
+    req.checkBody('password', 'Password errata').notEmpty();
     var errors = req.validationErrors();
     if (errors) {
         var messages = [];
@@ -172,12 +172,12 @@ passport.use('local.signin', new LocalStrategy({
         }
         if (!user) {
             return done(null, false, {
-                message: 'No user found.'
+                message: 'Nessun utente trovato'
             });
         }
         if (!user.validPassword(password)) {
             return done(null, false, {
-                message: 'Wrong password.'
+                message: 'Password errata'
             });
         }
         return done(null, user);

@@ -11,7 +11,7 @@ exports.get_champion_bio = function(req, res, next) {
         champ.push(docs);
 
         res.render('shop/champ.hbs', {
-            title: 'League Shop',
+            title: 'Dettagli Campione',
             champion: champ
         });
     })

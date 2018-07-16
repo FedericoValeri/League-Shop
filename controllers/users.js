@@ -19,6 +19,7 @@ exports.user_profile = function(req, res, next) {
         //provvisorio (scala EB solo nella vista del profilo, non dal db nè dalla home)
 
         res.render('user/profile', {
+            title: 'Profilo utente',
             orders: orders,
             champions: req.user.champions,
             buySuccess: buySuccess,
@@ -40,6 +41,7 @@ exports.user_logout = function(req, res, next) {
 exports.user_get_signup = function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/signup', {
+        title: 'Registrazione',
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
@@ -51,6 +53,7 @@ exports.user_get_signup = function(req, res, next) {
 exports.user_get_signin = function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/signin', {
+        title: 'Login',
         csrfToken: req.csrfToken(),
         messages: messages,
         hasErrors: messages.length > 0
