@@ -12,13 +12,12 @@ var validator = require('express-validator');
 var MongoStore = require('connect-mongo')(session);
 var config = require('config.json')('./config.json');
 
-
-
+var app = express();
 
 //hbs helpers
 var Handlebars = require('handlebars');
 
-//equals hepler
+//equals helper
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
         return opts.fn(this);
@@ -27,17 +26,21 @@ Handlebars.registerHelper('if_eq', function(a, b, opts) {
     }
 });
 
-
+//import dei file delle routes
 var indexRouter = require('./routes/index');
 var userRoutes = require('./routes/user');
 var cartRoutes = require('./routes/cart');
 var adminRoutes = require('./routes/admin');
 var champRoutes = require('./routes/champion');
 
-var app = express();
 
 //connect to database
-mongoose.connect(config.cloud.db_url);
+mongoose.connect(config.cloud.db_url).then(() => {
+        console.log("Connected to database!");
+    })
+    .catch(() => {
+        console.log("Connection failed!");
+    });
 
 require('./config/passport');
 
@@ -46,6 +49,7 @@ app.engine('.hbs', expressHsb({
     defaultLayout: 'layout',
     extname: '.hbs'
 }));
+
 app.set('view engine', '.hbs');
 
 
@@ -66,7 +70,7 @@ app.use(session({
         mongooseConnection: mongoose.connection,
     }),
     cookie: {
-        maxAge: 180 * 60 * 1000
+        maxAge: 180 * 60 * 1000 // 3 ore
     }
 }));
 app.use(flash());

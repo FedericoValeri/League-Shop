@@ -34,7 +34,8 @@ router.post('/signup', passport.authenticate('local.signup', {
         } else {
             res.redirect('/user/profile');
         }
-    });
+    }
+);
 
 //get signin page
 router.get('/signin', csrfProtection, UserController.user_get_signin);

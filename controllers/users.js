@@ -17,7 +17,6 @@ exports.user_profile = function(req, res, next) {
             order.items = cart.generateArray();
         });
         //provvisorio (scala EB solo nella vista del profilo, non dal db nè dalla home)
-
         res.render('user/profile', {
             title: 'Profilo utente',
             orders: orders,
@@ -40,6 +39,7 @@ exports.user_logout = function(req, res, next) {
 
 exports.user_get_signup = function(req, res, next) {
     var messages = req.flash('error');
+    console.log(req.session);
     res.render('user/signup', {
         title: 'Registrazione',
         csrfToken: req.csrfToken(),
