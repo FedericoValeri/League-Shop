@@ -16,6 +16,10 @@ router.get('/', isAdmin, AdminController.get_home);
 //logout admin
 router.get('/logout', isAdmin, AdminController.admin_logout);
 
+router.use('/', isNotAdmin, function(req, res, next) {
+    next();
+});
+
 //signup admin
 router.post('/signup', passport.authenticate('local.admin.signup', {
     failureRedirect: '/',
@@ -96,4 +100,11 @@ function isAdmin(req, res, next) {
         return next();
     }
     res.redirect('/');
+}
+
+function isNotAdmin(req, res, next) {
+    if (req.user && req.user.isAdmin !== true) {
+        return next();
+    }
+    res.redirect('/admin');
 }

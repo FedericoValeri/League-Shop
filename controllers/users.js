@@ -39,7 +39,6 @@ exports.user_logout = function(req, res, next) {
 
 exports.user_get_signup = function(req, res, next) {
     var messages = req.flash('error');
-    console.log(req.session);
     res.render('user/signup', {
         title: 'Registrazione',
         csrfToken: req.csrfToken(),
