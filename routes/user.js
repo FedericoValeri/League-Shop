@@ -23,19 +23,9 @@ router.get('/signup', csrfProtection, UserController.user_get_signup);
 
 //user signup
 router.post('/signup', passport.authenticate('local.signup', {
-        failureRedirect: '/user/signup',
-        failureFlash: true
-    }),
-    function(req, res, next) {
-        if (req.session.oldUrl) {
-            var oldUrl = req.session.oldUrl;
-            req.session.oldUrl = null;
-            res.redirect(oldUrl);
-        } else {
-            res.redirect('/user/profile');
-        }
-    }
-);
+    failureRedirect: '/user/signup',
+    failureFlash: true
+}), UserController.user_signup);
 
 //get signin page
 router.get('/signin', csrfProtection, UserController.user_get_signin);
@@ -44,15 +34,7 @@ router.get('/signin', csrfProtection, UserController.user_get_signin);
 router.post('/signin', passport.authenticate('local.signin', {
     failureRedirect: '/user/signin',
     failureFlash: true
-}), function(req, res, next) {
-    if (req.session.oldUrl) {
-        var oldUrl = req.session.oldUrl;
-        req.session.oldUrl = null;
-        res.redirect(oldUrl);
-    } else {
-        res.redirect('/user/profile');
-    }
-});
+}), UserController.user_signin);
 
 module.exports = router;
 

@@ -26,6 +26,30 @@ exports.admin_logout = function(req, res, next) {
 
 //--------------------------------------------------------------------------------------------------------------------//
 
+exports.admin_signup = function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/admin/');
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+exports.admin_signin = function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/admin/');
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 exports.admin_get_signin = function(req, res, next) {
     var messages = req.flash('error');
     res.render('admin/signin', {

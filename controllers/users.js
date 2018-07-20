@@ -49,6 +49,18 @@ exports.user_get_signup = function(req, res, next) {
 
 //--------------------------------------------------------------------------------------------------------------------//
 
+exports.user_signup = function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/user/profile');
+    }
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
 exports.user_get_signin = function(req, res, next) {
     var messages = req.flash('error');
     res.render('user/signin', {
@@ -57,4 +69,16 @@ exports.user_get_signin = function(req, res, next) {
         messages: messages,
         hasErrors: messages.length > 0
     });
+}
+
+//--------------------------------------------------------------------------------------------------------------------//
+
+exports.user_signin = function(req, res, next) {
+    if (req.session.oldUrl) {
+        var oldUrl = req.session.oldUrl;
+        req.session.oldUrl = null;
+        res.redirect(oldUrl);
+    } else {
+        res.redirect('/user/profile');
+    }
 }
