@@ -18,6 +18,7 @@ exports.get_home_page = function(req, res, next) {
         var champInCart = false;
         var campioni = [];
 
+        //filtro campioni posseduti dall'utente
         if (isUser()) {
             var userChamps = req.user.champions;
             var controllo = false;
@@ -127,7 +128,7 @@ exports.add_to_cart = function(req, res, next) {
 }
 
 //--------------------------------------------------------------------------------------------------------------------//
-
+/* (deprecated)
 exports.role_selection = function(req, res, next) {
     var role = req.params.role;
 
@@ -142,6 +143,7 @@ exports.role_selection = function(req, res, next) {
     }, function(err, docs) {
         var campioni = [];
 
+        //filtro campioni posseduti dall'utente
         if (isUser()) {
             var userChamps = req.user.champions;
             var controllo = false;
@@ -170,7 +172,7 @@ exports.role_selection = function(req, res, next) {
         name: 'asc'
     });
 }
-
+ */
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.sort_by = function(req, res, next) {
@@ -186,6 +188,8 @@ exports.sort_by = function(req, res, next) {
     if (type === "price") {
         Champion.find(function(err, docs) {
             var campioni = [];
+
+            //filtro campioni posseduti dall'utente
             if (isUser()) {
                 var userChamps = req.user.champions;
                 var controllo = false;
@@ -220,6 +224,8 @@ exports.sort_by = function(req, res, next) {
     if (type === "name") {
         Champion.find(function(err, docs) {
             var campioni = [];
+
+            //filtro campioni posseduti dall'utente
             if (isUser()) {
                 var userChamps = req.user.champions;
                 var controllo = false;
