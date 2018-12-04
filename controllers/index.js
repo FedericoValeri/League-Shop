@@ -128,7 +128,7 @@ exports.add_to_cart = function(req, res, next) {
 
 //--------------------------------------------------------------------------------------------------------------------//
 
-exports.role_selection = function(req, res, next) {
+/* exports.role_selection = function(req, res, next) {
     var role = req.params.role;
 
     function isUser() {
@@ -169,7 +169,7 @@ exports.role_selection = function(req, res, next) {
         price: 'desc',
         name: 'asc'
     });
-}
+} */
 
 //--------------------------------------------------------------------------------------------------------------------//
 
