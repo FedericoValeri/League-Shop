@@ -138,7 +138,7 @@ passport.use('local.signup', new LocalStrategy({
         });
         newUser.username = username;
         newUser.email = email;
-        //newUser.password = password;
+        newUser.password = password;
         newUser.password = newUser.encryptPassword(password);
         newUser.save(function(err, result) {
             if (err) {

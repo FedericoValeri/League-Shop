@@ -129,6 +129,7 @@ exports.add_to_cart = function(req, res, next) {
 
 //--------------------------------------------------------------------------------------------------------------------//
 /* (deprecated)
+
 exports.role_selection = function(req, res, next) {
     var role = req.params.role;
 
@@ -171,7 +172,8 @@ exports.role_selection = function(req, res, next) {
         price: 'desc',
         name: 'asc'
     });
-} */
+}
+*/
 
 //--------------------------------------------------------------------------------------------------------------------//
 
