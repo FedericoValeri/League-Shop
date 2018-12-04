@@ -171,14 +171,8 @@ exports.role_selection = function(req, res, next) {
         price: 'desc',
         name: 'asc'
     });
-<<<<<<< HEAD
 } */
 
-===
-=== =
-} *
-/ >>>
->>> > master
 //--------------------------------------------------------------------------------------------------------------------//
 
 exports.sort_by = function(req, res, next) {
